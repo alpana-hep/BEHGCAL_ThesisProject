@@ -1,0 +1,14 @@
+executable=/home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/run_D86_fitRandom.sh
+universe=vanilla
+Arguments= 0 1000000 /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/Fitted_random_numbers/D86/Out_D86_1M_fitted_random_seed1279_25Jul22.root 1279
+Input =
+Output = /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/condor_output/condor_logs/condor_D86_randNum_fitrandom.out
+Error  = /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/condor_output/condor_logs/condor_D86_randNum_fitrandom.err
+Log    = /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/condor_output/condor_logs/condor_D86_randNum_fitrandom.log
+notification=never
+should_transfer_files=YES
+#transfer_input_files=/home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/readRandGaus.py
+request_memory = 7.8 GB
+#+MaxRuntime = 2*60*60
+when_to_transfer_output = ON_EXIT
+queue

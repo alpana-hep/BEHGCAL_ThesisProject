@@ -1,0 +1,14 @@
+executable=/home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/run_myprog.sh
+universe=vanilla
+Arguments= 630000 756 /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/Random_stdGaus_uncorrelated/D49/RandNumber_D49_10k_630000_640000_.root
+Input =
+Output = /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/condor_output/condor_logs/condor_D49_randNum_6300007561.out
+Error  = /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/condor_output/condor_logs/condor_D49_randNum_6300007561.err
+Log    = /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/condor_output/condor_logs/condor_D49_randNum_6300007561.log
+notification=never
+should_transfer_files=YES
+transfer_input_files=/home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/readRandGaus.py
+request_memory = 5.0 GB
+#+MaxRuntime = 2*60*60
+when_to_transfer_output = ON_EXIT
+queue

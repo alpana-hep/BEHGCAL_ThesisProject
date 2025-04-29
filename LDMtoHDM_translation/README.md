@@ -10,7 +10,7 @@
 
 
 Descriptions of scripts and steps -
-1. Extract the average occupancies for all the modules that need HDM to LDM or vice versa transformation -
+### 1. Extract the average occupancies for all the modules that need HDM to LDM or vice versa transformation -
 * readinghistogram.cc : this script reads the histograms from a root file "hitdata_***" containing distribution of number of hits in each events for each modules and also reads a text file named "econ_data_packet_hits_EOL_v8.txt".
 
 * The reading format for input mapping file -
@@ -29,7 +29,7 @@ root -b -q 'readinghistogram.cc("../data/updatedNtuple_DataPacketDec20_histo.roo
 ```
 * Note - the path to input and output files are hardcoded in the script - please fix it before you run it.
 
-2. Draw or create TGraphs showing average occupancies as a function of distance from beampipe - 
+### 2. Draw or create TGraphs showing average occupancies as a function of distance from beampipe - 
 * Use "ldm_hdm_correction.cc" file to get "average hits occuapncies vs distance from the beampipe of that module" graphs for each layer and only for full shape modules.
 * To run it
 ```
@@ -38,7 +38,7 @@ root -l 'ldm_hdm_correction.cc("data file from step 1","geometry file "geomnew_c
 
 * output: a root file containing graphs of avergae vs r behavious for each layer and for hdm and ldm separately.
 
-3. Fitting an exponential to these graphs -
+### 3. Fitting an exponential to these graphs -
 * I have been using an exponential function with two parameters "exp[p0+p1*x]".
 * script used "fit_function.cc"
 * it will save all the graphs in png format and also will give a output txt file that contains fit function parameters of hdm/ldm fit functions for each layer.
@@ -47,7 +47,7 @@ root -l 'ldm_hdm_correction.cc("data file from step 1","geometry file "geomnew_c
 root -b 'fit_function.cc("output of step-2")'
 ```
 
-4. Get the corrected occupancies for modules with mismatched geometry
+### 4. Get the corrected occupancies for modules with mismatched geometry
 * script: correlation_ldm_hdm.cc
 * inputs: "function_parametrs","geometry_file","average hits file that we got from step1"
 * output: a txt file that contains all the geometry inconsistency and correxponding corrections.
@@ -57,14 +57,14 @@ root -b 'correlation_ldm_hdm.cc("output of step-3","../data/geomnew_corrected.tx
 ```
 
 
-5. Make a coorelation plot and summary plot that are describing the results for this study.
+### 5. Make a coorelation plot and summary plot that are describing the results for this study.
 * and that is done using the script: "ldm_hdm_correlation_graph.cc"
 * output is a root file with correlation and summary plots
 * To Run the script -
 ```
 root -b 'ldm_hdm_correlation_graph.cc("output of the step-4")'
 ```
-6. to compare it with fixdensity corrections:
+### 6. to compare it with fixdensity corrections:
 * script: "fixdensity_comparison.cc"
 * input: "fixdensity correction file","txt file from step 5"
 * output: "root file containing comparison with fix density.

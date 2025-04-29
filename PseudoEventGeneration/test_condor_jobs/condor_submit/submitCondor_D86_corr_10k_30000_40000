@@ -1,0 +1,14 @@
+executable=/home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/run_myprog_random_D86.sh
+universe=vanilla
+Arguments= 30000 40000 /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/random_D86_seed7854_29062022.root  /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/Correlated_random/D86/CorreNumber_D86_10k_30000_40000_.root
+Input =
+Output = /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/condor_output/condor_logs/condor_D86_randNum_3000040000.out
+Error  = /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/condor_output/condor_logs/condor_D86_randNum_3000040000.err
+Log    = /home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/test_condor_jobs/condor_output/condor_logs/condor_D86_randNum_30000seed_.log
+notification=never
+should_transfer_files=YES
+transfer_input_files=/home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/readRandGaus_D86.py
+request_memory = 5.0 GB
+#+MaxRuntime = 2*60*60
+when_to_transfer_output = ON_EXIT
+queue
