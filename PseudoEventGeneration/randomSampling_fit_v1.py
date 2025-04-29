@@ -126,7 +126,7 @@ fout = ROOT.TFile(out_fname, 'RECREATE')
 #fout = ROOT.TFile('RandomSample_from_fit_%dto%d_Latestntuples.root' %(min_,max_), 'RECREATE')
 tree = ROOT.TTree('tree', 'tree')
 M=4500
-n=10000
+n=50000
 # nhits10=[]
 # nhits20=[]
 # nhits30=[]
@@ -188,73 +188,71 @@ for im in range(4500):
     #     f30.SetRange(0,50);
     #print(name, layer_n30[im],typee_n30[im],u_n30[im],v_n30[im])
     #print(constant1_n30[im],mean_G_n30[im],sigma_G_n30[im],constant2_n30[im],mean_P_n30[im],constant3_n30[im],mean_L_n30[im],sigma_L_n30[im])
-    # nhits10=random_sample(f10,n,seed=0)
-    # nhits20=random_sample(f20,n,seed=0)
-    # nhits30=random_sample(f30,n,seed=0)
-    nhits10=[]
-    nhits20=[]
-    nhits30=[]
+    gRandom.SetSeed(((im+1)*seed_)/(im+1))
+    seedd_= seed_/(im+1)
+    nhits10=random_sample(f10,n,seed=seedd_)
+    nhits20=random_sample(f20,n,seed=seedd_)
+    nhits30=random_sample(f30,n,seed=seedd_)
+    # nhits10=[]
+    # nhits20=[]
+    # nhits30=[]
 
-    n10= 0
-    n20=0
-    n30=0
-    print(nCells[im],'   ncells')
-    for i in range(min_,max_):
-        gRandom.SetSeed(((i+1)*seed_)/(im+1))
-        n10 = int(f10.GetRandom(0,nCells[im]))
-        n20 = int(f20.GetRandom(0,nCells[im]))
-        n30 = int(f30.GetRandom(0,nCells[im]))
-        if(typee[im]>=2):
-            n20 =0
+    # n10= 0
+    # n20=0
+    # n30=0
+    # print(nCells[im],'   ncells')
+    # for i in range(min_,max_):
+    #     gRandom.SetSeed(((i+1)*seed_)/(im+1))
+    #     n10 = int(f10.GetRandom(0,nCells[im]))
+    #     n20 = int(f20.GetRandom(0,nCells[im]))
+    #     n30 = int(f30.GetRandom(0,nCells[im]))
+    #     if(typee[im]>=2):
+    #         n20 =0
 
-        if(n10>nCells[im]):
-            print(n10, n20, n30, 'n10')
-            n10 = nCells[im]
-            print(n10, n20, n30, 'n10')
-        if(n20>nCells[im]):
-            print(n10, n20, n30, 'n20')
-            n20 = nCells[im]
-            print(n10, n20, n30, 'n20')
-        if(n30>nCells[im]):
-            print(n10, n20, n30, 'n30')
-            n30 = nCells[im]
-            print(n10, n20, n30, 'n30')
-        if(n10+n20+n30>nCells[im]):
-            print(n10, n20, n30, 'n30before sum')
-            n30 = n30 - (n10+n20+n30-nCells[im])
-            print(n10, n20, n30, 'n30after sum')
+    #     if(n10>nCells[im]):
+    #         print(n10, n20, n30, 'n10')
+    #         n10 = nCells[im]
+    #         print(n10, n20, n30, 'n10')
+    #     if(n20>nCells[im]):
+    #         print(n10, n20, n30, 'n20')
+    #         n20 = nCells[im]
+    #         print(n10, n20, n30, 'n20')
+    #     if(n30>nCells[im]):
+    #         print(n10, n20, n30, 'n30')
+    #         n30 = nCells[im]
+    #         print(n10, n20, n30, 'n30')
+    #     if(n10+n20+n30>nCells[im]):
+    #         print(n10, n20, n30, 'n30before sum')
+    #         n30 = n30 - (n10+n20+n30-nCells[im])
+    #         print(n10, n20, n30, 'n30after sum')
 
-        if(n30<0):
-            #or n10<0 or n20<0):
-            n30 = 0
-            # n20 =0
-            # n10 =0
-        if(n10+n20+n30>nCells[im]):
-            print(n10, n20, n30, 'n20before sum')
-            n20 = n20 - (n10+n20+n30-nCells[im])
-            print(n10, n20, n30, 'n20after sum')
-        if(n20<0):
-            n20 =0
+    #     if(n30<0):
+    #         #or n10<0 or n20<0):
+    #         n30 = 0
+    #         # n20 =0
+    #         # n10 =0
+    #     if(n10+n20+n30>nCells[im]):
+    #         print(n10, n20, n30, 'n20before sum')
+    #         n20 = n20 - (n10+n20+n30-nCells[im])
+    #         print(n10, n20, n30, 'n20after sum')
+    #     if(n20<0):
+    #         n20 =0
 
-        if(n10+n20+n30>nCells[im]):
-            print(n10, n20, n30, 'n10before sum')
-            n10 = n10 - (n10+n20+n30-nCells[im])
-            print(n10, n20, n30, 'n10after sum')
+    #     if(n10+n20+n30>nCells[im]):
+    #         print(n10, n20, n30, 'n10before sum')
+    #         n10 = n10 - (n10+n20+n30-nCells[im])
+    #         print(n10, n20, n30, 'n10after sum')
 
         
-        if(n10<0):
-            n10 =0
+    #     if(n10<0):
+    #         n10 =0
             
-        if(int(n10)>nCells[im] or int(n20)>nCells[im] or int(n30)>nCells[im] or int(n10+n20+n30)>nCells[im]):
-            print(n10, n20, n30, 'final')
-        nhits10.append(n10) #f10.GetRandom(0,nCells[im]))
-        nhits20.append(n20)#.GetRandom(0,nCells[im]))
-        nhits30.append(n30) #.GetRandom(0,nCells[im]))
+    #     if(int(n10)>nCells[im] or int(n20)>nCells[im] or int(n30)>nCells[im] or int(n10+n20+n30)>nCells[im]):
+    #         print(n10, n20, n30, 'final')
+    #     nhits10.append(n10) #f10.GetRandom(0,nCells[im]))
+    #     nhits20.append(n20)#.GetRandom(0,nCells[im]))
+    #     nhits30.append(n30) #.GetRandom(0,nCells[im]))
     nhitss_n10= np.array(nhits10,dtype=[('n10_Module_%s' %name, np.int32)])
-    # nhitss_n20= np.array(nhits20)
-    # nhitss_n30= np.array(nhits30)
-    #print(np.average(nhitss_n10))#, np.average(nhitss_n20),np.average(nhitss_n30),name)
-    #print(nCells[im])
     
     array2tree(nhitss_n10,tree=tree)
     nhitss_n20= np.array(nhits20,dtype=[('n20_Module_%s' %name, np.int32)])

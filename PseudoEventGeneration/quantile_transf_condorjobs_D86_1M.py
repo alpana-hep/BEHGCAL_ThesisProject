@@ -16,7 +16,7 @@ from numpy.random import randn
 #from rootpy import stl
 
 M=4500 ## total number of modules                                                                                              
-n= 1000000 ## maximum length of arrays                                                                                         
+n= 50000 ## maximum length of arrays                                                                                         
 ## input aruguments
 infname1=sys.argv[1]
 infname2=sys.argv[2]
@@ -62,12 +62,11 @@ corrX_events = uproot.open(infname2)#["tree"]
 mycache={}
 mycache1={}
 ## perform qt on afit arrays and inv qt on corrX arrays
-qt= QuantileTransformer(n_quantiles=100000, output_distribution='normal', random_state=0,subsample = 1000000)
-qt1= QuantileTransformer(n_quantiles=100000, output_distribution='normal', random_state=0,subsample = 1000000)
+qt= QuantileTransformer(n_quantiles=50000, output_distribution='normal', random_state=0,subsample = 50000)
+qt1= QuantileTransformer(n_quantiles=50000, output_distribution='normal', random_state=0,subsample = 50000)
 
 count=0
 for im in range(M):
-
     name='%i_%i_%i_%i' %(layer[im],typee[im],u[im],v[im])    
     temp10_v2= np.array(Events["tree"]["n10_Module_%s" %name].array())#Events.lazyarray("n10_Module_%s" %name,cache=mycache)
     Nhits_np_n10= np.array(temp10_v2)#[min_:max_])

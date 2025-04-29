@@ -10,14 +10,14 @@ import root_numpy
 from root_numpy import random_sample, array2tree, array2root
 import uproot
 infname1=sys.argv[1]
-infname2=sys.argv[2]
-out_fname = sys.argv[3] ## output file will contain similar 5k arrays saved after inverse qt
-max_=int(sys.argv[4])
+#infname2=sys.argv[2]
+out_fname = sys.argv[2] ## output file will contain similar 5k arrays saved after inverse qt
+max_= 50000 #int(sys.argv[4])
 fout = ROOT.TFile(out_fname, 'RECREATE')
 tree = ROOT.TTree('tree', 'tree')
 Events=uproot.open(infname1)
 #corrX_events = uproot.open(infname2)["tree"]
-data = np.loadtxt(infname2) #"./luv_ncells_map_cmssw_D86_V10.txt")
+data = np.loadtxt("./luv_ncells_map_cmssw_D86_V10.txt")
 
 layer=[]
 u=[]

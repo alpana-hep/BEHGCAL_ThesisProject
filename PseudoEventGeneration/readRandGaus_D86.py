@@ -14,7 +14,7 @@ from numpy import inf
 def readRandGaus(min_,max_,fin):
     gc.enable()
     gc.collect()
-    L = np.loadtxt("/home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/inputs/LowerDecomMatrix_correlationMatrix_15kby15k_LatestNtuples_D86_Fe10.txt")
+    L = np.loadtxt("/home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/inputs/LowerTraingular_Matrix_scipy_method_15kby15k_LatestNtuples_D86_Fe10.txt")
     # print(corr1)
     # corr1[corr1 == -inf] = 0.1
     # corr1[~np.isfinite(corr1)] = 0.1
@@ -40,7 +40,7 @@ def readRandGaus(min_,max_,fin):
         typee.append(int(data[im][3]))
         nCells.append(int(data[im][5]))
         nHalfHgcrocs.append(int(data[im][6]))
-    RG_arrays=np.empty((13500,10000),dtype='float32')
+    RG_arrays=np.empty((13500,50000),dtype='float32')
     count=0
     for ib in range(0,13500,3):
         #if(ib<5066):

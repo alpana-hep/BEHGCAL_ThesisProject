@@ -28,10 +28,10 @@ for im in range(4500):
     typee.append(int(data[im][3]))
 
 # reading input array files
-Events1=uproot.open("./PseudoEvents_Gen/D86/AfterQT_D86_100k_7854_Correct_23July22.root")#["EventTree"]
+Events1=uproot.open("/home/work/kalpana1/public/BE_DAQ_HGCAL_22/CMSSW_10_2_0_pre3/src/PseudoEventMachinery/Correlated_random/D86/1M/Correlated_wCorreMatrix_RandNumber_D86_1M_11Oct22.root")#Correlated_RandNumber_D86_100k_7854_16Jul22.root")#PseudoEvents_Gen/D86/AfterQT_D86_1M_7854_16Jul22.root")#AfterQT_D86_1M_CorrelatMatrix_11Oct22.root") #AfterQT_D86_100k_7854_Correct_23July22.root")#["EventTree"]
 
 mycache = {}
-orig_modules_arrays=np.empty((13500,50000),dtype='int32')
+orig_modules_arrays=np.empty((13500,100000),dtype='int32')
 count=0
 count1=0
 count2=0
@@ -43,22 +43,22 @@ for ib in range(0,13500,3):
         print(name)
         a=np.array(Events1["tree"]["n10_Module_%s" %name].array()) #("n10_Module_%s" %name)[0:50000]
         #count+=1
-        a = a[0:50000]
+        a = a[0:100000]
         b=np.array(Events1["tree"]["n20_Module_%s" %name].array()) #Events1.array("n20_Module_%s" %name)[0:50000]
         if(np.std(np.array(b))==0):
             print(name)
-            b=randn(50000)
-        b = b[0:50000]
+            b=randn(100000)
+        b = b[0:100000]
         c=np.array(Events1["tree"]["n30_Module_%s" %name].array()) #Events1.array("n30_Module_%s" %name)[0:50000]
-        c = c[0:50000]
+        c = c[0:100000]
         orig_modules_arrays[ib]=a
         orig_modules_arrays[ib+1]=b
         orig_modules_arrays[ib+2]=c
         print(name)
         count+=1
 print(count1)
-corr1 = np.cov(orig_modules_arrays)
-np.savetxt("./CoVMatrix_15kby15k_LatestNtuples_D86_Fe10.txt",corr1)
+corr1 = np.corrcoef(orig_modules_arrays)
+np.savetxt("./AfterMatMulti_CorrMatrix_15kby15k_RandGaussian_D86_Fe10_w100k_10Mar23.txt",corr1)
 print(np.linalg.eig(corr1))
 corr1[corr1 == -inf] = 0.1
 #corr1[corr1<=0]= 0.01
@@ -73,4 +73,6 @@ print('...')
 print(np.matmul(L,np.transpose(L)))
 # print(corr1)
 # print(L)
-np.savetxt("./LowerDecomMatrix_correlationMatrix_15kby15k_LatestNtuples_D86_Fe10.txt",L)
+# np.savetxt("./LowerDecomMatrix_covMat_RandGaussian_15kby15k_LatestNtuples_D86_Fe10_04Mar2023.txt",L)
+
+# np.savetxt("./AfterLowerDecomMatrix_recalc_covMat_RandGaussian_15kby15k_LatestNtuples_D86_Fe10_04Mar2023.txt",np.matmul(L,np.transpose(L)))

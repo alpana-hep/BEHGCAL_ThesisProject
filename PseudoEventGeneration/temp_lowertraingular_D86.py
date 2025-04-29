@@ -19,7 +19,7 @@ corr1[~np.isfinite(corr1)] = 0.1
 # d = np.linalg.norm(corr1) * np.finfo(corr1.dtype).eps;
 # print(d,'second')
 # I = np.eye(len(corr1));
-#corr1[np.linalg.eigvals(corr1)<0]=0
+corr1[np.linalg.eigvals(corr1)<0]=0
 L= la.cholesky(corr1, lower=True) #np.linalg.cholesky(corr1) #,lower=True)
 #la.cholesky(corr1+d*I, lower=True)
 

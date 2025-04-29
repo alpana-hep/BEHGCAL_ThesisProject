@@ -28,7 +28,7 @@ for im in range(4851):
     typee.append(int(data[im][3]))
 
 # reading input array files
-Events1=uproot.open("./PseudoEvents_Gen/D49/AfterQT_D49_100k_7854_Correct_23July22.root")#["EventTree"]
+Events1=uproot.open("./PseudoEvents_Gen/D86/AfterQT_D86_1M_7854_CorrectedCorrelationMat_22Oct22.root")#PseudoEvents_Gen/D49/AfterQT_D49_100k_7854_Correct_23July22.root")#["EventTree"]
 
 mycache = {}
 orig_modules_arrays=np.empty((14553,100000),dtype='int32')
@@ -62,8 +62,8 @@ for ib in range(0,14553,3):
         print(name)
         count+=1
 print(count1)
-corr1 = np.cov(orig_modules_arrays)
-np.savetxt("./CovMatrix_15kby15k_D49_AfterQT_25jul22.txt",corr1)
+corr1 = np.corrcoef(orig_modules_arrays)
+np.savetxt("./CorrMatrix_15kby15k_D86_AfterQT_10March23_usingcorrmatix.txt",corr1)
 
 print(corr1)
 #print(np.linalg.eig(corr1))
@@ -86,4 +86,4 @@ print(np.matmul(L,np.transpose(L)))
 
 # print(corr1)
 # print(L)
-np.savetxt("./LowerDecomp_correlationMatrix_15kby15k_D49_AfterQT_25jul22.txt",L)
+np.savetxt("./UsingCorrLowerDecomp_correlationMatrix_15kby15k_D49_AfterQT_10March23.txt",L)

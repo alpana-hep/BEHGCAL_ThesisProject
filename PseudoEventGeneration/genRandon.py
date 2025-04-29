@@ -41,7 +41,7 @@ for im in range(4500):
 
 random_number=[]
 random_list=[]
-n = 100000
+n = 50000
 seed_1 = seed_
 seeed = seed_1/n
 #seeed = int(seed%n)
