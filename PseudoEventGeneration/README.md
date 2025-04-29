@@ -96,6 +96,7 @@ m.Loop()
 
 ### Plotting scripts -
 ```
+cd plottingScripts/
 
 ```
 
