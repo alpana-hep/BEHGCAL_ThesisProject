@@ -111,8 +111,7 @@ https://gitlab.cern.ch/kalpana/hgcal10glinkreceiver/-/tree/Alp_dev?ref_type=head
 
 
 
-### Here are the instructions to run over an example for HGCAL TB analysis-
-* Pedetsal studies
+### Pedetsal studies
 gDoc for all the information-
 ```
 https://docs.google.com/document/d/1oteC0YNgPVWrxyXO6WsO24KYG6qW4GTOIQMMr4alRf0/edit?usp=sharing
