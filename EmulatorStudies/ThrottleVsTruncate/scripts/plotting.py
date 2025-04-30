@@ -63,8 +63,7 @@ def SetTDRStyle():
     R.gStyle.SetMarkerStyle(20)
 
     # For the fit/function:
-    #R.gStyle.SetOptFit(0)
-    #R.gStyle.SetOptFit(1)
+    R.gStyle.SetOptFit(1)
     R.gStyle.SetFitFormat('5.4g')
     R.gStyle.SetFuncColor(2)
     R.gStyle.SetFuncStyle(1)
@@ -77,7 +76,7 @@ def SetTDRStyle():
 
     # For the statistics box:
     R.gStyle.SetOptFile(0)
-    #R.gStyle.SetOptStat(0)
+    R.gStyle.SetOptStat(0)
     # To display the mean and RMS:   SetOptStat('mr')
     R.gStyle.SetStatColor(R.kWhite)
     R.gStyle.SetStatFont(42)
@@ -291,7 +290,7 @@ def CreateTransparentColor(color, alpha):
 
 
 def Set(obj, **kwargs):
-    for key, value in kwargs.iteritems():
+    for key, value in kwargs.items():
         if value is None:
             getattr(obj, 'Set' + key)()
         elif isinstance(value, (list, tuple)):
@@ -563,7 +562,7 @@ def ParamFromFilename(filename, param):
         num1 = re.findall(param + '\.\d+', filename)[0].replace(param + '.', '')
         return int(num1)
     else:
-        print "Error: parameter " + param + " not found in filename"
+        print ("Error: parameter " + param + " not found in filename")
 
 
 ##@}
@@ -691,8 +690,8 @@ def TH2FromTGraph2D(graph, method='BinEdgeAligned',
         y_min = min(y_widths) if force_y_width is None else force_y_width
         x_bins = int(((x_vals[-1] - (x_vals[0] - 0.5 * x_min)) / x_min) + 0.5)
         y_bins = int(((y_vals[-1] - (y_vals[0] - 0.5 * y_min)) / y_min) + 0.5)
-        print '[TH2FromTGraph2D] x-axis binning: (%i, %g, %g)' % (x_bins, x_vals[0] - 0.5 * x_min, x_vals[0] - 0.5 * x_min + x_bins * x_min)
-        print '[TH2FromTGraph2D] y-axis binning: (%i, %g, %g)' % (y_bins, y_vals[0] - 0.5 * y_min, y_vals[0] - 0.5 * y_min + y_bins * y_min)
+        print ('[TH2FromTGraph2D] x-axis binning: (%i, %g, %g)' % (x_bins, x_vals[0] - 0.5 * x_min, x_vals[0] - 0.5 * x_min + x_bins * x_min))
+        print ('[TH2FromTGraph2D] y-axis binning: (%i, %g, %g)' % (y_bins, y_vals[0] - 0.5 * y_min, y_vals[0] - 0.5 * y_min + y_bins * y_min))
         # Use a number slightly smaller than 0.49999 because the TGraph2D interpolation
         # is fussy about evaluating on the boundary
         h_proto = R.TH2F('prototype', '',
@@ -955,7 +954,7 @@ def ApplyGraphYOffset(graph, y_off):
 def RemoveGraphYAll(graph, val):
     for i in xrange(graph.GetN()):
         if graph.GetY()[i] == val:
-            print '[RemoveGraphYAll] Removing point (%f, %f)' % (graph.GetX()[i], graph.GetY()[i])
+            print ('[RemoveGraphYAll] Removing point (%f, %f)' % (graph.GetX()[i], graph.GetY()[i]))
             graph.RemovePoint(i)
             RemoveGraphYAll(graph, val)
             break
@@ -965,7 +964,7 @@ def RemoveSmallDelta(graph, val):
     for i in xrange(graph.GetN()):
         diff = abs(graph.GetY()[i])
         if diff < val:
-            print '[RemoveSmallDelta] Removing point (%f, %f)' % (graph.GetX()[i], graph.GetY()[i])
+            print ('[RemoveSmallDelta] Removing point (%f, %f)' % (graph.GetX()[i], graph.GetY()[i]))
             graph.RemovePoint(i)
             RemoveSmallDelta(graph, val)
             break
@@ -1010,20 +1009,20 @@ def ImproveMinimum(graph, func, doIt=False):
                 before = graph.GetY()[i]
                 graph.GetY()[i] -= min_y
                 after = graph.GetY()[i]
-                print 'Point %i, before=%f, after=%f' % (i, before, after)
+                print ('Point %i, before=%f, after=%f' % (i, before, after))
         return (fit_x, fit_y)
     search_min = fit_i - 2 if fit_i >= 2 else fit_i - 1
     search_max = fit_i + 2 if fit_i + 2 < graph.GetN() else fit_i + 1
     min_x = func.GetMinimumX(graph.GetX()[search_min], graph.GetX()[search_max])
     min_y = func.Eval(min_x)
-    print '[ImproveMinimum] Fit minimum was (%f, %f)' % (fit_x, fit_y)
-    print '[ImproveMinimum] Better minimum was (%f, %f)' % (min_x, min_y)
+    print ('[ImproveMinimum] Fit minimum was (%f, %f)' % (fit_x, fit_y))
+    print ('[ImproveMinimum] Better minimum was (%f, %f)' % (min_x, min_y))
     if doIt:
         for i in xrange(graph.GetN()):
             before = graph.GetY()[i]
             graph.GetY()[i] -= min_y
             after = graph.GetY()[i]
-            print 'Point %i, before=%f, after=%f' % (i, before, after)
+            print ('Point %i, before=%f, after=%f' % (i, before, after))
         graph.Set(graph.GetN() + 1)
         graph.SetPoint(graph.GetN() - 1, min_x, 0)
         graph.Sort()
@@ -1072,7 +1071,7 @@ def FindCrossingsWithSpline(graph, func, yval):
             'valid_hi': False
         }
         intervals.append(current)
-    print intervals
+    print (intervals)
     return intervals
     # return crossings
 
@@ -1092,8 +1091,8 @@ def ReZeroTGraph(gr, doIt=False):
             min_y = gr.GetY()[i]
             min_x = gr.GetX()[i]
     if min_y < fit_y:
-        print '[ReZeroTGraph] Fit minimum was (%f, %f)' % (fit_x, fit_y)
-        print '[ReZeroTGraph] Better minimum was (%f, %f)' % (min_x, min_y)
+        print ('[ReZeroTGraph] Fit minimum was (%f, %f)' % (fit_x, fit_y))
+        print ('[ReZeroTGraph] Better minimum was (%f, %f)' % (min_x, min_y))
         if doIt:
             for i in xrange(gr.GetN()):
                 before = gr.GetY()[i]
@@ -1144,13 +1143,13 @@ def RemoveNearMin(graph, val, spacing=None):
             # print '[RemoveNearMin] Found best-fit at %.3f' % bf
             break
     if bf_i is None:
-        print '[RemoveNearMin] No minimum found!'
+        print ('[RemoveNearMin] No minimum found!')
         return
     for i in xrange(graph.GetN()):
         if i == bf_i:
             continue
         if abs(graph.GetX()[i] - bf) < (val * spacing):
-            print '[RemoveNearMin] Removing point (%f, %f) close to minimum at %f' % (graph.GetX()[i], graph.GetY()[i], bf)
+            print ('[RemoveNearMin] Removing point (%f, %f) close to minimum at %f' % (graph.GetX()[i], graph.GetY()[i], bf))
             graph.RemovePoint(i)
             RemoveNearMin(graph, val, spacing)
             break
@@ -1182,7 +1181,7 @@ def FixTopRange(pad, fix_y, fraction):
     hobj.SetMaximum((fix_y - fraction * ymin) / (1. - fraction))
     if R.gPad.GetLogy():
         if ymin == 0.:
-            print 'Cannot adjust log-scale y-axis range if the minimum is zero!'
+            print ('Cannot adjust log-scale y-axis range if the minimum is zero!')
             return
         maxval = (math.log10(fix_y) - fraction * math.log10(ymin)) / \
             (1 - fraction)
@@ -1222,7 +1221,7 @@ def FixBothRanges(pad, fix_y_lo, frac_lo, fix_y_hi, frac_hi):
     ymax = fix_y_hi
     if R.gPad.GetLogy():
         if ymin == 0.:
-            print 'Cannot adjust log-scale y-axis range if the minimum is zero!'
+            print ('Cannot adjust log-scale y-axis range if the minimum is zero!')
             return
         ymin = math.log10(ymin)
         ymax = math.log10(ymax)
@@ -1648,15 +1647,15 @@ def contourFromTH2(h2in, threshold, minPoints=10, frameValue=1000.):
     contLevel = None
 
     if conts is None or conts.GetSize() == 0:
-        print '*** No Contours Were Extracted!'
+        print ('*** No Contours Were Extracted!')
         return None
     ret = R.TList()
     for i in xrange(conts.GetSize()):
         contLevel = conts.At(i)
-        print '>> Contour %d has %d Graphs' % (i, contLevel.GetSize())
+        print ('>> Contour %d has %d Graphs' % (i, contLevel.GetSize()))
         for j in xrange(contLevel.GetSize()):
             gr1 = contLevel.At(j)
-            print'\t Graph %d has %d points' % (j, gr1.GetN())
+            print ('\t Graph %d has %d points' % (j, gr1.GetN()))
             if gr1.GetN() > minPoints:
                 ret.Add(gr1.Clone())
             # // break;

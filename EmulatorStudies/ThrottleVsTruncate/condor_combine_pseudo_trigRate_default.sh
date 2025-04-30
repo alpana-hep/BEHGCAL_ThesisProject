@@ -1,0 +1,1932 @@
+#!/bin/sh
+export INITIALDIR=${PWD}
+set -o pipefail
+set -e
+source /cvmfs/cms.cern.ch/cmsset_default.sh
+export SCRAM_ARCH=slc7_amd64_gcc820
+
+
+cd /afs/cern.ch/work/k/kalpana/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src
+eval `scramv1 runtime -sh`
+cd /afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/ThrottleVsTruncation
+
+if [ $1 -eq 0 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=600 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 1 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=600 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 2 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=600 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 3 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=600 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 4 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=600 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 5 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=600 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 6 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=600 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 7 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=600 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 8 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=600 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 9 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=600 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1850_1450_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 10 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=600 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 11 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=600 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 12 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=600 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 13 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=600 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 14 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=600 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 15 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=600 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 16 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=600 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 17 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=600 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 18 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=600 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 19 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=600 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_1950_1550_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 20 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=600 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 21 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=600 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 22 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=600 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 23 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=600 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 24 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=600 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 25 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=600 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 26 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=600 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 27 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=600 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 28 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=600 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 29 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=600 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2050_1650_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 30 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=600 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 31 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=600 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 32 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=600 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 33 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=600 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 34 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=600 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 35 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=600 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 36 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=600 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 37 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=600 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 38 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=600 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 39 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=600 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2150_1750_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 40 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=600 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 41 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=600 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 42 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=600 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 43 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=600 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 44 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=600 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 45 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=600 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 46 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=600 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 47 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=600 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 48 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=600 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 49 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=600 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2250_1850_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 50 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=600 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 51 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=600 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 52 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=600 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 53 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=600 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 54 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=600 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 55 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=600 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 56 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=600 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 57 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=600 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 58 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=600 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 59 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=600 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2350_1950_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 60 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=600 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 61 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=600 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 62 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=600 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 63 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=600 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 64 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=600 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 65 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=600 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 66 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=600 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 67 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=600 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 68 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=600 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 69 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=600 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2450_2050_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 70 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=600 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 71 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=600 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 72 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=600 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 73 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=600 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 74 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=600 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 75 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=600 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 76 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=600 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 77 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=600 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 78 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=600 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 79 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=600 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_600_buffer_2550_2150_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 80 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=650 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 81 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=650 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 82 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=650 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 83 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=650 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 84 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=650 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 85 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=650 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 86 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=650 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 87 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=650 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 88 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=650 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 89 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=650 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1850_1450_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 90 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=650 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 91 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=650 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 92 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=650 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 93 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=650 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 94 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=650 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 95 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=650 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 96 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=650 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 97 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=650 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 98 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=650 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 99 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=650 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_1950_1550_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 100 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=650 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 101 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=650 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 102 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=650 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 103 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=650 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 104 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=650 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 105 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=650 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 106 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=650 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 107 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=650 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 108 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=650 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 109 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=650 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2050_1650_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 110 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=650 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 111 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=650 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 112 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=650 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 113 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=650 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 114 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=650 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 115 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=650 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 116 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=650 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 117 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=650 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 118 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=650 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 119 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=650 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2150_1750_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 120 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=650 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 121 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=650 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 122 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=650 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 123 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=650 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 124 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=650 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 125 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=650 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 126 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=650 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 127 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=650 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 128 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=650 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 129 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=650 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2250_1850_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 130 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=650 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 131 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=650 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 132 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=650 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 133 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=650 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 134 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=650 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 135 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=650 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 136 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=650 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 137 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=650 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 138 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=650 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 139 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=650 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2350_1950_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 140 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=650 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 141 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=650 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 142 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=650 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 143 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=650 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 144 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=650 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 145 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=650 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 146 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=650 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 147 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=650 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 148 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=650 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 149 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=650 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2450_2050_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 150 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=650 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 151 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=650 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 152 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=650 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 153 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=650 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 154 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=650 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 155 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=650 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 156 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=650 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 157 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=650 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 158 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=650 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 159 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=650 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_650_buffer_2550_2150_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 160 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=700 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 161 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=700 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 162 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=700 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 163 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=700 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 164 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=700 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 165 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=700 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 166 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=700 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 167 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=700 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 168 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=700 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 169 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=700 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1850_1450_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 170 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=700 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 171 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=700 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 172 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=700 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 173 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=700 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 174 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=700 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 175 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=700 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 176 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=700 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 177 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=700 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 178 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=700 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 179 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=700 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_1950_1550_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 180 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=700 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 181 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=700 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 182 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=700 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 183 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=700 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 184 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=700 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 185 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=700 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 186 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=700 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 187 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=700 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 188 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=700 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 189 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=700 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2050_1650_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 190 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=700 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 191 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=700 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 192 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=700 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 193 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=700 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 194 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=700 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 195 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=700 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 196 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=700 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 197 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=700 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 198 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=700 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 199 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=700 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2150_1750_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 200 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=700 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 201 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=700 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 202 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=700 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 203 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=700 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 204 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=700 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 205 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=700 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 206 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=700 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 207 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=700 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 208 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=700 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 209 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=700 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2250_1850_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 210 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=700 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 211 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=700 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 212 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=700 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 213 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=700 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 214 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=700 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 215 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=700 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 216 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=700 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 217 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=700 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 218 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=700 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 219 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=700 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2350_1950_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 220 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=700 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 221 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=700 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 222 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=700 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 223 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=700 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 224 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=700 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 225 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=700 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 226 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=700 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 227 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=700 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 228 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=700 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 229 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=700 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2450_2050_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 230 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=700 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 231 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=700 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 232 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=700 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 233 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=700 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 234 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=700 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 235 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=700 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 236 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=700 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 237 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=700 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 238 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=700 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 239 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=700 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_700_buffer_2550_2150_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 240 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=750 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 241 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=750 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 242 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=750 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 243 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=750 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 244 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=750 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 245 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=750 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 246 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=750 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 247 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=750 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 248 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=750 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 249 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=750 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1850_1450_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 250 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=750 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 251 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=750 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 252 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=750 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 253 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=750 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 254 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=750 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 255 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=750 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 256 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=750 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 257 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=750 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 258 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=750 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 259 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=750 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_1950_1550_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 260 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=750 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 261 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=750 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 262 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=750 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 263 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=750 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 264 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=750 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 265 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=750 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 266 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=750 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 267 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=750 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 268 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=750 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 269 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=750 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2050_1650_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 270 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=750 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 271 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=750 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 272 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=750 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 273 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=750 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 274 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=750 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 275 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=750 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 276 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=750 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 277 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=750 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 278 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=750 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 279 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=750 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2150_1750_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 280 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=750 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 281 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=750 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 282 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=750 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 283 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=750 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 284 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=750 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 285 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=750 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 286 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=750 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 287 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=750 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 288 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=750 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 289 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=750 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2250_1850_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 290 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=750 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 291 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=750 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 292 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=750 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 293 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=750 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 294 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=750 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 295 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=750 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 296 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=750 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 297 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=750 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 298 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=750 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 299 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=750 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2350_1950_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 300 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=750 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 301 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=750 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 302 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=750 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 303 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=750 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 304 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=750 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 305 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=750 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 306 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=750 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 307 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=750 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 308 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=750 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 309 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=750 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2450_2050_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 310 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=750 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 311 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=750 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 312 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=750 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 313 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=750 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 314 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=750 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 315 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=750 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 316 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=750 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 317 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=750 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 318 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=750 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 319 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=750 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_750_buffer_2550_2150_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 320 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=800 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 321 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=800 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 322 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=800 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 323 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=800 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 324 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=800 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 325 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=800 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 326 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=800 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 327 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=800 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 328 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=800 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 329 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=800 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1850_1450_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 330 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=800 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 331 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=800 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 332 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=800 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 333 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=800 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 334 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=800 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 335 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=800 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 336 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=800 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 337 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=800 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 338 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=800 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 339 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=800 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_1950_1550_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 340 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=800 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 341 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=800 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 342 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=800 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 343 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=800 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 344 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=800 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 345 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=800 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 346 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=800 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 347 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=800 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 348 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=800 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 349 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=800 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2050_1650_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 350 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=800 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 351 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=800 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 352 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=800 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 353 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=800 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 354 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=800 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 355 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=800 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 356 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=800 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 357 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=800 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 358 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=800 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 359 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=800 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2150_1750_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 360 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=800 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 361 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=800 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 362 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=800 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 363 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=800 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 364 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=800 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 365 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=800 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 366 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=800 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 367 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=800 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 368 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=800 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 369 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=800 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2250_1850_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 370 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=800 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 371 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=800 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 372 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=800 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 373 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=800 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 374 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=800 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 375 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=800 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 376 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=800 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 377 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=800 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 378 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=800 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 379 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=800 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2350_1950_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 380 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=800 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 381 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=800 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 382 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=800 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 383 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=800 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 384 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=800 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 385 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=800 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 386 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=800 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 387 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=800 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 388 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=800 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 389 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=800 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2450_2050_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 390 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=800 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 391 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=800 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 392 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=800 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 393 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=800 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 394 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=800 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 395 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=800 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 396 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=800 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 397 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=800 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 398 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=800 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 399 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=800 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_800_buffer_2550_2150_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 400 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=850 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 401 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=850 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 402 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=850 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 403 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=850 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 404 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=850 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 405 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=850 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 406 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=850 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 407 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=850 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 408 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=850 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 409 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=850 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1850_1450_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 410 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=850 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 411 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=850 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 412 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=850 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 413 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=850 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 414 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=850 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 415 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=850 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 416 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=850 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 417 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=850 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 418 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=850 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 419 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=850 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_1950_1550_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 420 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=850 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 421 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=850 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 422 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=850 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 423 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=850 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 424 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=850 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 425 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=850 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 426 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=850 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 427 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=850 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 428 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=850 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 429 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=850 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2050_1650_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 430 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=850 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 431 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=850 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 432 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=850 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 433 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=850 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 434 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=850 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 435 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=850 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 436 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=850 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 437 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=850 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 438 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=850 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 439 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=850 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2150_1750_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 440 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=850 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 441 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=850 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 442 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=850 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 443 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=850 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 444 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=850 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 445 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=850 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 446 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=850 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 447 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=850 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 448 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=850 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 449 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=850 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2250_1850_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 450 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=850 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 451 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=850 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 452 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=850 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 453 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=850 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 454 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=850 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 455 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=850 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 456 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=850 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 457 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=850 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 458 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=850 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 459 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=850 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2350_1950_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 460 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=850 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 461 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=850 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 462 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=850 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 463 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=850 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 464 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=850 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 465 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=850 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 466 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=850 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 467 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=850 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 468 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=850 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 469 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=850 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2450_2050_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 470 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=850 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 471 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=850 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 472 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=850 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 473 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=850 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 474 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=850 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 475 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=850 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 476 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=850 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 477 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=850 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 478 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=850 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 479 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=850 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_850_buffer_2550_2150_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 480 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=900 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 481 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=900 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 482 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=900 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 483 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=900 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 484 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=900 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 485 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=900 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 486 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=900 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 487 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=900 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 488 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=900 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 489 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=900 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1850_1450_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 490 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=900 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 491 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=900 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 492 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=900 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 493 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=900 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 494 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=900 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 495 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=900 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 496 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=900 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 497 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=900 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 498 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=900 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 499 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=900 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_1950_1550_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 500 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=900 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 501 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=900 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 502 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=900 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 503 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=900 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 504 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=900 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 505 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=900 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 506 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=900 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 507 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=900 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 508 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=900 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 509 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=900 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2050_1650_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 510 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=900 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 511 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=900 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 512 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=900 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 513 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=900 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 514 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=900 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 515 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=900 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 516 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=900 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 517 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=900 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 518 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=900 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 519 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=900 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2150_1750_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 520 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=900 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 521 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=900 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 522 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=900 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 523 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=900 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 524 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=900 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 525 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=900 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 526 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=900 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 527 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=900 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 528 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=900 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 529 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=900 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2250_1850_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 530 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=900 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 531 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=900 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 532 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=900 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 533 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=900 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 534 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=900 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 535 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=900 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 536 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=900 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 537 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=900 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 538 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=900 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 539 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=900 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2350_1950_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 540 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=900 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 541 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=900 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 542 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=900 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 543 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=900 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 544 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=900 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 545 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=900 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 546 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=900 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 547 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=900 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 548 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=900 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 549 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=900 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2450_2050_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 550 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=900 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 551 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=900 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 552 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=900 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 553 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=900 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 554 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=900 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 555 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=900 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 556 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=900 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 557 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=900 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 558 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=900 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 559 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=900 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_900_buffer_2550_2150_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 560 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=950 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 561 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=950 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 562 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=950 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 563 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=950 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 564 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=950 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 565 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=950 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 566 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=950 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 567 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=950 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 568 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=950 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 569 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=950 econdHighBufferLevel=1850 econdMediumBufferLevel=1450 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1850_1450_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 570 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=950 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 571 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=950 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 572 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=950 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 573 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=950 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 574 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=950 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 575 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=950 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 576 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=950 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 577 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=950 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 578 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=950 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 579 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=950 econdHighBufferLevel=1950 econdMediumBufferLevel=1550 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_1950_1550_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 580 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=950 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 581 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=950 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 582 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=950 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 583 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=950 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 584 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=950 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 585 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=950 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 586 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=950 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 587 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=950 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 588 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=950 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 589 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=950 econdHighBufferLevel=2050 econdMediumBufferLevel=1650 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2050_1650_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 590 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=950 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 591 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=950 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 592 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=950 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 593 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=950 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 594 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=950 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 595 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=950 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 596 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=950 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 597 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=950 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 598 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=950 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 599 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=950 econdHighBufferLevel=2150 econdMediumBufferLevel=1750 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2150_1750_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 600 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=950 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 601 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=950 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 602 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=950 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 603 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=950 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 604 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=950 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 605 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=950 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 606 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=950 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 607 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=950 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 608 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=950 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 609 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=950 econdHighBufferLevel=2250 econdMediumBufferLevel=1850 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2250_1850_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 610 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=950 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 611 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=950 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 612 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=950 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 613 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=950 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 614 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=950 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 615 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=950 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 616 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=950 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 617 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=950 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 618 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=950 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 619 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=950 econdHighBufferLevel=2350 econdMediumBufferLevel=1950 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2350_1950_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 620 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=950 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 621 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=950 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 622 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=950 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 623 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=950 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 624 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=950 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 625 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=950 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 626 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=950 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 627 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=950 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 628 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=950 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 629 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=950 econdHighBufferLevel=2450 econdMediumBufferLevel=2050 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2450_2050_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 630 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_1.root\" numberOfBx=500000 fileReadMode=1 randomSeed=1 triggerRate=950 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_1.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_1.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 631 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_2.root\" numberOfBx=500000 fileReadMode=1 randomSeed=2 triggerRate=950 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_2.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_2.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 632 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_3.root\" numberOfBx=500000 fileReadMode=1 randomSeed=3 triggerRate=950 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_3.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_3.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 633 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_4.root\" numberOfBx=500000 fileReadMode=1 randomSeed=4 triggerRate=950 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_4.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_4.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 634 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_5.root\" numberOfBx=500000 fileReadMode=1 randomSeed=5 triggerRate=950 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_5.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_5.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 635 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_6.root\" numberOfBx=500000 fileReadMode=1 randomSeed=6 triggerRate=950 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_6.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_6.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 636 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_7.root\" numberOfBx=500000 fileReadMode=1 randomSeed=7 triggerRate=950 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_7.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_7.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 637 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_8.root\" numberOfBx=500000 fileReadMode=1 randomSeed=8 triggerRate=950 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_8.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_8.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 638 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_9.root\" numberOfBx=500000 fileReadMode=1 randomSeed=9 triggerRate=950 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_9.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_9.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
+if [ $1 -eq 639 ]; then
+  ./bin/HGCalBufferModel data/current_default_V10_pseudo.json outputname=\"${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_10.root\" numberOfBx=500000 fileReadMode=1 randomSeed=10 triggerRate=950 econdHighBufferLevel=2550 econdMediumBufferLevel=2150 | gzip -c > ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_10.log.gz; cp ${TMPDIR}/HGCalBufferModel_950_buffer_2550_2150_job_10.* /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/triggerRate_default_V10_pseudo/v1/
+fi
