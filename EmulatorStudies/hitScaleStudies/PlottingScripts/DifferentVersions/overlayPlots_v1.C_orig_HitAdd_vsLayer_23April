@@ -179,9 +179,9 @@ void generate_1Dplot(vector<TH1F*> hist, char const *tag_name="", int energy=-1,
   gPad->Modified();
   char* canvas_name = new char[1000];
   if(save_canvas) {
-    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/LayerWiseSystemTesting_23April_2023/Layer34/AddingSameValue/Add_10/%s.png",tag_name);
+    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/July2023_EmulStudies_w1MBX/Scaling_HitsWise/OverlayPlots/%s.png",tag_name);
     c->SaveAs(canvas_name);
-    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/LayerWiseSystemTesting_23April_2023/Layer34/AddingSameValue/Add_10/%s.pdf",tag_name);
+    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/July2023_EmulStudies_w1MBX/Scaling_HitsWise/OverlayPlots/%s.pdf",tag_name);
     c->SaveAs(canvas_name);
 
   }

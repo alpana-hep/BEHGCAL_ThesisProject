@@ -13,7 +13,7 @@ const char* data_type[3]={"CMSSW                  evt   mean   stddev","Correlat
 const char* filetag[5]={"BX1M","BX2M","BX3M","BX4M","BX5M"};//{"10kBX","50kBX","100kBX","200kBX","400kBX","600kBX","800kBX","1000kBX","\
 //1500kBX"};                                                                                                                            
   // const char* geo[2]={"D49","D86"};
-   const char* legend_text1[3]={"CMSSW","Correlate_Psuedo","UnCorrelate_Pseudo"};
+   const char* legend_text1[3]={"CMSSW","Correlate_Pseudo","UnCorrelate_Pseudo"};
   // const char* trig_rate[25]={"600kHz","625kHz","650kHz","675kHz","700kHz","725kHz","750kHz","775kHz","800kHz","825kHz","850kHz","875kHz","900kHz","925kHz","950kHz","975kHz","1000kHz","1025kHz","1050kHz","1075kHz","1100kHz","1125kHz","1150kHz","1175kHz","1200kHz"};
 //const char* legend_text1[8]={"600kHz","750kHz","800kHz","850kHz","950kHz","1025kHz","1125kHz","1175kHz",};
 
@@ -101,7 +101,7 @@ void generate_1Dplot(vector<TGraph*> hist, char const *tag_name="", int energy=-
   legend->SetLineColor(kWhite);
   char* lhead = new char[100];
 
-  sprintf(lhead,"#bf{%s: 100BX} ",tag);//legend_text[0]);//, tag[i]);                                                                         
+  sprintf(lhead,"#bf{%s: 1M BX} ",tag);//legend_text[0]);//, tag[i]);                                                                         
   //  legend->SetNColumns(2);
   legend->SetHeader(lhead);
     char* text_name = new char[10000];
@@ -190,23 +190,26 @@ void generate_1Dplot(vector<TGraph*> hist, char const *tag_name="", int energy=-
 
     //    cout<<xmax<<endl;
        if(hist.at(hist.size()-1)->GetHistogram()->GetMaximum()<1.1)
-	 xmax1 = 1.05;//*hist.at(hist.size()-1)->GetHistogram()->GetMaximum();
+	 xmax1 = 10;//*hist.at(hist.size()-1)->GetHistogram()->GetMaximum();
        // else if(hist.at(hist.size()-1)->GetHistogram()->GetMaximum()==1.1) 
        // 	 xmax1=1.2;
        else if(hist.at(hist.size()-1)->GetHistogram()->GetMaximum()>0.9 && hist.at(hist.size()-1)->GetHistogram()->GetMaximum()<10)
 	 xmax1 = hist.at(hist.size()-1)->GetHistogram()->GetMaximum()+10;
        else
 	 xmax1=hist.at(hist.size()-1)->GetHistogram()->GetMaximum()+30;
-       cout<<xmax1<<" xmax1"<<"\t"<<hist.at(hist.size()-1)->GetHistogram()->GetMaximum()<<endl;
+       cout<<xmax1<<" xmax1"<<"\t"<<hist.at(hist.size()-1)->GetHistogram()->GetMaximum()<<"\t"<<hist.at(hist.size()-1)->GetHistogram()->GetMinimum()<<endl;
        mg->SetMaximum(xmax1);//hist.at(hist.size()-1)->GetHistogram()->GetMaximum()+xmax1);//.5*hist.at(hist.size()-1)->GetHistogram()->GetMaximum());//.0*hist.at(1)->GetMaximum());
+       mg->SetMinimum(0.000001);
     // TAxis *axis51=  mg->GetXaxis();
     // axis51->SetRangeUser(0,xmax1+100);
        c->SetGrid();
     gPad->Update();
+        c->SetLogy(); 
+    // mg->GetXaxis()->SetLogx();
     gPad->Modified();
     mg->Draw("ALP");
     legend->Draw();
-
+    //    c->SetLogy();
     gPad->Modified();
     gPad->Update();
     c->Modified();
@@ -232,9 +235,9 @@ void generate_1Dplot(vector<TGraph*> hist, char const *tag_name="", int energy=-
   gPad->Modified();
   char* canvas_name = new char[1000];
   if(save_canvas) {
-    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/May2023_EmulStudies_/%s.png",tag_name);
+    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/July2023_EmulStudies_w1MBX/%s.png",tag_name);
     c->SaveAs(canvas_name);
-    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/May2023_EmulStudies_/%s.pdf",tag_name);
+    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/July2023_EmulStudies_w1MBX/%s.pdf",tag_name);
     c->SaveAs(canvas_name);
 
   }
@@ -242,7 +245,6 @@ void generate_1Dplot(vector<TGraph*> hist, char const *tag_name="", int energy=-
 }
 const int nfiles=100,nBG=6;                                                                                                                                                              
 TFile *f[nfiles];
-
 TFile *f1[nfiles];
 
 TFile *f2[nfiles];
@@ -316,15 +318,15 @@ void v1plotGraphs_overlay(int flag)
   }
   if(flag ==2){
     n =4;
-    xlabel ={"F","F","F","F","F","F","F","F","F","F","F","F"};
+    xlabel ={"Data amount scale factor","Data amount scale factor","Data amount scale factor","Data amount scale factor","Data amount scale factor","Data amount scale factor","Data amount scale factor","Data amount scale factor","Data amount scale factor","Data amount scale factor","Data amount scale factor","Data amount scale factor"};
     ylabel={"N-Econds with truncation>0","N-Econds with max buffer>1000","frac-Events with dropped packets>0","frac-Events with dropped packets>50","frac-Events with dropped packets>100","frac-Events with dropped packets>200","Events with dropped packets>0","Events with dropped packets>50","Events with dropped packets>100","Events with dropped packets>200","frac-Events with dropped packets>500","frac-Events with dropped packets>800"};
     xValues={1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,2};
 
-    f[0] = new TFile("Out_ImpactOfScaling_V1HitScaling_ConstNum_case_1_23April2023.root");
-    f[1] = new TFile("Out_ImpactOfScaling_V1HitScaling_ConstNum_case_2_23April2023.root");
-    f[2] = new TFile("Out_ImpactOfScaling_V1HitScaling_ConstNum_case_3_23April2023.root");
-    f[3] = new TFile("Out_ImpactOfScaling_V1HitScaling_ConstNum_23April2023.root");
-    leg_text_v1={"n10*=(#bf{F})","n20*=(#bf{F})","n30*=(#bf{F})","nHits*=(#bf{F})"};
+    f[0] = new TFile("Out_withEmuRuns_1MBX_ImpactOfScaling_Multi_case_1_3July2023.root");
+    f[1] = new TFile("Out_withEmuRuns_1MBX_ImpactOfScaling_Multi_case_2_3July2023.root");
+    f[2] = new TFile("Out_withEmuRuns_1MBX_ImpactOfScaling_Multi_case_3_3July2023.root");
+    f[3] = new TFile("Out_withEmuRuns_1MBX_ImpactOfScaling_Multi_case_4_3July2023.root");
+    leg_text_v1={"ADC*=#bf{Scale factor}","TOA*=#bf{Scale factor}","TOT*=#bf{Scale factor}","nHits*=#bf{Scale factor}"};
     sprintf(full_path1,"Scaling_HitsWise");
 
   }
@@ -346,7 +348,6 @@ void v1plotGraphs_overlay(int flag)
     f[2] = new TFile("Out_ImpactOfScaling_LayerWiseHitScaling_fracNCells_case_3_23April2023.root");
     f[3] = new TFile("Out_ImpactOfScaling_LayerWiseHitScaling_fracNCells_case_4_23April2023.root");
     sprintf(full_path1,"LayerWiseTesting");
-
   }
 
   sprintf(path2,"/eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/");
@@ -363,6 +364,8 @@ void v1plotGraphs_overlay(int flag)
   const char* filetag[5]={"10kBX","100kBX","400kBX","1000kBX","1500kBX"};//,"600kBX","800kBX","1000kBX","1500kBX"};
   const char* geo[2]={"D49","D86"};
   const char* ip_data[3]={"CMSSW","Correlate_Psuedo","UnCorrelate_Pseudo"};
+  const char* ip_data1[3]={"CMSSW","Pseudo Events","UnCorrelate_Pseudo"};
+
   const char* trig_rate1[23]={"600kHz","625kHz","650kHz","675kHz","700kHz","750kHz","775kHz","800kHz","825kHz","850kHz","875kHz","900kHz","925kHz","975kHz","1000kHz","1025kHz","1050kHz","1075kHz","1100kHz","1125kHz","1150kHz","1175kHz","1200kHz"};
   //  const char* trig_rate1[8]={"600kHz","750kHz","800kHz","850kHz","950kHz","1025kHz","1125kHz","1175kHz",};
   char *outfile = new char[10000];
@@ -399,7 +402,7 @@ void v1plotGraphs_overlay(int flag)
 	    int energy=-1;
 	    sprintf(full_path,"%s/Overlaygr_%s_%s",full_path1,ip_data[ig],gr_name[i_cut].c_str());	      
 	    //    	      sprintf(tag,"%s %s %s",geo[ig],ip_data[id],filetag[ibx]);
-	    generate_1Dplot(hist_list,full_path,energy,leg_head,false,true,false,true,xlabel[i_cut].c_str(),ylabel[i_cut].c_str(),ip_data[ig],leg_text_v1);	  
+	    generate_1Dplot(hist_list,full_path,energy,leg_head,false,true,false,true,xlabel[i_cut].c_str(),ylabel[i_cut].c_str(),ip_data1[ig],leg_text_v1);	  
 	}
     }
     	

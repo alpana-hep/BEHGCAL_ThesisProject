@@ -50,7 +50,7 @@ void setLastBinAsOverFlow(TH1F* h_hist){
 
 }
 
-void generate_1Dplot(vector<TH1F*> hist, char const *tag_name="", int energy=-1, char const *leg_head="",
+void generate_1Dplot(vector<TH1F*> hist, vector<string> leg_head={""},char const *tag_name="", int energy=-1,
 		     bool normalize=false, bool log_flag=true, bool DoRebin=false, bool save_canvas=true, char const *title=""){  
   
 
@@ -71,14 +71,14 @@ void generate_1Dplot(vector<TH1F*> hist, char const *tag_name="", int energy=-1,
 
  //gStyle->SetOptFit(0);
   vector<TString> legName;
-  //TLegend *legend = new TLegend(0.65,0.95,0.99,0.75);
-  std::string leg_head_str = leg_head;
+   //TLegend *legend = new TLegend(0.65,0.95,0.99,0.75);
+  //  std::string leg_head_str = leg_head;
   double x = 0.15;
   double y = 0.90;
   TLegend *legend;
   //legend = new TLegend(0.60,0.88,0.98,0.72);  
   //    legend = new TLegend(0.75,0.75,0.95,0.95);  
-    legend = new TLegend(0.55,0.78,0.97,0.97);
+  legend = new TLegend(0.55,0.78,0.97,0.97);
  
   legend->SetTextSize(0.028); 
   gStyle->SetLegendTextSize(0.028);
@@ -123,7 +123,7 @@ void generate_1Dplot(vector<TH1F*> hist, char const *tag_name="", int energy=-1,
     }
     /* hist.at(i)->GetXaxis()->SetRangeUser(x_min[energy],x_max[energy]); */
     legName.push_back(hist.at(i)->GetName());
-    leg_entry[i] = legend->AddEntry(hist.at(i),legend_text[i],"l");
+    leg_entry[i] = legend->AddEntry(hist.at(i),leg_head.at(i).c_str(),"l");
     leg_entry[i]->SetTextColor(hist.at(i)->GetLineColor());
     sprintf(text_name,"%.03f %0.1f",hist.at(i)->GetMean(),hist.at(i)->GetRMS());
     leg_entry[i+(int)hist.size()] = legend->AddEntry(hist.at(i),text_name,"");
@@ -175,14 +175,14 @@ void generate_1Dplot(vector<TH1F*> hist, char const *tag_name="", int energy=-1,
   //textOnTop->DrawLatexNDC(0.7,0.96,en_lat);
 
  
-
+  cout<<save_canvas<<endl;
   gPad->Modified();
   char* canvas_name = new char[1000];
   if(save_canvas) {
-    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/LayerWiseSystemTesting_23April_2023/Layer34/AddingSameValue/Add_10/%s.png",tag_name);
-    //c->SaveAs(canvas_name);
-    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/LayerWiseSystemTesting_23April_2023/Layer34/AddingSameValue/Add_10/%s.pdf",tag_name);
-    //c->SaveAs(canvas_name);
+    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/July2023_EmulStudies_w1MBX/%s.png",tag_name);
+    c->SaveAs(canvas_name);
+    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/July2023_EmulStudies_w1MBX/%s.pdf",tag_name);
+    c->SaveAs(canvas_name);
 
   }
   
@@ -226,8 +226,9 @@ void overlayPlots_v1(int study,string outfile,int layer)
   char* full_path10 = new char[2000];
   char* full_path11= new char[2000];
   char *leg_head = new char[200];
-  sprintf(full_path10,"Out_ImpactOfScaling_%s_23April2023.root",outfile.c_str());
-  TFile* fout = new TFile(full_path10,"RECREATE");
+  // sprintf(full_path10,"Out_ImpactOfScaling_%s_23April2023.root",outfile.c_str());
+  // TFile* fout = new TFile(full_path10,"RECREATE");
+  vector<string> leg_text_v1;
   vector<string>xlabel;
   vector<string>ylabel;
   vector<double>xValues;
@@ -240,56 +241,63 @@ void overlayPlots_v1(int study,string outfile,int layer)
     ylabel={"N-Econds with truncation>0","N-Econds with max buffer>1000","NEvents with dropped packets>0","frac-Events with dropped packets>50","frac-Events with dropped packets>100","frac-Events with dropped packets>200"};//,"Econds with truncation>0","Econds with max buffer>2000"};
     //xValues={0,0.11,0.12,0.13,0.14,0.15,0.16,0.17,0.18,0.2};
     xValues={1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,12};
+    //    leg_text_v1 = {"nHits*=(#bf{1})","nHits*=(#bf{1.1})","nHits*=(#bf{1.2})","nHits*=(#bf{1.3})","nHits*=(#bf{1.3})","nHits*=(#bf{1.4})","nHits*=(#bf{1.5})","nHits*=(#bf{1.6})","nHits*=(#bf{1.7})","nHits*=(#bf{1.8})","nHits*=(#bf{2.0})"};
+    leg_text_v1 = {"nHits*=(#bf{1})","nHits*=(#bf{1.4})","nHits*=(#bf{1.6})","nHits*=(#bf{1.8})","nHits*=(#bf{2.0})"};
     gr_name ={"NecondWNZtrunca_vsScaling","NecondWmaxBuffer_1000_vsScaling","fracEventswithNZDroppedPackets_vsScaling","fracEventswith50DroppedPackets_vsScaling","fracEventswith100DroppedPackets_vsScaling","fracEventswith200DroppedPackets_vsScaling","EcondAsic_FractionTruncatedLuv","EcondAsic_MaxBufferLuv"};
-  f[0] = new TFile("/eos/user/k/kalpana/Out_EmuLatorRuns_April2023/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig.root");
-  f[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_1100.root");
-    f[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_1200.root");
-    f[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_1300.root");
-    f[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_1400.root");
-    f[5] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_1500.root");
-    f[6] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_1600.root");
-    f[7] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_1700.root");
-    f[8] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_1800.root");
-    f[9] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_2000.root");
+    sprintf(full_path1,"Scaling_HitsWise/OverlayPlots/AllHits");
+
+    f[0] = new TFile("/eos/user/k/kalpana/Out_EmuLatorRuns_April2023/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig.root");
+    // f[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_11per_case_4.root");
+    // f[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_12per_case_4.root");
+    // f[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_13per_case_4.root");
+    f[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_14per_case_4.root");
+    // f[5] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_15per_case_4.root");
+    f[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_16per_case_4.root");
+    // f[7] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_17per_case_4.root");
+    f[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_18per_case_4.root");
+    f[4] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_20per_case_4.root");
     
     f1[0] = new TFile("/eos/user/k/kalpana/Out_EmuLatorRuns_April2023/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig.root");
-    f1[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_1100.root");
-    f1[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_1200.root");
-    f1[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_1300.root");
-    f1[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_1400.root");
-    f1[5] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_1500.root");
-    f1[6] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_1600.root");
-    f1[7] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_1700.root");
-    f1[8] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_1800.root");
-    f1[9] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_2000.root");
+    // f1[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_11per_case_4.root");
+    // f1[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_12per_case_4.root");
+    // f1[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_13per_case_4.root");
+    f1[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_14per_case_4.root");
+    // f1[5] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_15per_case_4.root");
+    f1[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_16per_case_4.root");
+    // f1[7] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_17per_case_4.root");
+    f1[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_18per_case_4.root");
+    f1[4] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_20per_case_4.root");
   }
   if(study==11){
     n=10;
     xlabel ={"Scale factor","Scale factor","Scale factor","Scale factor","Scale factor","Scale factor"};
-    ylabel={"N-Econds with truncation>0","N-Econds with max buffer>1000","NEvents with dropped packets>0","frac-Events with dropped packets>50","frac-Events with dropped packets>100","frac-Events with dropped packets>200"};                                                                                                                                       
+    ylabel={"N-Econds with truncation>0","N-Econds with max buffer>1000","NEvents with dropped packets>0","frac-Events with dropped packets>50","frac-Events with dropped packets>100","frac-Events with dropped packets>200"};                                                
+   sprintf(full_path1,"Scaling_HitsWise/OverlayPlots/n10");
+   leg_text_v1 = {"n10*=(#bf{1})","n10*=(#bf{1.4})","n10*=(#bf{1.6})","n10*=(#bf{1.7})","n10*=(#bf{1.8})"};
+
     xValues={1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,2};
     gr_name ={"NecondWNZtrunca_vsScaling","NecondWmaxBuffer_1000_vsScaling","fracEventswithNZDroppedPackets_vsScaling","fracEventswith50DroppedPackets_vsScaling","fracEventswith100DroppedPackets_vsScaling","fracEventswith200DroppedPackets_vsScaling","EcondAsic_FractionTruncatedLuv","EcondAsic_MaxBufferLuv"};
     f[0] = new TFile("/eos/user/k/kalpana/Out_EmuLatorRuns_April2023/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig.root");
-    f[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_11_case_1.root");
-    f[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_12_case_1.root");
-    f[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_13_case_1.root");
-    f[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_14_case_1.root");
-    f[5] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_15_case_1.root");
-    f[6] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_16_case_1.root");
-    f[7] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_17_case_1.root");
-    f[8] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_18_case_1.root");
-    f[9] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_20_case_1.root");
+    // f[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_11per_case_1.root");
+    // f[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_12per_case_1.root");
+    // f[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_13per_case_1.root");
+    f[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_14per_case_1.root");
+    // f[5] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_15per_case_1.root");
+    f[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_16per_case_1.root");
+    f[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_17per_case_1.root");
+    f[4] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_18per_case_1.root");
+    // f[9] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_20per_case_1.root");
 
     f1[0] = new TFile("/eos/user/k/kalpana/Out_EmuLatorRuns_April2023/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig.root");
-    f1[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_11_case_1.root");
-    f1[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_12_case_1.root");
-    f1[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_13_case_1.root");
-    f1[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_14_case_1.root");
-    f1[5] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_15_case_1.root");
-    f1[6] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_16_case_1.root");
-    f1[7] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_17_case_1.root");
-    f1[8] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_18_case_1.root");
-    f1[9] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_20_case_1.root");
+    // f1[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_11per_case_1.root");
+    // f1[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_12per_case_1.root");
+    // f1[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_13per_case_1.root");
+    f1[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_14per_case_1.root");
+    // f1[5] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_15per_case_1.root");
+    f1[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_16per_case_1.root");
+    f1[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_17per_case_1.root");
+    f1[4] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_18per_case_1.root");
+    // f1[9] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_20per_case_1.root");
   }
 
   if(study==12){
@@ -297,28 +305,31 @@ void overlayPlots_v1(int study,string outfile,int layer)
     xlabel ={"Scale factor","Scale factor","Scale factor","Scale factor","Scale factor","Scale factor"};
     ylabel={"N-Econds with truncation>0","N-Econds with max buffer>1000","NEvents with dropped packets>0","frac-Events with dropped packets>50","frac-Events with dropped packets>100","frac-Events with dropped packets>200"};
     xValues={1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,2};
+    sprintf(full_path1,"Scaling_HitsWise/OverlayPlots/n20");
+    leg_text_v1 = {"n20*=(#bf{1})","n20*=(#bf{1.4})","n20*=(#bf{1.6})","n20*=(#bf{1.8})","n20*=(#bf{2.0})"};
+
     gr_name ={"NecondWNZtrunca_vsScaling","NecondWmaxBuffer_1000_vsScaling","fracEventswithNZDroppedPackets_vsScaling","fracEventswith50DroppedPackets_vsScaling","fracEventswith100DroppedPackets_vsScaling","fracEventswith200DroppedPackets_vsScaling","EcondAsic_FractionTruncatedLuv","EcondAsic_MaxBufferLuv"};
     f[0] = new TFile("/eos/user/k/kalpana/Out_EmuLatorRuns_April2023/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig.root");
-    f[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_11_case_2.root");
-    f[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_12_case_2.root");
-    f[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_13_case_2.root");
-    f[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_14_case_2.root");
-    f[5] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_15_case_2.root");
-    f[6] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_16_case_2.root");
-    f[7] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_17_case_2.root");
-    f[8] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_18_case_2.root");
-    f[9] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_20_case_2.root");
+    // f[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_11per_case_2.root");
+    // f[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_12per_case_2.root");
+    // f[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_13per_case_2.root");
+    f[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_14per_case_2.root");
+    // f[5] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_15per_case_2.root");
+    f[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_16per_case_2.root");
+    // f[7] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_17per_case_2.root");
+    f[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_18per_case_2.root");
+    f[4] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_20per_case_2.root");
 
     f1[0] = new TFile("/eos/user/k/kalpana/Out_EmuLatorRuns_April2023/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig.root");
-    f1[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_11_case_2.root");
-    f1[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_12_case_2.root");
-    f1[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_13_case_2.root");
-    f1[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_14_case_2.root");
-    f1[5] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_15_case_2.root");
-    f1[6] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_16_case_2.root");
-    f1[7] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_17_case_2.root");
-    f1[8] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_18_case_2.root");
-    f1[9] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_20_case_2.root");
+    // f1[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_11per_case_2.root");
+    // f1[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_12per_case_2.root");
+    // f1[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_13per_case_2.root");
+    f1[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_14per_case_2.root");
+    // f1[5] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_15per_case_2.root");
+    f1[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_16per_case_2.root");
+    // f1[7] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_17per_case_2.root");
+    f1[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_18per_case_2.root");
+    f1[4] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_20per_case_2.root");
   }
 
   if(study==13){
@@ -326,28 +337,31 @@ void overlayPlots_v1(int study,string outfile,int layer)
     xlabel ={"Scale factor","Scale factor","Scale factor","Scale factor","Scale factor","Scale factor"};
     ylabel={"N-Econds with truncation>0","N-Econds with max buffer>1000","NEvents with dropped packets>0","frac-Events with dropped packets>50","frac-Events with dropped packets>100","frac-Events with dropped packets>200"};
     xValues={1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,12};
+    sprintf(full_path1,"Scaling_HitsWise/OverlayPlots/n30");
+    leg_text_v1 = {"n30*=(#bf{1})","n30*=(#bf{1.4})","n30*=(#bf{1.6})","n30*=(#bf{1.8})","n30*=(#bf{2.0})"};
+
     gr_name ={"NecondWNZtrunca_vsScaling","NecondWmaxBuffer_1000_vsScaling","fracEventswithNZDroppedPackets_vsScaling","fracEventswith50DroppedPackets_vsScaling","fracEventswith100DroppedPackets_vsScaling","fracEventswith200DroppedPackets_vsScaling","EcondAsic_FractionTruncatedLuv","EcondAsic_MaxBufferLuv"};
     f[0] = new TFile("/eos/user/k/kalpana/Out_EmuLatorRuns_April2023/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig.root");
-    f[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_11_case_3.root");
-    f[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_12_case_3.root");
-    f[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_13_case_3.root");
-    f[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_14_case_3.root");
-    f[5] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_15_case_3.root");
-    f[6] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_16_case_3.root");
-    f[7] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_17_case_3.root");
-    f[8] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_18_case_3.root");
-    f[9] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_20_case_3.root");
+    // f[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_11per_case_3.root");
+    // f[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_12per_case_3.root");
+    // f[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_13per_case_3.root");
+    f[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_14per_case_3.root");
+    // f[5] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_15per_case_3.root");
+    f[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_16per_case_3.root");
+    // f[7] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_17per_case_3.root");
+    f[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_18per_case_3.root");
+    f[4] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_CMSSW_1MBX_defaultConfig_hitScale_Multi_20per_case_3.root");
 
     f1[0] = new TFile("/eos/user/k/kalpana/Out_EmuLatorRuns_April2023/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig.root");
-    f1[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_11_case_3.root");
-    f1[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_12_case_3.root");
-    f1[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_13_case_3.root");
-    f1[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_14_case_3.root");
-    f1[5] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_15_case_3.root");
-    f1[6] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_16_case_3.root");
-    f1[7] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_17_case_3.root");
-    f1[8] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_18_case_3.root");
-    f1[9] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_20_case_3.root");
+    // f1[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_11per_case_3.root");
+    // f1[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_12per_case_3.root");
+    // f1[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_13per_case_3.root");
+    f1[1] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_14per_case_3.root");
+    // f1[5] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_15per_case_3.root");
+    f1[2] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_16per_case_3.root");
+    // f1[7] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_17per_case_3.root");
+    f1[3] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_18per_case_3.root");
+    f1[4] = new TFile("/afs/cern.ch/user/k/kalpana/work/public/HGCAL_TDAQ/HGCAL_Buffer_Model/CMSSW_11_1_0_pre3/src/emulator_studies/Out_EmulatorRuns/July2023/Out_emuRuns_D86_Correlate_Psuedo_1MBX_defaultConfig_hitScale_Multi_20per_case_3.root");
   }
 
 
@@ -702,105 +716,154 @@ ng","fracEventswith200DroppedPackets_vsScaling","EcondAsic_FractionTruncatedLuv"
     f1[10] = new TFile("/eos/user/k/kalpana/Out_EmuLatorRuns_April2023/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_AddToEcondD_Layer_36_10per_case_4.root");
   }
 
-  const char* baseline[5]={"EcondAsic_FractionTruncated","EcondAsic_MaxBuffer","DroppedPackets","EcondAsic_MaxBufferLuv","EcondAsic_FractionTruncatedLuv",};//{"EcondAsic_AveragePacketWords","EcondAsic_AveragePacketBits","EcondAsic_LinkPacketOccupancy","EcondAsic_MaxBuffer","EcondAsic_FractionEmptyBuffer","EcondAsic_FractionLowBuffer","EcondAsic_FractionMediumBuffer","EcondAsic_FractionHighBuffer","EcondAsic_FractionTruncated","EventSize","DroppedPackets","EcondAsic_AverageN10Hits","EcondAsic_AverageN20Hits","EcondAsic_AverageN30Hits","EcondAsic_AverageTotalHits"};
+  const char* baseline[15]={"EcondAsic_AveragePacketWords","EcondAsic_AveragePacketBits","EcondAsic_LinkPacketOccupancy","EcondAsic_MaxBuffer","EcondAsic_FractionEmptyBuffer","EcondAsic_FractionLowBuffer","EcondAsic_FractionMediumBuffer","EcondAsic_FractionHighBuffer","EcondAsic_FractionTruncated","EventSize","DroppedPackets","EcondAsic_AverageN10Hits","EcondAsic_AverageN20Hits","EcondAsic_AverageN30Hits","EcondAsic_AverageTotalHits"};
   const char* data_type[3]={"CMSSW (Scale-Layer-34)","Correlate_Pseudo(Scale-Layer-34)","Uncorrelate_Pseudo    mean stddev"};//
-  const char* filetag[5]={"n10+=0.1*nCells","n20+=0.1*nCells","n30+=0.1*nCells","Scale-Off","Scale-Off"};//"Scale-1000","Scale-1100","Scale-1200","Scale-2000"};//{"10kBX","100kBX","400kBX","1000kBX","1500kBX"};//{"10kBX","50kBX","100kBX","200kBX","400kBX","600kBX","800kBX","1000kBX","1500kBX"};
+  //  const char* filetag[5]={"n10+=0.1*nCells","n20+=0.1*nCells","n30+=0.1*nCells","Scale-Off","Scale-Off"};
   const char* geo[2]={"D49","D86"};
   const char* ip_data[3]={"CMSSW","Correlate_Psuedo","UnCorrelate_Pseudo"};
     char* name = new char[2000];
     char* xtitle = new char[200];
     char* ytitle = new char[200];
+    
+    for(int i_file=0; i_file<15;i_file++)
+      {
+	//      vector<TH1F*> hist_list;
+	for(int ig=0;ig<2;ig++)
+	  {
+	    vector<TH1F*> hist_list;
+	    vector<string> filetags;
+	    for(int i_cut=0; i_cut<5;i_cut++)
+	      {
+		sprintf(hist_name,"%s",baseline[i_file]);
+		TH1F* resp = (TH1F*)f[i_cut]->Get(hist_name);
+		TH1F* resp1 = (TH1F*)f[0]->Get(hist_name);
+		if(ig==0)
+		  {  resp = (TH1F*)f[i_cut]->Get(hist_name);
+		    resp1 = (TH1F*)f[0]->Get(hist_name);
+		  }
+		else if (ig==1)
+		  {
+		    resp = (TH1F*)f1[i_cut]->Get(hist_name);
+		    resp1 = (TH1F*)f1[0]->Get(hist_name);
+		  }
+		else if(ig==2)
+		  {
+		    resp = (TH1F*)f[i_cut]->Get(hist_name);
+		    resp1 = (TH1F*)f[0]->Get(hist_name);
+		  }
+		// TH1F* resp2 = (TH1F*)f2[i_file]->Get(hist_name);
+		// if(normalized)
+		//   {
+		//cout<<"scale factor"<<"\t"<<scale<<"\t"<<(factor/resp->Integral())<<endl;
+		//mcHisto ->Scale(dataHisto ->Integral ()/ mcHisto ->Integral ());
+		//resp1->Scale(resp1->Integral()/resp->Integral());//Maximum());
+		resp->Scale(double(resp1->Integral()/resp->Integral()));
+		//resp2->Scale(resp2->Integral()/resp->Integral());//factor/resp2->GetMaximum());
+		//h1F->Scale(factor/factor/h1F->Integral());
+		//            }
+		// cout<<"after"<<endl;
+		// resp->Print("all");
+		cout<<double(resp->Integral())<<endl;
+		hist_list.push_back(resp);
+		filetags.push_back(leg_text_v1[i_cut]);
+	      }
+	    int energy=-1;
+	    sprintf(full_path,"%s/Allin1_%sD86_%s",full_path1,ip_data[ig],baseline[i_file]);//,filetag[i_cut]);
+	    generate_1Dplot(hist_list,filetags,full_path,energy,false,true,false,true,data_type[ig]);
+          }
+      }
+    
 
-  // for(int i_file=0; i_file<2;i_file++)
-  //   {
-      for(int ig=0;ig<2;ig++)
-	{
-	  vector<TGraph*> graph;
-	  for(int ij=0;ij<xlabel.size();ij++){
-	    TGraph* gr= new TGraph();
-	    sprintf(name,"%s_%s_scaling",gr_name[ij].c_str(),ip_data[ig]);
-	    gr->SetName(name);
-	    sprintf(xtitle,"%s",xlabel[ij].c_str());
-	    sprintf(ytitle,"%s",ylabel[ij].c_str());
-	    gr->GetXaxis()->SetTitle(xtitle);
-	    gr->GetYaxis()->SetTitle(ytitle);
-	    graph.push_back(gr);
-	  }
-	  vector<TH1F*> hist_list;
-	  for(int i_file=0;i_file<3;i_file++){
-	    //	    cout<<i_file<<endl;
-	  for(int i_cut=0; i_cut<n;i_cut++)
-	    {
-	      sprintf(hist_name,"%s",baseline[i_file]);
-	      TH1F* resp = (TH1F*)f[i_cut]->Get(hist_name);
-	      //TH1F* resp1 = (TH1F*)f[0]->Get(hist_name);
-	      if(ig==0)
-		resp = (TH1F*)f[i_cut]->Get(hist_name);
-	      else if (ig==1)	     
-		  resp = (TH1F*)f1[i_cut]->Get(hist_name);
+  // // for(int i_file=0; i_file<2;i_file++)
+  // //   {
+  //     for(int ig=0;ig<2;ig++)
+  // 	{
+  // 	  vector<TGraph*> graph;
+  // 	  for(int ij=0;ij<xlabel.size();ij++){
+  // 	    TGraph* gr= new TGraph();
+  // 	    sprintf(name,"%s_%s_scaling",gr_name[ij].c_str(),ip_data[ig]);
+  // 	    gr->SetName(name);
+  // 	    sprintf(xtitle,"%s",xlabel[ij].c_str());
+  // 	    sprintf(ytitle,"%s",ylabel[ij].c_str());
+  // 	    gr->GetXaxis()->SetTitle(xtitle);
+  // 	    gr->GetYaxis()->SetTitle(ytitle);
+  // 	    graph.push_back(gr);
+  // 	  }
+  // 	  vector<TH1F*> hist_list;
+  // 	  for(int i_file=0;i_file<3;i_file++){
+  // 	    //	    cout<<i_file<<endl;
+  // 	  for(int i_cut=0; i_cut<n;i_cut++)
+  // 	    {
+  // 	      sprintf(hist_name,"%s",baseline[i_file]);
+  // 	      TH1F* resp = (TH1F*)f[i_cut]->Get(hist_name);
+  // 	      //TH1F* resp1 = (TH1F*)f[0]->Get(hist_name);
+  // 	      if(ig==0)
+  // 		resp = (TH1F*)f[i_cut]->Get(hist_name);
+  // 	      else if (ig==1)	     
+  // 		  resp = (TH1F*)f1[i_cut]->Get(hist_name);
 	      
-	      int NEconds=0,events=0, Nevents_50=0,Nevents_100=0,Nevents_200=0;
-	      for(int ibin=0;ibin<resp->GetNbinsX();ibin++)
-		{
-		  if(i_file==0 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>0.000005)
-		    {//		    { cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
-		      NEconds+=resp->GetBinContent(ibin);
-		    }
-		  if(i_file==1 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>1000)
-		    {
-		      NEconds+=resp->GetBinContent(ibin);  
-		      //cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
-		    }
-		  if(i_file==2 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>10)
-		    {
-		      events+=resp->GetBinContent(ibin);
-		      //cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
-		    }
-		  if(i_file==2 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>50)
-                    {
-		      Nevents_50+=resp->GetBinContent(ibin);
-		      cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
-                    }
-		  if(i_file==2 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>100)
-                    {
-                      Nevents_100+=resp->GetBinContent(ibin);
-                      cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
-                    }
+  // 	      int NEconds=0,events=0, Nevents_50=0,Nevents_100=0,Nevents_200=0;
+  // 	      for(int ibin=0;ibin<resp->GetNbinsX();ibin++)
+  // 		{
+  // 		  if(i_file==0 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>0.000005)
+  // 		    {//		    { cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
+  // 		      NEconds+=resp->GetBinContent(ibin);
+  // 		    }
+  // 		  if(i_file==1 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>1000)
+  // 		    {
+  // 		      NEconds+=resp->GetBinContent(ibin);  
+  // 		      //cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
+  // 		    }
+  // 		  if(i_file==2 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>10)
+  // 		    {
+  // 		      events+=resp->GetBinContent(ibin);
+  // 		      //cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
+  // 		    }
+  // 		  if(i_file==2 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>50)
+  //                   {
+  // 		      Nevents_50+=resp->GetBinContent(ibin);
+  // 		      cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
+  //                   }
+  // 		  if(i_file==2 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>100)
+  //                   {
+  //                     Nevents_100+=resp->GetBinContent(ibin);
+  //                     cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
+  //                   }
 
-		  if(i_file==2 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>200)
-                    {
-                      Nevents_200+=resp->GetBinContent(ibin);
-                      cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
-                    }
+  // 		  if(i_file==2 && resp->GetBinContent(ibin)>0 && resp->GetXaxis()->GetBinCenter(ibin)>200)
+  //                   {
+  //                     Nevents_200+=resp->GetBinContent(ibin);
+  //                     cout<<resp->GetBinContent(ibin)<<"\t temp \t"<<ibin<<"\t"<<resp->GetXaxis()->GetBinCenter(ibin)<<endl;
+  //                   }
 
-		}
-	      if(i_file==0)
-		graph[0]->SetPoint(i_cut,xValues[i_cut],NEconds);
-	      if(i_file==1)
-		graph[1]->SetPoint(i_cut,xValues[i_cut],NEconds); 
-	      if(i_file==2)
-		{
-		double frac = events/resp->GetEntries();
-		graph[2]->SetPoint(i_cut,xValues[i_cut],frac);
-		frac = Nevents_50/resp->GetEntries();
-		graph[3]->SetPoint(i_cut,xValues[i_cut],frac);
-		frac = Nevents_100/resp->GetEntries();
-		graph[4]->SetPoint(i_cut,xValues[i_cut],frac);
-		frac = Nevents_200/resp->GetEntries();
-		graph[5]->SetPoint(i_cut,xValues[i_cut],frac);
-		//}
+  // 		}
+  // 	      if(i_file==0)
+  // 		graph[0]->SetPoint(i_cut,xValues[i_cut],NEconds);
+  // 	      if(i_file==1)
+  // 		graph[1]->SetPoint(i_cut,xValues[i_cut],NEconds); 
+  // 	      if(i_file==2)
+  // 		{
+  // 		double frac = events/resp->GetEntries();
+  // 		graph[2]->SetPoint(i_cut,xValues[i_cut],frac);
+  // 		frac = Nevents_50/resp->GetEntries();
+  // 		graph[3]->SetPoint(i_cut,xValues[i_cut],frac);
+  // 		frac = Nevents_100/resp->GetEntries();
+  // 		graph[4]->SetPoint(i_cut,xValues[i_cut],frac);
+  // 		frac = Nevents_200/resp->GetEntries();
+  // 		graph[5]->SetPoint(i_cut,xValues[i_cut],frac);
+  // 		//}
 		
-		//		cout<<xValues[i_cut]<<"\t"<<frac<<"\t"<<Nevents_20<<"\t"<<resp->GetEntries()<<endl;}
-	    }
-	  }
+  // 		//		cout<<xValues[i_cut]<<"\t"<<frac<<"\t"<<Nevents_20<<"\t"<<resp->GetEntries()<<endl;}
+  // 	    }
+  // 	  }
 	
-	  fout->cd();
-	  graph[0]->Write();
-	  graph[1]->Write();
-	  graph[2]->Write();
-	  graph[3]->Write();
-          graph[4]->Write();
-          graph[5]->Write();
+  // 	  fout->cd();
+  // 	  graph[0]->Write();
+  // 	  graph[1]->Write();
+  // 	  graph[2]->Write();
+  // 	  graph[3]->Write();
+  //         graph[4]->Write();
+  //         graph[5]->Write();
 
 		  //Nevents++;
 		    //		  else if (i_cut==1 && resp->GetBinContent(ibin)>2000
@@ -814,7 +877,7 @@ ng","fracEventswith200DroppedPackets_vsScaling","EcondAsic_FractionTruncatedLuv"
 	    // int energy=-1;
 	  // sprintf(full_path,"Allin1_%sD86_%s",ip_data[ig],baseline[i_file]);//,filetag[i_cut]);
 	  //  generate_1Dplot(hist_list,full_path,energy,leg_head,false,true,false,true,data_type[ig]);
-    }
+		//}
           
 
 }
