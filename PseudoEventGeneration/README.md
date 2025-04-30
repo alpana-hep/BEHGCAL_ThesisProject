@@ -101,3 +101,14 @@ cd plottingScripts/
 ```
 
 
+* Additionally some intial correlation studies were done and corresponding scripts can be found here
+```
+cmsrel CMSSW_11_1_0_pre3
+cd CMSSW_11_1_0_pre3/src
+cmsenv
+git clone -b correlation_studies https://gitlab.cern.ch/kalpana/HGCalBufferModel.git .
+make
+cd scripts
+```
+
+Under scripts directory , several scripts are there using which different correlations were calculated

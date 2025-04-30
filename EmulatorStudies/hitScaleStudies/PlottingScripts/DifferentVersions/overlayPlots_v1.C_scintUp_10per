@@ -1,0 +1,413 @@
+const int n_pl = 4;
+bool logx = false;
+TString pls[n_pl] = {"FTFP_BERT_EMN","QGSP_FTFP_BERT_EMN","FTFP_BERT_EMM","QGSP_BERT"};
+TString dRs[9] = {"dR < 0.56cm","dR < 1.0cm","dR < 2.0cm","dR < 3.0cm","dR < 5.0cm","dR < 8.0cm","dR < 12.0cm","dR < 18.0cm","dR < 20.0cm"};
+//TString legend_text[11] = {"No cuts","skimmed","lep-veto","isotrk-veto","Pho-Pt>20","Njets>=2","Dphi-cut","MET>100","MET>250","ST>300","Pho-pt>100"};
+//TString legend_text[4] = {"SR","CR","pMSSM_MCMC_106_19786","pMSSM_MCMC_473_54451"};//{"No cuts","skimmed","lep-veto","isotrk-veto","Dphi-cut","MET>250","ST>300","Pho-pt>100"}; 
+//const char* baseline[9]={"EcondAsic_AveragePacketWords","EcondAsic_AveragePacketBits","EcondAsic_LinkPacketOccupancy","EcondAsic_MaxBuf \fer","EcondAsic_FractionEmptyBuffer","EcondAsic_FractionLowBuffer","EcondAsic_FractionMediumBuffer","EcondAsic_FractionHighBuffer","Econd\Asic_FractionTruncated"};
+const char* legend_text[5]={"n10+=0.1*nCells","n20+=0.1*nCells","n30+=0.1*nCells","nhits+=0.1*nCells","Scale-Off"};//{"10kBX","50kBX","100kBX","200kBX","400kBX","600kBX","800kBX","1000kBX","1500kBX"};
+TString legend_text1[3]={"CMSSW(110k)","Correlated pseudo(1M)","Uncorrelated pseudo(1M)"};//,"200kBX","400kBX","600kBX","800kBX","1000kBX","1500kBX"};
+TString legend_text2[2]={"Geometry D86","Geometry D49"};
+int line_width[12] = {3,3,3,3,3,2,2,2,2,2,2,2};
+int line_style[12] = {1,1,1,3,5,1,1,1,1,1,1,1};
+// /int line_color[n_pl+1] = {kBlack, kRed, kGreen+2, kBlue, kRed};
+int line_color[9] = {kViolet+2, kRed+2, kGreen+2,kCyan+1,kGray+2,kRed, kBlue + 2 , kCyan + 1 , kGreen + 3 };
+//int line_color[11] = {kPink+1, kRed, kBlue,kGray+1 , kGreen+2, kMagenta, kYellow + 2 , kCyan+3,  kBlue + 2 ,kRed+2,kGreen + 3 };
+void setLastBinAsOverFlow(TH1F*);
+std::map<int,int> rebin_;
+std::map<int,float> x_max;
+std::map<int,float> x_min;
+void rebin_init_layer_pi(){
+  rebin_.insert(pair<int, int>(20,2));
+  rebin_.insert(pair<int, int>(50,2));
+  rebin_.insert(pair<int, int>(100,2));
+  rebin_.insert(pair<int, int>(200,4));
+    
+  x_max.insert(pair<int, int>(20,2500.0));
+  x_max.insert(pair<int, int>(50,6000.0));
+  x_max.insert(pair<int, int>(100,12000.0));
+  x_max.insert(pair<int, int>(200,22000.0));
+  
+  x_min.insert(pair<int, int>(20,0.0));
+  x_min.insert(pair<int, int>(50,0.0));
+  x_min.insert(pair<int, int>(100,0.0));
+  x_min.insert(pair<int, int>(200,0.0));
+  x_min.insert(pair<int, int>(300,0.0));
+  
+}
+void setLastBinAsOverFlow(TH1F* h_hist){
+  double lastBinCt =h_hist->GetBinContent(h_hist->GetNbinsX()),overflCt =h_hist->GetBinContent(h_hist->GetNbinsX()+1);
+  double lastBinErr=h_hist->GetBinError(h_hist->GetNbinsX()),  overflErr=h_hist->GetBinError(h_hist->GetNbinsX()+1);
+  if(lastBinCt!=0 && overflCt!=0)
+    lastBinErr = (lastBinCt+overflCt)* (sqrt( ((lastBinErr/lastBinCt)*(lastBinErr/lastBinCt)) + ((overflErr/overflCt)*(overflErr/overflCt)) ) );
+
+  else if(lastBinCt==0 && overflCt!=0)
+    lastBinErr = overflErr;
+  else if(lastBinCt!=0 && overflCt==0)
+    lastBinErr = lastBinErr;
+  else lastBinErr=0;
+
+  lastBinCt = lastBinCt+overflCt;
+  h_hist->SetBinContent(h_hist->GetNbinsX(),lastBinCt);
+  h_hist->SetBinError(h_hist->GetNbinsX(),lastBinErr);
+
+}
+
+void generate_1Dplot(vector<TH1F*> hist, char const *tag_name="", int energy=-1, char const *leg_head="",
+		     bool normalize=false, bool log_flag=true, bool DoRebin=false, bool save_canvas=true, char const *title=""){  
+  
+
+  TCanvas *c = new TCanvas(tag_name, tag_name, 900, 750);
+  c->SetRightMargin(0.025);
+  c->SetLeftMargin(0.14);
+  c->SetTopMargin(0.02);
+  c->SetBottomMargin(0.12);
+  gStyle->SetOptStat(1111111);
+  //   gStyle->SetOptStat(0);
+  //double pvt_x_min = 0.6;
+  double pvt_x_min = 0.75;
+  double pvt_x_max = 0.99;
+  double pvt_y_min = 0.9;
+  //double pvt_dely = 0.18;
+  double pvt_dely = 0.15;
+  gStyle->SetOptStat(0);
+
+ //gStyle->SetOptFit(0);
+  vector<TString> legName;
+  //TLegend *legend = new TLegend(0.65,0.95,0.99,0.75);
+  std::string leg_head_str = leg_head;
+  double x = 0.15;
+  double y = 0.90;
+  TLegend *legend;
+  //legend = new TLegend(0.60,0.88,0.98,0.72);  
+  //    legend = new TLegend(0.75,0.75,0.95,0.95);  
+    legend = new TLegend(0.53,0.75,0.97,0.96);
+ 
+  legend->SetTextSize(0.03); 
+  gStyle->SetLegendTextSize(0.03);
+  legend->SetLineColor(kWhite);
+  char* lhead = new char[100];
+
+  sprintf(lhead,"#bf{%s} ",title);//legend_text[0]);//, tag[i]);                                                                         
+  legend->SetNColumns(2);
+    legend->SetHeader(lhead);
+    char* text_name = new char[10000];
+  TLegendEntry* leg_entry[11];
+  float x_label_size = 0.025;
+  double ymin = 100000.0;
+  double ymax = 0.0;
+  cout<<" hist.size() = "<<hist.size()<<endl;
+
+
+  for(int i = 0; i < (int)hist.size(); i++) {
+  	
+        normalize = true;
+    if(normalize) {
+      //hist.at(i)->Scale(1.0/hist.at(i)->Integral());
+      //hist.at(i)->GetYaxis()->SetTitle("Normalized");
+    }
+    else {
+      hist.at(i)->GetYaxis()->SetTitle("Entries");
+    }
+    
+    hist.at(i)->SetLineWidth(line_width[i]);
+    
+    hist.at(i)->SetLineStyle(line_style[i]);
+    hist.at(i)->SetLineColor(line_color[i]);
+    hist.at(i)->SetTitle(" ");
+    
+    hist.at(i)->GetXaxis()->SetTitleSize(0.04);
+    hist.at(i)->GetXaxis()->SetLabelSize(x_label_size);
+    hist.at(i)->GetXaxis()->SetLabelSize(0.030);
+    hist.at(i)->GetYaxis()->SetLabelSize(0.030);
+    hist.at(i)->GetYaxis()->SetTitleOffset(1.45);
+    if(DoRebin) {
+     hist.at(i)->Rebin(4);
+    }
+    /* hist.at(i)->GetXaxis()->SetRangeUser(x_min[energy],x_max[energy]); */
+    legName.push_back(hist.at(i)->GetName());
+    leg_entry[i] = legend->AddEntry(hist.at(i),legend_text[i],"l");
+    leg_entry[i]->SetTextColor(hist.at(i)->GetLineColor());
+    sprintf(text_name,"%.03f %0.1f",hist.at(i)->GetMean(),hist.at(i)->GetRMS());
+    leg_entry[i+(int)hist.size()] = legend->AddEntry(hist.at(i),text_name,"");
+    leg_entry[i+(int)hist.size()]->SetTextColor(hist.at(i)->GetLineColor());
+
+    if(hist.at(i)->GetMaximum() > ymax) ymax = hist.at(i)->GetMaximum();
+    if(hist.at(i)->GetMinimum() < ymin) ymin = hist.at(i)->GetMinimum();
+    setLastBinAsOverFlow(hist.at(i));
+    
+    
+
+  }
+  if(ymin == 0.0) ymin = 1e-1;
+  if(ymin<0.0) ymin = 1e-2;
+  for(int i = 0; i < (int)hist.size(); i++) {
+    if(!normalize) hist.at(i)->GetYaxis()->SetRangeUser(ymin,ymax*10);
+    else
+      {  hist.at(i)->GetYaxis()->SetRangeUser(ymin,ymax*10.0);
+	//	hist.at(i)->GetXaxis()->SetRangeUser(0,xmax_[i]);
+	
+      }
+  	if(!i) hist.at(i)->Draw("hist");
+    else   hist.at(i)->Draw("hist sames");
+
+  }
+  
+    legend->Draw();
+
+
+
+  if(log_flag) {
+      gPad->SetLogy();
+    }
+  if(logx)
+    gPad->SetLogx();
+
+  
+  gPad->Update();
+
+ 
+  TLatex* textOnTop = new TLatex();
+  textOnTop->SetTextSize(0.035);
+  //  textOnTop->DrawLatexNDC(0.12,0.96,"CMS #it{#bf{Preliminary}}");
+  
+  char* en_lat = new char[500];
+  textOnTop->SetTextSize(0.035);
+  int inlumi=137;
+  // sprintf(en_lat,"#bf{%0.1d fb^{-1} (13 TeV)}",inlumi);
+  //textOnTop->DrawLatexNDC(0.7,0.96,en_lat);
+
+ 
+
+  gPad->Modified();
+  char* canvas_name = new char[1000];
+  if(save_canvas) {
+    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/01Feb2023_EMuStudies_ScalingHits/HitAdditive_DiffNumbers/SclaingUp_onlyScint/%s.png",tag_name);
+    c->SaveAs(canvas_name);
+    sprintf(canvas_name,"/eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/01Feb2023_EMuStudies_ScalingHits/HitAdditive_DiffNumbers/SclaingUp_onlyScint/%s.pdf",tag_name);
+    c->SaveAs(canvas_name);
+
+  }
+  
+}
+const int nfiles=100,nBG=6;                                                                                                                                                              
+TFile *f[nfiles];
+
+TFile *f1[nfiles];
+
+TFile *f2[nfiles];
+
+TFile *f3[nfiles];
+
+TFile *f4[nfiles];
+
+TFile *f5[nfiles];
+
+void overlayPlots_v1()
+{
+  char* hname = new char[200];
+  char* hist_name  = new char[200];
+  char* hist_name1 = new char[200];
+  char* hist_name2 = new char[200];
+  char* hist_name3 = new char[200];
+  char* hist_name4 = new char[200];
+  char* hist_name5 = new char[200];
+  char* hist_name6 = new char[200];
+
+  char* full_path = new char[2000];
+  char* full_path1 = new char[2000];
+  char* full_path2 = new char[2000];
+  char* path2 = new char[2000];
+  char* title= new char[2000];
+  char* full_path3 = new char[2000];
+  char* full_path4 = new char[2000];
+  char* full_path5 = new char[2000];
+  char* full_path6 = new char[2000];
+  char* full_path7 = new char[2000];
+  char* full_path8 = new char[2000];
+  char* full_path9 = new char[2000];
+  char* full_path10 = new char[2000];
+  char* full_path11= new char[2000];
+  char *leg_head = new char[200];
+  // f[0] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_CMSSW_BX_10k_defaultConfig.root");
+  // f[1] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_CMSSW_BX_50k_defaultConfig.root");
+  // f[2] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_CMSSW_BX_100k_defaultConfig.root");
+  // f[3] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_CMSSW_BX_200k_defaultConfig.root");
+  // f[4] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_CMSSW_BX_400k_defaultConfig.root");
+  // f[5] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_CMSSW_BX_600k_defaultConfig.root");
+  // f[6] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_CMSSW_BX_800k_defaultConfig.root");
+  // f[7] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_CMSSW_BX_1000k_defaultConfig.root");
+  // f[8] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_CMSSW_BX_1500k_defaultConfig.root");
+
+  // f1[0] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_Correlate_Psuedo_BX_10k_defaultConfig.root");
+  // f1[1] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_Correlate_Psuedo_BX_50k_defaultConfig.root");
+  // f1[2] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_Correlate_Psuedo_BX_100k_defaultConfig.root");
+  // f1[3] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_Correlate_Psuedo_BX_200k_defaultConfig.root");
+  // f1[4] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_Correlate_Psuedo_BX_400k_defaultConfig.root");
+  // f1[5] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_Correlate_Psuedo_BX_600k_defaultConfig.root");
+  // f1[6] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_Correlate_Psuedo_BX_800k_defaultConfig.root");
+  // f1[7] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_Correlate_Psuedo_BX_1000k_defaultConfig.root");
+  // f1[8] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_Correlate_Psuedo_BX_1500k_defaultConfig.root");
+
+  // f2[0] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_UnCorrelate_Pseudo_BX_10k_defaultConfig.root");
+  // f2[1] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_UnCorrelate_Pseudo_BX_50k_defaultConfig.root");
+  // f2[2] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_UnCorrelate_Pseudo_BX_100k_defaultConfig.root");
+  // f2[3] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_UnCorrelate_Pseudo_BX_200k_defaultConfig.root");
+  // f2[4] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_UnCorrelate_Pseudo_BX_400k_defaultConfig.root");
+  // f2[5] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_UnCorrelate_Pseudo_BX_600k_defaultConfig.root");
+  // f2[6] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_UnCorrelate_Pseudo_BX_800k_defaultConfig.root");
+  // f2[7] = new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_UnCorrelate_Pseudo_BX_1000k_defaultConfig.root");
+  // f2[8]=new TFile("./Out_EmulatorRuns/D49/Out_emuRuns_D49_UnCorrelate_Pseudo_BX_1500k_defaultConfig.root");
+
+
+  // f3[0] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig.root");
+  // f3[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_1000.root");
+  // f3[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_1100.root");
+  // f3[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_1200.root");
+  // f3[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScale_2000.root");
+  // f4[0] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig.root");
+  // f4[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_1000.root");
+  // f4[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_1100.root");
+  // f4[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_1200.root");
+  // f4[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScale_2000.root");
+
+  // f5[0] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig.root");
+  // f5[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScale_1000.root");
+  // f5[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScale_1100.root");
+  // f5[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScale_1200.root");
+  // f5[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScale_2000.root");
+
+  // f3[0] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_10k_defaultConfig.root");
+  // f3[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_50k_defaultConfig.root");
+  // f3[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig.root");
+  // f3[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_200k_defaultConfig.root");
+  // f3[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_400k_defaultConfig.root");
+  // f3[5] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_600k_defaultConfig.root");
+  // f3[6] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_800k_defaultConfig.root");
+  // f3[7] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_1000k_defaultConfig.root");
+  // f3[8] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_1500k_defaultConfig.root");
+
+  // f4[0] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_10k_defaultConfig.root");
+  // f4[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_50k_defaultConfig.root");
+  // f4[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig.root");
+  // f4[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_200k_defaultConfig.root");
+  // f4[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_400k_defaultConfig.root");
+  // f4[5] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_600k_defaultConfig.root");
+  // f4[6] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_800k_defaultConfig.root");
+  // f4[7] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_1000k_defaultConfig.root");
+  // f4[8] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_1500k_defaultConfig.root");
+
+  // f5[0] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_10k_defaultConfig.root");
+  // f5[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_50k_defaultConfig.root");
+  // f5[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig.root");
+  // f5[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_200k_defaultConfig.root");
+  // f5[4] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_400k_defaultConfig.root");
+  // f5[5] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_600k_defaultConfig.root");
+  // f5[6] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_800k_defaultConfig.root");
+  // f5[7] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_1000k_defaultConfig.root");
+  // f5[8]=new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_1500k_defaultConfig.root");
+
+  
+  // f3[0] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScaleAdditive_case_1.root");
+  // f3[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScaleAdditive_case_2.root");
+  // f3[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScaleAdditive_case_3.root");
+  // //  f3[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScaleAdditive_case_4.root");
+  f3[4]= new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig.root");
+  f3[0] = new TFile("./Out_EmulatorRuns/D86/ScintChecks_14March23_Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_LDM_hitScaleAdditive_10per_case_1.root");
+  f3[1] = new TFile("./Out_EmulatorRuns/D86/ScintChecks_14March23_Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_LDM_hitScaleAdditive_10per_case_2.root");
+  f3[2] = new TFile("./Out_EmulatorRuns/D86/ScintChecks_14March23_Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_LDM_hitScaleAdditive_10per_case_3.root");
+  f3[3] = new TFile("./Out_EmulatorRuns/D86/ScintChecks_14March23_Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_LDM_hitScaleAdditive_10per_case_4.root");
+
+  // f3[0] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScaleAdditive_case_1.root");
+  // f3[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScaleAdditive_case_2.root");
+  // f3[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScaleAdditive_case_3.root");
+  //  f3[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_CMSSW_BX_100k_defaultConfig_hitScaleAdditive_case_4.root");
+
+  // f4[0] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScaleAdditive_20per_case_1.root");
+  // f4[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScaleAdditive_20per_case_2.root");
+  // f4[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScaleAdditive_20per_case_3.root");
+  // // f4[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_hitScaleAdditive_20per_case_4.root");
+  f4[4]= new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig.root");
+  
+f4[0] = new TFile("./Out_EmulatorRuns/D86/ScintChecks_14March23_Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_LDM_hitScaleAdditive_10per_case_1.root");          
+  f4[1] = new TFile("./Out_EmulatorRuns/D86/ScintChecks_14March23_Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_LDM_hitScaleAdditive_10per_case_2.root");       
+  f4[2] = new TFile("./Out_EmulatorRuns/D86/ScintChecks_14March23_Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_LDM_hitScaleAdditive_10per_case_3.root");                 
+  f4[3] = new TFile("./Out_EmulatorRuns/D86/ScintChecks_14March23_Out_emuRuns_D86_Correlate_Psuedo_BX_100k_defaultConfig_LDM_hitScaleAdditive_10per_case_4.root");              
+  // f5[0] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScaleAdditive_20per_case_1.root");
+  // f5[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScaleAdditive_20per_case_2.root");
+  // f5[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScaleAdditive_20per_case_3.root");
+  // //  f5[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScaleAdditive_20per_case_4.root");
+  f5[4]= new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig.root");
+
+  f5[0] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScaleAdditive_case_51.root");        f5[1] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScaleAdditive_case_52.root");                                                                                                                                     
+  f5[2] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScaleAdditive_case_53.root");                                                                                                                                         
+  f5[3] = new TFile("./Out_EmulatorRuns/D86/Out_emuRuns_D86_UnCorrelate_Pseudo_BX_100k_defaultConfig_hitScaleAdditive_case_5.root");    \
+
+  const char* baseline[15]={"EcondAsic_AveragePacketWords","EcondAsic_AveragePacketBits","EcondAsic_LinkPacketOccupancy","EcondAsic_MaxBuffer","EcondAsic_FractionEmptyBuffer","EcondAsic_FractionLowBuffer","EcondAsic_FractionMediumBuffer","EcondAsic_FractionHighBuffer","EcondAsic_FractionTruncated","EventSize","DroppedPackets","EcondAsic_AverageN10Hits","EcondAsic_AverageN20Hits","EcondAsic_AverageN30Hits","EcondAsic_AverageTotalHits"};
+  const char* data_type[3]={"CMSSW             mean   stddev","Correlate_Pseudo    mean stddev","Uncorrelate_Pseudo    mean stddev"};//
+  const char* filetag[5]={"n10+=0.1*nCells","n20+=0.1*nCells","n30+=0.1*nCells","Scale-Off","Scale-Off"};//"Scale-1000","Scale-1100","Scale-1200","Scale-2000"};//{"10kBX","100kBX","400kBX","1000kBX","1500kBX"};//{"10kBX","50kBX","100kBX","200kBX","400kBX","600kBX","800kBX","1000kBX","1500kBX"};
+  const char* geo[2]={"D49","D86"};
+  const char* ip_data[3]={"CMSSW","Correlate_Psuedo","UnCorrelate_Pseudo"};
+
+  for(int i_file=0; i_file<15;i_file++)
+    {
+      //      vector<TH1F*> hist_list;      
+      for(int ig=0;ig<2;ig++)
+	{
+	  vector<TH1F*> hist_list;
+
+      for(int i_cut=0; i_cut<5;i_cut++)
+	{
+	  sprintf(hist_name,"%s",baseline[i_file]);
+	  TH1F* resp = (TH1F*)f5[i_cut]->Get(hist_name);
+	  TH1F* resp1 = (TH1F*)f5[0]->Get(hist_name);
+	  if(ig==0)
+	    {  resp = (TH1F*)f3[i_cut]->Get(hist_name);
+	      resp1 = (TH1F*)f3[0]->Get(hist_name);
+	    }
+	  else if (ig==1)
+	    {
+	      resp = (TH1F*)f4[i_cut]->Get(hist_name);
+              resp1 = (TH1F*)f4[0]->Get(hist_name);	      
+	    }
+	  else if(ig==2)
+	    {
+	      resp = (TH1F*)f5[i_cut]->Get(hist_name);
+              resp1 = (TH1F*)f5[0]->Get(hist_name);
+	    }
+	  // TH1F* resp2 = (TH1F*)f2[i_file]->Get(hist_name);
+	  // if(normalized)
+          //   {
+              //cout<<"scale factor"<<"\t"<<scale<<"\t"<<(factor/resp->Integral())<<endl;
+              //mcHisto ->Scale(dataHisto ->Integral ()/ mcHisto ->Integral ());
+              //resp1->Scale(resp1->Integral()/resp->Integral());//Maximum());
+	  resp->Scale(double(resp1->Integral()/resp->Integral()));
+              //resp2->Scale(resp2->Integral()/resp->Integral());//factor/resp2->GetMaximum());
+              //h1F->Scale(factor/factor/h1F->Integral());
+	      //            }
+          // cout<<"after"<<endl;
+          // resp->Print("all");
+          cout<<double(resp->Integral())<<endl;
+	  hist_list.push_back(resp);
+	  // hist_list.push_back(resp1);
+	  // hist_list.push_back(resp2);
+	  if(i_file==9)
+	    {
+	      resp->GetXaxis()->SetRangeUser(300,1000);
+	    }
+	  //     resp1->GetXaxis()->SetRangeUser(300,1000);
+	  //     resp2->GetXaxis()->SetRangeUser(300,1000);
+	  //   }
+	}
+	  int energy=-1;
+	  sprintf(full_path,"Allin1_%sD86_%s",ip_data[ig],baseline[i_file]);//,filetag[i_cut]);
+	  generate_1Dplot(hist_list,full_path,energy,leg_head,false,true,false,true,data_type[ig]);
+	  }
+    }      
+
+}
+
+
+
+
+

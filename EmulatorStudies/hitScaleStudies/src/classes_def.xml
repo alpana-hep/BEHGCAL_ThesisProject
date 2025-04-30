@@ -1,0 +1,15 @@
+<lcgdict>
+  <class name="EcondAsicHeader"/>
+  <class name="EcondData"/>
+  <class name="LpgbtPairHeader"/>
+  <class name="std::vector<EcondData>"/>
+  <class name="LpgbtPairData"/>
+  <class name="SlinkWord"/>
+  <class name="SlinkBoe"/>
+  <class name="SlinkEoe"/>
+  <class name="std::vector<LpgbtPairData>"/>
+  <class name="SlinkData"/>
+  <class name="std::vector<SlinkData>"/>
+  <class name="EventData"/>
+  <class name="EcondAsicDefinition"/>
+</lcgdict>

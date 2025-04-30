@@ -1,0 +1,15 @@
+{
+    "filename": "/eos/cms/store/user/agilbert/hgcal/NTuples/HGCalBEStudies_D49_ttbar_PU200_3iab_mipDef.root",
+    "slink25GbitPerSec": true,
+    "beMappingFile": "BEDAQ_192SlinksToLpGBT_16FPGA_Mapping_V9.1.json",
+    "feMappingFile": "FeMappingV9.json",
+    "hitModifierFile": "modifier_config_fixdensity2_V9.json",
+    "number": 1,
+    "numberOfBx": 10000,
+    "lpgbtPairEcondBuilderHighBufferFactor":10000,
+    "lpgbtPairEcondBuilderMediumBufferFactor":10000,
+    "econdHighBufferLevel":10000,
+    "econdMediumBufferLevel":10000,
+    "debugCheckBits": 0,
+    "centralDaq": true
+}

@@ -1,0 +1,146 @@
+#include <iostream>
+#include <fstream>
+#include <map>
+#include <stdexcept>
+#include "BEMappingStruct.h"
+#include "json.hpp"
+#include "Definer.h"
+using json = nlohmann::json;
+
+BEMappingStruct::BEMappingStruct() {}
+const std::vector<SectorDefinition>& BEMappingStruct::SectorDefinitionVector() const { return SectorDefinitionVector_; }
+
+void BEMappingStruct::readBEFile(const std::string& filename, const std::string& FE_filename, SectorDefinition& sd) {
+  std::ifstream mapfile(filename);
+  json j = json::parse(mapfile);
+
+  // Check that the JSON object is an array
+  assert(j.is_array());
+
+  // Force the sector number to be 0
+  unsigned default_sector = 0;
+  sd.setSectorNumberTo(default_sector);
+
+  Definer def;
+  def.readFile(FE_filename);
+
+  std::vector<LpgbtDefinition> const& vLd(def.lpgbtDefinitionVector());
+
+  std::map<unsigned, LpgbtDefinition const*> lpgbt_by_index;
+
+  for (auto const& lpgbt_def : vLd) {
+    // We will always have lpgbt number 0
+    std::vector<unsigned> lpgbt_indexes = {lpgbt_def.lpgbtNumber(0)};
+    if (!lpgbt_def.singleLpgbt()) {
+      // This is an obligate double, so add number 1
+      lpgbt_indexes.push_back(lpgbt_def.lpgbtNumber(1));
+    }
+    for (auto const& idx : lpgbt_indexes) {
+      if (lpgbt_by_index.count(idx)) {
+        // This lpGBT index was already seen, this is an error
+        throw std::runtime_error("lpGBT index " + std::to_string(idx) + " appears twice");
+      }
+      lpgbt_by_index[idx] = &lpgbt_def;
+    }
+  }
+
+  unsigned slink_count = 0;
+  unsigned lpgbt_count = 0;
+  unsigned lpgbtpair_count = 0;
+  unsigned lpgbtpair_obligate_double_count = 0;
+  unsigned lpgbtpair_simple_double_count = 0;
+  unsigned lpgbtpair_single_count = 0;
+
+  for (unsigned iF = 0; iF < j.size(); iF++) {
+    FpgaDefinition Fd;
+
+    auto const& slinks = j[iF]["FPGA"]["slink"];
+    for (unsigned is = 0; is < slinks.size(); is++) {
+      auto const& t = slinks[is];
+      unsigned slink_number = t[0].get<unsigned>();
+
+      slink_count++;
+      SlinkDefinition slink;
+      slink.setSectorNumberTo(default_sector);  //j[iF]["A Sec Index"]);
+      slink.setFpgaNumberTo(j[iF]["FPGA"]["INDEX"]);
+      slink.setSlinkNumberTo(slink_number);
+      auto const& LpgbtPairIndexesVec = t[3][1];
+
+      for (unsigned il = 0; il < LpgbtPairIndexesVec.size(); il++) {
+        auto lpgbtpairIndexes = LpgbtPairIndexesVec[il];
+
+        if (lpgbtpairIndexes.size() != 2) {
+          throw std::runtime_error("lpGBT index array length != 2 in BE mapping file");
+        }
+
+        LpgbtPairDefinition lpGBTPair;
+
+        // Assume first index will alwaya be a real one (> 0), and that the second one will be -1 if no lpGBT
+        if (lpgbtpairIndexes[1].get<int>() != -1) {
+          lpgbt_count += 2;
+          unsigned id0 = lpgbtpairIndexes[0].get<unsigned>();
+          unsigned id1 = lpgbtpairIndexes[1].get<unsigned>();
+
+          // Now check that both of these are in the map
+          auto it0 = lpgbt_by_index.find(id0);
+          auto it1 = lpgbt_by_index.find(id1);
+          if (it0 == lpgbt_by_index.end() || it1 == lpgbt_by_index.end()) {
+            throw std::runtime_error("lpGBT in BE mapping not found in FE mapping");
+          }
+
+          // Are these from an obligate double, and if so, the same one?
+          // First we require the two lpGBTs to have the same single/double status
+          if (it0->second->singleLpgbt() != it1->second->singleLpgbt()) {
+            throw std::runtime_error("Mismatch in singleLpgbt() for lpGBT pair in BE mapping");
+          }
+          if (it0->second->singleLpgbt()) {
+            lpgbtpair_simple_double_count++;
+            lpGBTPair.addLpgbt(*(it0->second));
+            lpGBTPair.addLpgbt(*(it1->second));
+          } else {
+            lpgbtpair_obligate_double_count++;
+
+            // If this is an obligate double, both pointers should be to the same lpGBT object
+            if (it0->second != it1->second) {
+              throw std::runtime_error("Mismatch for obligate lpGBT double between BE and FE mappings");
+            }
+            // All good - we can add this obligate double to the pair
+            lpGBTPair.addLpgbt(*(it0->second));
+          }
+          lpgbt_by_index.erase(id0);
+          lpgbt_by_index.erase(id1);
+        } else {
+          lpgbt_count += 1;
+          lpgbtpair_single_count++;
+          unsigned id0 = lpgbtpairIndexes[0].get<unsigned>();
+          auto it0 = lpgbt_by_index.find(id0);
+          if (it0 == lpgbt_by_index.end()) {
+            throw std::runtime_error("lpGBT in BE mapping not found in FE mapping");
+          }
+          lpGBTPair.addLpgbt(*(it0->second));
+          lpgbt_by_index.erase(id0);
+        }
+
+        lpGBTPair.setSlinkNumberTo(slink_number);
+        lpGBTPair.setLpgbtPairNumberTo(unsigned(il));
+        lpgbtpair_count++;
+        slink.addLpgbtPair(lpGBTPair);
+      }
+      Fd.addSlink(slink);
+    }
+    Fd.setFpgaNumberTo(iF);
+    Fd.setSectorNumberTo(default_sector);
+    sd.addFpga(Fd);
+  }
+
+  // if (lpgbt_by_index.size() > 0) {
+  //   throw std::runtime_error("Found lpGBTs in FE mapping not present in BE mapping");
+  // }
+
+  std::cout << "INFO in [BEMappingStruct::readBEFile]\n Number of Slinks = " << slink_count
+            << "\n Number of lpGBTs = " << lpgbt_count << std::endl;
+  std::cout << "INFO in [BEMappingStruct::readBEFile]\n Number of lpGBT pairs " << lpgbtpair_count
+            << ", of which:\n  Number of obligate doubles = " << lpgbtpair_obligate_double_count
+            << "\n  Number of simple doubles = " << lpgbtpair_simple_double_count
+            << "\n  Number of singles = " << lpgbtpair_single_count << std::endl;
+}

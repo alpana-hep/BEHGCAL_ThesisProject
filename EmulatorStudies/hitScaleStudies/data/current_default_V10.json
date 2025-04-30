@@ -1,0 +1,34 @@
+{
+    "filename": "/eos/cms/store/user/agilbert/hgcal/NTuples/HGCalBEStudies_ttbar_D86_12_1_X_PU200_20211106_mipDef.root",
+    "slink25GbitPerSec": true,
+    "beMappingFile": "BeMappingV10_16FPGA_simple.json",
+    "feMappingFile": "FeMappingV10.json",
+    "hitModifierFile": "modifier_config_fixdensity2_V10.json",
+    "number": 1,
+    "numberOfBx": 10000,
+    "lpgbtPairEcondBuilderHighBufferFactor":10000,
+    "lpgbtPairEcondBuilderMediumBufferFactor":10000,
+    "econdHighBufferLevel":10000,
+    "econdMediumBufferLevel":10000,
+    "debugCheckBits": 0,
+    "hitModifierReadUnmasked": false,
+    "centralDaq": true
+    "econdHitAdditiveArg":false
+}
+
+// {
+//     "filename": "/eos/cms/store/user/agilbert/hgcal/NTuples/HGCalBEStudies_ttbar_D86_12_1_X_PU200_20211106_mipDef.root",
+//     "slink25GbitPerSec": true,
+//     "beMappingFile": "BeMappingV10_16FPGA_simple.json",
+//     "feMappingFile": "FeMappingV10.json",
+//     "hitModifierFile": "modifier_config_fixdensity2_V10.json",
+//     "number": 1,
+//     "numberOfBx": 10000,
+//     "lpgbtPairEcondBuilderHighBufferFactor":10000,
+//     "lpgbtPairEcondBuilderMediumBufferFactor":10000,
+//     "econdHighBufferLevel":10000,
+//     "econdMediumBufferLevel":10000,
+//     "debugCheckBits": 0,
+//     "hitModifierReadUnmasked": false,
+//     "centralDaq": true
+// }

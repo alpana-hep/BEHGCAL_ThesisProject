@@ -1,0 +1,12 @@
+{
+    "slink25GbitPerSec": true,
+    "beMappingFile": "BEDAQ_192SlinksToLpGBT_16FPGA_Mapping_V9.1.json",
+    "feMappingFile": "FeMappingV9.json",
+    "number": 1,
+    "lpgbtPairEcondBuilderHighBufferFactor":10000,
+    "lpgbtPairEcondBuilderMediumBufferFactor":10000,
+    "econdHighBufferLevel":10000,
+    "econdMediumBufferLevel":10000,
+    "debugCheckBits": 0,
+    "centralDaq": true
+}

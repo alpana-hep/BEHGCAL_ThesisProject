@@ -4,138 +4,141 @@
 ## Different trigger rates
 
 ## Hit scale studies
+## Instrucitons to run the emulator for different cases:
+
+### Setup the machinery-
+```
+cmsrel CMSSW_11_1_0_pre3
+cd CMSSW_11_1_0_pre3/src
+git clone -b HitScaleStudies https://gitlab.cern.ch/kalpana/HGCalBufferModel.git .
+cmsenv
+make clean
+make
+```
+### To run the emulator test-
+```
+./bin/HGCalBufferModel data/current_default_V10.json outputname=\"HGCalBufferModel_1000_job_1.root\" numberOfBx=500000 randomSeed=1 triggerRate=750 fileReadMode=4 | gzip -c > HGCalBufferModel_1000_job_1.log.gz
+```
+
+Depending upon what you want to run the test for, you can change the different arguments provided to the test. A large number of configurable arguments, so better take the reference from the code itself.
+
+### For the explanation of arguments, see the follwing readme files
+
+https://gitlab.cern.ch/kalpana/HGCalBufferModel/-/blob/master/README.md?ref_type=heads
+Or
+https://gitlab.cern.ch/kalpana/HGCalBufferModel/-/blob/master/src/Arguments.cc?ref_type=heads
+
+### Scaling the hits
+
+In these studies, I scan different ways to scale/change the occupancies from module and study its impact on data losses. arguments of the interest-
+```
+econdHitScaling - "If true, then scaling the hits by a number - econdHitScalingArg/1000"
+econdHitScalingArg - " Scaling arguments"
+econdHitAdditiveArg - " % fraction of nCells added to the occupancies "
+econdHitlayerArg - Which layer we should change the hits
+econdScintHitScalingArg - Turn it on if only wants to change scintillator hits
+```
+For more details: https://gitlab.cern.ch/kalpana/HGCalBufferModel/-/blob/HitScaleStudies/src/EcondAsic.cc
+
+### Launch the jobs :
+```
+cd condor_jobs/
+python makeCondorSubmit.py
+python driver_submitjobs.py
+
+```
+Shell script -
+```
+run_myprog.sh
+```
+
+### Plotting scripts
+Check the files under the 'PlottingScripts'. Some scripts make the overlay plots, some reads the histograms, or generate graphs.
+
+https://gitlab.cern.ch/kalpana/HGCalBufferModel/-/tree/HitScaleStudies/PlottingScripts
+
+
 
 ## Addition of extra hits to Module
 
 ## Layerwise addtion of hits to Module
 
 ## Throttle versus truncation
+## Instrucitons to run the emulator for different cases:
 
-## raw data analysis from TB machinery
-
-
-
-### Raw data analysis-
-
-Instructions to analyze raw data analysis
-
-Run log -
+### Setup the machinery-
 ```
-https://docs.google.com/spreadsheets/d/1Pibh-i9MiomyZILa7h2V5lKhBdji1kgAn2BIiGKzuFw/edit#gid=1238056000
+cmsrel CMSSW_11_1_0_pre3
+cd CMSSW_11_1_0_pre3/src
+git clone -b throttleVsTruncation https://gitlab.cern.ch/kalpana/HGCalBufferModel.git .
+cmsenv
+make clean
+make
 ```
-
-EOS area where raw files are stored -
+### To run the emulator test-
 ```
-/eos/cms/store/group/dpg_hgcal/tb_hgcal/2023/BeamTestSep/HgcalBeamtestSep2023
+./bin/HGCalBufferModel data/current_default_V10.json outputname=\"HGCalBufferModel_1000_job_1.root\" numberOfBx=500000 randomSeed=1 triggerRate=750 fileReadMode=4 | gzip -c > HGCalBufferModel_1000_job_1.log.gz
 ```
 
-Repository with analysis scripts, plotting scripts and instructions on how to run the scripts
+Depending upon what you want to run the test for, you can change the different arguments provided to the test. A large number of configurable arguments, so better take the reference from the code itself.
 
-Link to repository-
-```
-https://gitlab.cern.ch/kalpana/hgcal10glinkreceiver/-/tree/Alp_dev?ref_type=heads
-```
+### For the explanation of arguments, see the follwing readme files
 
-Readme file with instructions-
-```
-https://gitlab.cern.ch/kalpana/hgcal10glinkreceiver/-/blob/Alp_dev/readme.md?ref_type=heads
-```
-#### Instructions -
-## script to analyze DAQ packet at raw level-
+https://gitlab.cern.ch/kalpana/HGCalBufferModel/-/blob/master/README.md?ref_type=heads
+Or
+https://gitlab.cern.ch/kalpana/HGCalBufferModel/-/blob/master/src/Arguments.cc?ref_type=heads
 
-One should use lxplus9 to run this machinery.
-### Setup the machinery
+### Throttle vs truncation
+
+In these studies, one will have to scan many different variables and run the emulator for each of those cases.
+In the file 'script/launch_jobs.py', see L99-L110: Jobs are prepared for scanning the econd buffer level threshold. Similar can be prepared to scan other variables.
+
+### Launch the jobs :
 ```
-git clone -b Alp_dev https://gitlab.cern.ch/kalpana/hgcal10glinkreceiver.git .
+python scripts/launch_jobs.py --job condor
 
 ```
 
+### Read the event data
+use 'test/ReadEventData.cpp' to read the output of the emulator run and create histogram after counting truncations and fill the histograms-
 ```
-src/RelayCheck.cpp
+./bin/ReadEventData inputfile outputfile
 ```
-This script takes the relay number as the input, look for this particular relay in the directory 'dat' and loop over all the runs in relay one by one and fill the decoded information in the histograms and save histogram to the root file.
+### Scale up "Read event data" from multiple files and save it to the corresponding file-
+```
+python scripts/readProcess.py <path to the output from scripts/launch_jobs.py> <path to where the output of ./bin/ReadEventData should be saved>
 
-Note- 'dat' is soft link which should be pointing to eos directory. You can create using the following command-
-
-```
-ln -s /eos/cms/store/group/dpg_hgcal/tb_hgcal/2023/BeamTestSep/HgcalBeamtestSep2023 dat
-```
-
-###To compile and run the script -
-```
-g++  -Icommon/inc src/RelayCheck.cpp -Ioffline/inc -Iexpert/inc -o bin/RelayCheck.exe -lyaml-cpp -lhdf5_cpp -lhdf5 `root-config --libs --cflags`
-./bin/RelayCheck.exe  <Relay number>
 ```
 
-Directories "common,	offline, expert" contain the suppporting classes that are being use in RelayCheck.cpp and other *.cpp files. These helps in decoding different header from different parts of the system.
-For each event, the packet is a 124 64-bit words array. First element of this array would be Slink header, following this would be BE header and ECON-D headers.
-(more details to be added later or you can refer to respective documents on EDMS)
+Outputfile of the emulator-run contains a histograms named as FastControlDriver_Fractions which contains event throttle fractions in bin-22. So only files needed to create final throttle vs truncation plot- output files from emulator-run, and readEvent.
 
-Output of the above command will be a root file with all the checks and corresponding histograms.
-Run over all the relays at the same time-
+### Create the ROC curve for truncation vs throttling
 
 ```
-source Analy_Relay_2d.sh
-```
-
-## plotting scripts
-
-'makePlots_2D.C' to create png/pdf for 2D plots and 'makePlots_1D.C' for 1D pltos. string vector  'baseline' defined in these scripts contains the list of all the plots that are to be made.
-
-Arguments for these scripts-
-```
-root -q -b 'makePlots_1D.C("path to save png/pdf files","input root file with histograms","relay number")'
-root -q	-b 'makePlots_2D.C("path to save png/pdf files","input root file with histograms","relay number")'
+python scripts/tmpAnalyseHists2.py <path to emulator run files> <path to output from readEvent data> <string for png file>
 
 ```
-submit jobs for plotting all the plots0
+
+There are no simple steps to edit scripts/tmpAnalyseHists2.py. One has to go through the code and understand it and then make the changes. It reads multiple run file sper point, take the average and calculate the error.
+
+
+### Steps to run an example using full chain-
+```
+python scripts/launch_jobs.py --job condor
+```
+If it does not submit the jobs, check if do_submission list inside the code contains the correct string which is being executed later on
+
+Read the event data - count number of truncations
 
 ```
-source run_Relay_2d.sh
-source run_Relay_1d.sh
+python scripts/readProcess.py /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/DoubleThresholdSystem /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/DoubleThresholdSystem/ProcessedFiles
 ```
-
-
-## Example to run the analysis script and creates the plot-
+Make ROC curve
 
 ```
-./bin/RelayCheck2.exe Relay_check_rawHeaders_1695480564_link1.root 1 1695480564 > out_1695480564_link1.log &
-root -q -b 'makePlots_1D.C("runWithDifferentFirmware","West","Relay_check_rawHeaders_1695480564_link2.root","1695480564")'
-root -q -b 'makePlots_2D.C("runWithDifferentFirmware","West","Relay_check_rawHeaders_1695480564_link2.root","1695480564")'
+python scripts/tmpAnalyseHists2.py /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/DoubleThresholdSystem /eos/cms/store/group/dpg_hgcal/comm_hgcal/kalpana/Hgcal_BEDaq_PseudoNtuples/OutRootFiles_EmulatorRuns/ThrottleVsTruncation/PseudoEvents/DoubleThresholdSystem/ProcessedFiles /eos/user/k/kalpana/www/folder/HGCAL_TDAQ/Plots/ThrottleVsTruncation/ Pseudo_TwoBufferLevels
+
 ```
 
-Plotting scripts-
-```
-https://gitlab.cern.ch/kalpana/hgcal10glinkreceiver/-/blob/Alp_dev/makePlots_1D.C?ref_type=heads
-https://gitlab.cern.ch/kalpana/hgcal10glinkreceiver/-/blob/Alp_dev/makePlots_2D.C?ref_type=heads
-```
-
-Plots on the webpage-
-```
-https://kalpana.web.cern.ch/kalpana/folder/HGCAL_TDAQ/Plots/Aug2023_TBHGCAL_CERN/rawDataStudies/OrbitCounter_MisMatch/
-```
-More details
-
-gDoc for all the information (path, code, plots, summary)
-
-https://docs.google.com/document/d/19zX4xVA6Y2sF5N6qavhSQRWzpF16jCBG9I_3waIQNB8/edit?usp=sharin
-
-Gitlab repository with analyzer scripts plus plotting scripts
-
-https://gitlab.cern.ch/kalpana/hgcal10glinkreceiver/-/tree/Alp_dev?ref_type=heads
-
-
-
-
-### Here are the instructions to run over an example for HGCAL TB analysis-
-* Pedetsal studies
-gDoc for all the information-
-```
-https://docs.google.com/document/d/1oteC0YNgPVWrxyXO6WsO24KYG6qW4GTOIQMMr4alRf0/edit?usp=sharing
-```
-github link for all scripts-
-```
-https://github.com/alpana-hep/HGCAL_TB_Analysis_2023/tree/AnalysisScripts
-```
-
+ 
 

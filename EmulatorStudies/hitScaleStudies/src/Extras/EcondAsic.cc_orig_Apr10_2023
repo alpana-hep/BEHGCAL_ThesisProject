@@ -1,0 +1,918 @@
+#include <iostream>
+#include <iomanip>
+#include <cassert>
+
+#include "RandomSingleton.h"
+#include "GlobalConfiguration.h"
+#include "EcondAsicHeader.h"
+#include "EcondAsicIdle.h"
+#include "PacketCreator.h"
+#include "PacketChecker.h"
+#include "EcondAsic.h"
+#include "EcondAsicAnalyser.h"
+
+EcondAsic::EcondAsic() : Entity("EcondAsic",Clocks::Clock0040),
+			 rxLpgbtWordPtr_(0),
+			 rxHgcrocDataPtr_(0),
+			 econdAsicAnalyserPtr_(0),
+			 forceIdleOut_(false),
+			 numberOfWordsInPacketOut_(0),
+			 packetOutMinDelay_(0xffffffff),
+			 packetOutMaxDelay_(0),
+			 
+			 numberOfFakeL1as_(0),
+			 
+			 numberOfTicks_(0),
+ 			 numberOfN10Hits_(0),
+			 numberOfN20Hits_(0),
+			 numberOfN30Hits_(0),
+			 numberOfPackets_(0),
+			 numberOfPacketWordsIn_(0),
+			 numberOfTruncatedPackets_(0),
+			 numberOfPacketWords_(0),
+			 
+			 maxBufferSize_(0),
+			 numberOfWordsOut_(0),
+			 numberOfIdleWordsOut_(0),
+			 numberOfCorruptIdleWordsOut_(0),
+			 numberOfPacketWordsOut_(0),
+			 numberOfCorruptPacketWordsOut_(0) {
+  
+  for(unsigned i(0);i<4;i++) numberOfBufferStatus_[i]=0;
+}
+
+EcondAsic::~EcondAsic() {
+}
+
+void EcondAsic::setDefinitionTo(const EcondAsicDefinition &d) {
+  definition_=d;
+}
+
+void EcondAsic::setConfigurationTo(const EcondAsicConfiguration &c) {
+  configuration_=c;
+}
+
+void EcondAsic::setArgumentsTo(const Arguments &a) {
+  configuration_.setMediumBufferLevelTo(a.econdMediumBufferLevel());
+  configuration_.setHighBufferLevelTo(a.econdHighBufferLevel());
+  configuration_.setTruncationBufferLevelTo(a.config().at("econdTruncationBufferLevel").get<unsigned>());
+  configuration_.setLpgbtDelayLengthTo(a.econdLpgbtDelayLength());
+  configuration_.setLpgbtBerTo(a.config().at("econdLpgbtBer").get<double>());
+  configuration_.setHitScalingTo(a.econdHitScaling());
+  configuration_.setL1aFakeProbabilityTo(a.config().at("econdL1aFakeProbability").get<double>());
+  configuration_.setUpdateIdleStatusTo(a.config().at("econdUpdateIdleStatus").get<bool>());
+  //std::cout<<"alpana"<<"\t"<<a.econdHitAdditiveArg()<<std::endl;
+  configuration_.setHitAdditiveArgTo(a.econdHitAdditiveArg());
+  configuration_.setHitScalingArgTo(a.econdHitScalingArg());
+  configuration_.setScintHitScalingArgTo(a.econdScintHitScalingArg());
+  Entity::setArgumentsTo(a);
+  if(idNumber_==a.config().at("econdIdDebugPrint").get<uint32_t>()) debugPrint_=true;
+}
+
+EcondAsicDefinition EcondAsic::definition() const {
+  return definition_;
+}
+
+void EcondAsic::initialise() {
+  std::cout << "EcondAsic::initialise() "
+	    << definition_.label() << std::endl;
+  const GlobalConfiguration &gc(GlobalConfiguration::configuration());
+  //gc.print(" ");
+  configuration_.print(" ");
+  
+  // Set up the calibration delay queue
+  for(unsigned i(0);i<gc.calibrationQueueSize();i++) calibrationQueue_.push(false);
+
+  // Set up the pre-L1A delay queue;
+  commands_.setIdle();
+  for(unsigned i(0);i<gc.preL1aQueueSize();i++) preL1aQueue_.push(false);
+
+  // Check input is connected
+  assert(rxLpgbtWordPtr_!=0);
+
+  // Set up the input lpGBT delay
+  lpgbtInputDelay_=configuration_.lpgbtDelayLength();
+  std::cout << " Delay length of input lpGBT = "
+	    << lpgbtInputDelay_ << std::endl;
+
+  // Fill input queue with idles
+  rxLpgbtWordPtr_->initialiseQueue(FastControlLpgbtWord(),lpgbtInputDelay_);  
+  
+  // Set up elink idle word
+  idleWord_.setWordTo(definition_.idleWord());
+  idleWord_.print(" ");
+
+  // Set up output elinks
+  std::cout << " Number of connected output elinks = "
+	    << txConnectionPtrVector_.size()
+	    << " out of defined number = "
+	    << definition_.numberOfElinks()
+	    << std::endl;
+
+  // Put idle words into elinks for initial data at BE
+  for(unsigned i(0);i<txConnectionPtrVector_.size();i++) {
+    lpgbtDelay_.push_back(configuration_.lpgbtDelayLength());
+
+    if(i==0) std::cout << " Delay lengths of output elinks = " << lpgbtDelay_[i];
+    else std::cout << ", " << lpgbtDelay_[i];
+    
+    txConnectionPtrVector_[i]->initialiseQueue(idleWord_.word(),lpgbtDelay_[i]);
+  }
+
+  // Check for right number of output elinks
+  if(txConnectionPtrVector_.size()<definition_.numberOfElinks()) {
+    unsigned n(definition_.numberOfElinks()-txConnectionPtrVector_.size());
+    std::cout << " Dummy output links being connected = "
+	      << n << std::endl;
+    for(unsigned i(0);i<n;i++) {
+      txConnectionPtrVector_.push_back(0);
+    }
+  }
+  std::cout << std::endl;
+  
+  // Initialise analyser
+  econdAsicAnalyserPtr_=new EcondAsicAnalyser(this);
+  econdAsicAnalyserPtr_->initialise(doAnalysis_);
+}
+
+void EcondAsic::connect(FastControlStream &s) {
+  Connection<FastControlLpgbtWord> *w(new Connection<FastControlLpgbtWord>);
+  connectRxPortTo(*w);
+  s.connectTxPortTo(*w);
+}
+
+void EcondAsic::connect(std::vector<Connection<uint32_t>*> &v) {
+  for(unsigned i(0);i<definition_.numberOfElinks();i++) {
+    v.push_back(new Connection<uint32_t>);
+    connectTxPortTo(*(v.back()));
+  }
+}
+
+// Input
+void EcondAsic::connectRxPortTo(Connection<FastControlLpgbtWord> &c) {
+  rxLpgbtWordPtr_=&c;
+  c.initialiseQueue(FastControlLpgbtWord()); // Idle
+}
+
+void EcondAsic::connectRxPortTo(Connection< std::array<uint16_t,3> > &a) {
+  rxHgcrocDataPtr_=&a;
+  //a.initialiseQueue(???); Needed by L1A on first tick? Ignor for now
+}
+
+void EcondAsic::strobeRx() {
+  if(rxLpgbtWordPtr_!=0) rxLpgbtWordPtr_->strobeOutput();
+  if(rxHgcrocDataPtr_!=0) rxHgcrocDataPtr_->strobeOutput();
+}
+
+void EcondAsic::connectTxPortTo(Connection<uint32_t> &c) {
+  txConnectionPtrVector_.push_back(&c);
+}
+
+void EcondAsic::strobeTx() {
+  for(unsigned i(0);i<txConnectionPtrVector_.size();i++) {
+    if(txConnectionPtrVector_[i]!=0) txConnectionPtrVector_[i]->strobeInput();
+  }
+}
+
+void EcondAsic::process() {
+  //if(Clocks::clocks().bxNumber()>=6380000) debugPrint_=true;
+  /*
+    if(Clocks::clocks().bxNumber()==367128) {
+    printBxTick();
+    debugPrint_=true;
+    }
+    if(Clocks::clocks().bxNumber()>367128) {
+    debugPrint_=false;
+    }
+  */
+  //if(idNumber_==0x00080e57) debugPrint_=true;
+
+  if(debugPrint_) {
+    std::cout << "EcondAsic::process()  entering  "
+	      << definition_.label() << std::endl;
+  }
+
+  for(unsigned i(0);i<txConnectionPtrVector_.size();i++) {
+    if(txConnectionPtrVector_[i]!=0) {
+      if(txConnectionPtrVector_[i]->size()!=lpgbtDelay_[i]) {
+	std::cout << "EcondAsic::process()  lpgbtDelay_[" << i << "] = "
+		  << lpgbtDelay_[i] << ", txConnectionPtrVector_[" << i
+		  << "] size = " << txConnectionPtrVector_[i]->size()
+		  << std::endl;
+	assert(false);
+      }
+    }
+  }
+  
+  // Process each BX
+  subProcessBx();
+
+  // Process L1A if present
+  subProcessL1a();
+    
+  // Put data onto elinks
+  subProcessElinks();
+    
+  // Analyse results
+  if(doAnalysis_) econdAsicAnalyserPtr_->analyse();
+
+  // Count overall number of ticks
+  numberOfTicks_++;
+  
+  if(debugPrint_) {
+    std::cout << "EcondAsic::process()  exiting" << std::endl;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
+
+void EcondAsic::subProcessBx() {
+  if(debugPrint_) {
+    std::cout << " EcondAsic::subProcess()  entering" << std::endl;
+  }
+  
+  // Get the next FC command word
+  assert(rxLpgbtWordPtr_->get(lpgbtWord_));
+  commands_=lpgbtWord_.commands();
+
+  if(debugPrint_) {std::cout << "  Initial commands ";commands_.print();}
+
+  // Create fake L1As
+  if(!commands_.l1a() && configuration_.l1aFakeProbability()>0.0) {
+    if(RandomSingleton::random().Uniform()<configuration_.l1aFakeProbability()) {
+      commands_.setL1aTo(true);
+      numberOfFakeL1as_++;
+      std::cerr << "FAKING L1A!" << std::endl;
+    }
+    
+    if(debugPrint_) {std::cout << "  Modified commands ";commands_.print();}
+  }
+
+  // Handle pre-L1A tag
+  preL1aQueue_.push(commands_.preL1a());
+  bool preL1a(preL1aQueue_.front());
+  preL1aQueue_.pop();
+  
+  // Check for now; fix missing L1A when studying errors later
+  if(preL1a) assert(commands_.l1a());
+
+  // Handle calibration label
+  calibrationQueue_.push(commands_.calPulseInt() || commands_.calPulseExt());
+  bool calibration(calibrationQueue_.front());
+  calibrationQueue_.pop();
+  
+  if(calibration) {
+    if(!commands_.calL1aInt() && !commands_.calL1aExt()) {
+      std::cout << " NO CAL " << Clocks::clocks().bxNumber()
+		<< std::endl;commands_.print();
+      assert(commands_.calL1aInt() || commands_.calL1aExt());
+    }
+    
+    if(!commands_.throttle()) {
+      if(!commands_.l1a()) {
+	std::cout << " NO L1A " << Clocks::clocks().bxNumber()
+		  << std::endl;commands_.print();
+      }
+      assert(commands_.l1a());
+    }
+    
+    // This is for internal use only
+    if(debugPrint_) {
+      std::cout << " Corrected commands ";
+      commands_.print();
+    }
+  }
+  
+  // Handle EBR
+  if(commands_.eventBufferReset()) {
+    if(debugPrint_) {
+      std::cout << "  Event buffer reset" << std::endl;
+    }
+
+    // Should check EBR has no other commands set
+    
+    // Clear HGCROCs and ECON-D buffers and reset event counter
+    hgcrocModel_.eventBufferReset();
+    
+    forceIdleOut_=false;
+    counters_.setEcTo(0);
+    while(bufferQueue_.size()>0) bufferQueue_.pop();
+  }
+    
+  // Update the HGCROC model
+  hgcrocModel_.update(commands_);
+  
+  // Save the L1A commands to check for NZS and CAL
+  if(commands_.l1a()) l1aFastControlCommandsQueue_.push(commands_);
+  
+  if(debugPrint_) {
+    std::cout << " EcondAsic::subProcessBx()  exiting" << std::endl;
+  } 
+}
+
+//////////////////////////////////////////////////////////////////////
+
+void EcondAsic::subProcessL1a() {
+  if(debugPrint_) {
+    std::cout << " " << name_ << "::subProcessL1a()  entering" << std::endl;
+  }
+
+  // Check for a L1A
+  newHgcrocL1a_=false;
+  if(hgcrocModel_.l1a(counters_)) {
+    newHgcrocL1a_=true;
+    
+    // Get commands which caused the L1A
+    assert(!l1aFastControlCommandsQueue_.empty());
+    FastControlCommands fccL1a(l1aFastControlCommandsQueue_.front());
+    l1aFastControlCommandsQueue_.pop();
+
+    if(debugPrint_) {
+      std::cout << "  Handling L1A ";
+      counters_.print();
+      fccL1a.print();
+      std::cout << "  Current time = " << Clocks::clocks().bxNumber()
+		<< ", L1A time = " << counters_.totalBx()
+		<< ", delay = " << Clocks::clocks().bxNumber()-counters_.totalBx()
+		<< std::endl;
+    }
+
+    // Array to store numbers of hits (n10, n20 and n30)
+    std::array<uint16_t,3> nHits;
+
+    // Randomised numbers of hits from HGCROC ASICs
+    // Always do this for all ECON-Ds to preserve event correlations
+    if(rxHgcrocDataPtr_!=0) {
+      if(debugPrint_) std::cout << " Normal L1A from HGCROC ASICs" << std::endl;
+      assert(rxHgcrocDataPtr_->get(nHits));
+      if(configuration_.hitScaling()) {
+	if(debugPrint_) 
+	  std::cout << " Numbers of pre-scaled hits = " << nHits[0] << ", "
+		    << nHits[1] << ", " << nHits[2] << std::endl;
+
+	// Make more sophisticated
+	if(configuration_. hitAdditiveArg()>0)
+	  {
+	    switch (int(configuration_. hitAdditiveArg())) {
+	    case 1:
+	      nHits[0]+=(configuration_.hitScaleFactor()*0.1*definition_.numberOfChannels());
+	      break;
+	    case 2:
+	      nHits[1]+=(configuration_.hitScaleFactor()*0.1*definition_.numberOfChannels());
+              break;
+	    case 3:
+	      //std::cout<<"Alpana-1"<<"\t"<<nHits[0]<<"\t"<<nHits[1]<<"\t"<<nHits[2]<<std::endl;
+	      nHits[2]+=(configuration_.hitScaleFactor()*0.1*definition_.numberOfChannels());
+	      //std::cout<<"Alpana-2  "<<nHits[2]<<"\t"<<definition_.numberOfChannels()<<"\t"<<definition_.u()<<"\t"<<definition_.v()<<"\t"<<definition_.type()<<"\t"<<definition_.layer()<<"\t"<<std::endl;
+	      break;
+	    case 4:
+	      for(unsigned i(0);i<3;i++) {
+		nHits[i]+=(configuration_.hitScaleFactor()*0.1*definition_.numberOfChannels());
+		}	   
+	      break;
+	    case 5:
+	      for(unsigned i(0);i<3;i++) {
+		nHits[i]+=(configuration_.hitScaleFactor()*10);}              
+              break;
+	    case 51:
+	      nHits[0]+=(configuration_.hitScaleFactor()*10);
+              break;
+	    case 52:
+	      nHits[1]+=(configuration_.hitScaleFactor()*10);
+              break;
+	    case 53:
+	      nHits[2]+=(configuration_.hitScaleFactor()*10);
+              break;
+	    default:
+	      std::cout<<"INVALID INPUT"<<std::endl;
+	      break;
+
+	      
+
+
+	    }
+	  }
+	else //this is for multiplicative
+	  {
+	    for(unsigned i(0);i<3;i++) {	      
+	      nHits[i]*=configuration_.hitScaleFactor();
+           
+	    }
+	  }
+	//total hits are added separately.
+	  unsigned nTot(0);
+	  for(unsigned i(0);i<3;i++) {
+	    nTot+=nHits[i];
+	  }
+      
+	  if(debugPrint_) std::cout << " Numbers of scaled hits = " << nHits[0] << ", "
+				  << nHits[1] << ", " << nHits[2] << std::endl;
+
+	if(nTot>definition_.numberOfChannels()) {
+	  double s(1.0*definition_.numberOfChannels()/nTot);
+	  for(unsigned i(0);i<3;i++) {
+	    nHits[i]*=s;
+	  }
+	}
+      }
+      
+      if(debugPrint_) std::cout << " Numbers of hits = " << nHits[0] << ", "
+				<< nHits[1] << ", " << nHits[2] << std::endl;
+      
+    } else {
+      if(debugPrint_) std::cout << " Normal L1A generated internally" << std::endl;
+      
+      nHits[0]=RandomSingleton::random().Integer(80*definition_.numberOfElinks()-40);
+      nHits[1]=nHits[0]/10;
+      nHits[2]= 2*definition_.numberOfElinks()+RandomSingleton::random().Integer(1);
+
+      if(debugPrint_) std::cout << " Numbers of hits = " << nHits[0] << ", "
+				<< nHits[1] << ", " << nHits[2] << std::endl;
+    }
+
+    if(fccL1a.noZeroSuppression()) {
+
+      // Full readout 
+      if(debugPrint_) std::cout << " Non-zero suppressed L1A" << std::endl;
+
+      if(definition_.numberOfChannels()<(nHits[1]+nHits[2])) {
+	printBxTick();
+	assert(false);
+      }
+
+      nHits[0]=definition_.numberOfChannels()-nHits[1]-nHits[2];
+      
+      if(debugPrint_) std::cout << " Numbers of hits = " << nHits[0] << ", "
+				<< nHits[1] << ", " << nHits[2] << std::endl;
+      
+    } else if(fccL1a.calL1aInt() || fccL1a.calL1aExt()) {
+
+      // 1/4 (???) of all channels plus noise
+      if(debugPrint_) std::cout << " Calibration L1A" << std::endl;
+
+      nHits[1]=definition_.numberOfChannels()/4;
+
+      if(debugPrint_) std::cout << " Numbers of hits = " << nHits[0] << ", "
+				<< nHits[1] << ", " << nHits[2] << std::endl;
+    }
+
+    // Accumulate stats
+    numberOfN10Hits_+=nHits[0];
+    if(nHits[1]!=0xffff) numberOfN20Hits_+=nHits[1];
+    if(nHits[2]!=0xffff) numberOfN30Hits_+=nHits[2];
+    
+    if(debugPrint_) std::cout << "  Initial buffer occupancy = " << bufferQueue_.size() << std::endl;
+    
+    // Create and check packet
+    //bool truePacket(nHits[1]!=0xffff || nHits[2]!=0xffff);
+    
+    // Check if needs to be truncated
+    if(bufferQueue_.size()>configuration_.truncationBufferLevel()) {
+      if(debugPrint_) {
+	std::cout << "  Buffer queue size = " << bufferQueue_.size()
+		  << ", packet must be truncated" << std::endl;
+      }
+      
+      nHits[0]=0xffff;
+      nHits[1]=0;
+      nHits[2]=0;
+
+      numberOfTruncatedPackets_++;
+    }
+    
+    // Get packet
+    assert(packetVector_.size()==0);
+    PacketCreator::createEcondAsicPacket32(definition_,counters_,nHits[0],nHits[1],nHits[2],packetVector_,debugPrint_);
+
+    // Check immediately
+    if(!PacketChecker::checkEcondAsicPacket32(definition_,counters_,packetVector_,debugPrint_)) {
+      if(!debugPrint_) PacketChecker::checkEcondAsicPacket32(definition_,counters_,packetVector_,true);
+      printBxTick();
+      assert(false);
+    }
+
+    // Keep track of some stats
+    numberOfPackets_++;
+    numberOfPacketWordsIn_+=packetVector_.size();
+    numberOfPacketWords_+=packetVector_.size(); // ???
+
+      // Check if room in buffer (allowing for extra idle word); if not truncate
+    // AND HEADROOM EXTRA WORD CLUDGE
+    /*
+    if(bufferQueue_.size()>configuration_.truncationBufferLevel()) {
+      assert(bufferQueue_.size()+(sizeof(EcondAsicHeader)/4)<=configuration_.fullBufferLevel());
+
+      EcondAsicHeader eah;
+      eah.setWordTo(0,packetVector_[0]);
+      eah.setWordTo(1,packetVector_[1]);
+
+      //eah.setPacketLengthTo(sizeof(EcondAsicHeader)/2);
+      eah.setPayloadLengthTo(0);
+      //eah.setDataTypeTo(EcondAsicHeader::Truncated);
+      eah.setQualityFlagsTo(1); // Indicate FE truncation
+      eah.setCrc();
+      
+      packetVector_.resize(2);
+      packetVector_[0]=eah.word(0);
+      packetVector_[1]=eah.word(1);
+      
+      if(debugPrint_) {
+	std::cout << "  Packet truncated" << std::endl;
+	eah.print();
+      }
+
+    }
+    */
+    
+    // Keep track of some stats
+  
+
+    /*
+    // There should always be room for the header given the HGCROC 41 BX delay
+    if(bufferQueue_.size()+packetVector_.size()+1>configuration_.fullBufferLevel()) {
+      printBxTick();
+      assert(bufferQueue_.size()+packetVector_.size()+1<=configuration_.fullBufferLevel());
+    }
+    */
+    
+    // Add mandatory idle
+    
+    // Copy to buffer
+    // SHOULD BE SPREAD OVER 40 BX! 12 WORDS/BX
+    for(unsigned i(0);i<packetVector_.size();i++) {
+      BasicWord bw(0,packetVector_[i]);
+      if(i==0) bw.setStartBitTo(true);
+      if(i+1==packetVector_.size()) bw.setEndBitTo(true);     
+      bufferQueue_.push(bw);
+    }
+
+    // Fill buffer status
+    unsigned bq(bufferQueue_.size());
+    EcondAsicIdle::BufferStatus bs(configuration_.bufferStatus(bq));
+    idleWord_.setBufferStatusTo(bs);
+    
+    // Fill reset request and error status (all not set for now)
+    idleWord_.setResetRequestTo(EcondAsicHeader::None);
+    idleWord_.setErrorStatusTo(0);
+
+    // Flag extra idle word by invalid word
+    BasicWord bw(0,idleWord_.word());
+    bw.setInvalidBitTo(true);
+    bufferQueue_.push(bw);
+
+    // Clear the packet
+    packetVector_.resize(0);
+  }
+  
+  if(debugPrint_) std::cout << "  Final buffer occupancy = " << bufferQueue_.size() << std::endl;
+  
+  if(debugPrint_) {
+    std::cout << " EcondAsic::subProcessL1a()  exiting" << std::endl;
+  }
+}
+  
+//////////////////////////////////////////////////////////////////////
+
+void EcondAsic::subProcessElinks() {
+  if(debugPrint_) {
+    std::cout << " EcondAsic::subProcessElinks()  entering" << std::endl;
+  }
+
+  // Check for maximum buffer size
+  unsigned bq(bufferQueue_.size());
+  EcondAsicIdle::BufferStatus bs(configuration_.bufferStatus(bq));
+  numberOfBufferStatus_[bs]++;
+  
+  if(maxBufferSize_<bq) {
+    maxBufferSize_=bq;
+    
+    if(debugPrint_) {
+      std::cout << "  New max buffer size = " << maxBufferSize_ << std::endl;
+    }
+  }
+
+  // Word to be eventually written to elinks
+  uint32_t txWord(0);
+  bool idle(true);
+
+  // Look over elinks
+  for(unsigned i(0);i<txConnectionPtrVector_.size();i++) {    
+
+    forceIdleOut_=false; // GET RID OF THIS VARIABLE!
+     
+    if(bufferQueue_.empty() || forceIdleOut_) {
+
+      // Send an idle, which might be forced if event packet just finished
+      idle=true;
+      numberOfWordsInPacketOut_=0;
+      numberOfIdleWordsOut_++;
+
+      // Update values
+      bq=bufferQueue_.size();
+      bs=configuration_.bufferStatus(bq);
+      
+      // Send fill buffer status
+      idleWord_.setBufferStatusTo(bs);
+      if(bufferQueue_.empty()) assert(idleWord_.bufferStatus()==EcondAsicIdle::Empty);
+
+      // Fill reset request and error status (all not set for now)
+      idleWord_.setResetRequestTo(EcondAsicHeader::None);
+      idleWord_.setErrorStatusTo(0);
+
+      // Stop further forced idles
+      forceIdleOut_=false;
+
+      if(debugPrint_) {
+	std::cout << "  Elink " << i << ", sending idle word" << std::endl;
+	idleWord_.print("  ");
+      }
+	
+      txWord=idleWord_.word();
+      
+    } else {
+
+      // Get next buffer word
+      BasicWord bw(bufferQueue_.front());
+      bufferQueue_.pop();
+
+      if(bw.invalidBit()) {
+
+	// Send mandatory idle word
+	idle=false;
+	idleWord_.setWordTo(bw.word());
+
+	// Update buffer status
+	if(configuration_.updateIdleStatus()) {
+	  bq=bufferQueue_.size();
+	  bs=configuration_.bufferStatus(bq);
+	  idleWord_.setBufferStatusTo(bs);
+	}
+	
+	if(debugPrint_) {
+	  std::cout << "  Elink " << i << ", sending idle word" << std::endl;
+	  idleWord_.print("  ");
+	}
+	
+	txWord=idleWord_.word();
+	
+      } else {
+	
+	// Send a data word
+	idle=false;
+	numberOfPacketWordsOut_++;
+	
+	numberOfWordsInPacketOut_++;
+	if(numberOfWordsInPacketOut_==1) {
+	  econdAsicHeaderOut_.setWordTo(0,bw.word());
+	  assert(bw.startBit());
+	  
+	} else if(numberOfWordsInPacketOut_==2) {
+	  econdAsicHeaderOut_.setWordTo(1,bw.word());
+	  
+	  uint32_t d(econdAsicHeaderOut_.timeDelayFrom(Clocks::clocks().bxNumber()));
+	  if(packetOutMinDelay_>d) packetOutMinDelay_=d;
+	  if(packetOutMaxDelay_<d) packetOutMaxDelay_=d;
+	  
+	  if(doAnalysis_) packetOutDelayQueue_.push(d);
+	  
+	  if(debugPrint_) {
+	    std::cout << "  Elink " << i << " packet out" << std::endl;
+	    econdAsicHeaderOut_.print("  ");
+	    
+	    std::cout << "  Elink " << i << " packet out: current time = " << Clocks::clocks().bxNumber()
+		      << ", L1A time = " << econdAsicHeaderOut_.counters().totalBx()
+		      << ", delay = " << d << ", min = " << packetOutMinDelay_
+		      << std::endl;
+	  }
+	}
+      
+	// Force an idle when packet finishes
+	forceIdleOut_=bw.endBit();
+      
+	if(debugPrint_) {
+	  std::cout << "  Elink " << i << ", sending packet word =";
+	  bw.print();
+	}
+
+	txWord=bw.word();
+      }
+    }
+    
+    // Allow for data corruption
+    if(configuration_.lpgbtBer()>0.0) {
+
+      // Approximate to at most one bit flipped per word
+      if(RandomSingleton::random().Uniform()<32.0*configuration_.lpgbtBer()) {
+	uint32_t bit(1<<RandomSingleton::random().Integer(32));
+
+	std::cerr << " ORIGINAL 0x" << std::hex << std::setfill('0')
+		  << std::setw(8) << txWord;
+
+	if((txWord&bit)!=0) txWord&=~bit;
+	else txWord|=bit;
+
+	std::cerr << ", CORRUPT 0x" << std::setw(8) << txWord
+		  << std::dec << std::setfill(' ') << std::endl;
+	
+	if(idle) numberOfCorruptIdleWordsOut_++;
+	else numberOfCorruptPacketWordsOut_++;
+
+	if(debugPrint_) {
+	  std::cout << "  Elink " << i << ", sending corrupt word = 0x"
+		    << std::dec << std::setfill('0')
+		    << std::setw(8) << txWord 
+		    << std::dec << std::setfill(' ') << std::endl;
+	}
+      }
+    }
+
+    if(txConnectionPtrVector_[i]!=0) assert(txConnectionPtrVector_[i]->set(txWord));
+    numberOfWordsOut_++;
+  }
+  
+  if(debugPrint_) std::cout << std::dec  << std::setfill(' ') << std::endl;
+
+  if(debugPrint_ && configuration_.bufferStatus(bufferQueue_.size())!=EcondAsicIdle::Low) {
+    std::cout << " Buffer level = " << configuration_.bufferStatus(bufferQueue_.size())
+	      << ", not low" << std::endl;
+  }
+  
+  if(debugPrint_) {
+    std::cout << " EcondAsic::subProcessElinks()  exiting" << std::endl;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
+/*
+void EcondAsic::subProcessThrottle() {
+  if(debugPrint_) {
+    std::cout << " EcondAsic::subProcessThrottle()  entering" << std::endl;
+  }
+
+  unsigned bq(bufferQueue_.size());
+  EcondAsicIdle::BufferStatus bs(configuration_.bufferStatus(bq));
+
+  // Check for maximum buffer size
+  if(maxBufferSize_<bq) {
+    maxBufferSize_=bq;
+    
+    if(debugPrint_) {
+      std::cout << "  New max buffer size = " << maxBufferSize_ << std::endl;
+    }
+  }
+
+  if(debugPrint_) {
+    std::cout << "  Buffer occupancy = " << bq
+	      << ", status = " << bs
+	      << ", initial throttle = " << (throttle_?"true":"false");
+  }
+
+  // Allow hysteresis within medium range
+  if(throttle_) throttle_=bs>=EcondAsicIdle::Medium;
+  else          throttle_=bs> EcondAsicIdle::Medium;
+
+  // Keep some stats
+  if(throttle_) numberOfThrottles_++;
+  
+  if(debugPrint_) {
+    std::cout << ", final throttle = " << (throttle_?"true":"false")
+	      << std::endl;
+  }
+  
+  if(debugPrint_) {
+    std::cout << " EcondAsic::subProcessThrottle()  exiting" << std::endl;
+  }
+}
+*/
+//////////////////////////////////////////////////////////////////////
+
+double EcondAsic::averageN10Hits() const {
+  if(numberOfPackets_==0) return 0.0;
+  return 1.0*numberOfN10Hits_/numberOfPackets_;
+}
+
+double EcondAsic::averageN20Hits() const {
+  if(numberOfPackets_==0) return 0.0;
+  return 1.0*numberOfN20Hits_/numberOfPackets_;
+}
+
+double EcondAsic::averageN30Hits() const {
+  if(numberOfPackets_==0) return 0.0;
+  return 1.0*numberOfN30Hits_/numberOfPackets_;
+}
+
+double EcondAsic::averageTotalHits() const {
+  if(numberOfPackets_==0) return 0.0;
+  return 1.0*(numberOfN10Hits_+numberOfN20Hits_+numberOfN30Hits_)/numberOfPackets_;
+}
+
+double EcondAsic::fractionOfToaHits() const {
+  if((numberOfN20Hits_+numberOfN30Hits_)==0) return 0.0;
+  return 1.0*(numberOfN20Hits_+numberOfN30Hits_)/(numberOfN10Hits_+numberOfN20Hits_+numberOfN30Hits_);
+}
+
+double EcondAsic::averagePacketWords() const {
+  if(numberOfPackets_==0) return 0.0;
+  return 1.0*numberOfPacketWords_/numberOfPackets_; 
+}
+
+double EcondAsic::ratioWordsInToOut() const {
+  if(numberOfWordsOut_==0) return 0.0;
+  return 1.0*numberOfPacketWordsIn_/numberOfWordsOut_;
+}
+
+unsigned EcondAsic::maxBufferSize() const {
+  return maxBufferSize_;
+}
+
+double EcondAsic::fractionOfBufferStatus(EcondAsicIdle::BufferStatus s) const {
+  unsigned n(numberOfBufferStatus_[0]+numberOfBufferStatus_[1]+
+	     numberOfBufferStatus_[2]+numberOfBufferStatus_[3]);
+  if(n==0) return 0.0;
+  return 1.0*numberOfBufferStatus_[s]/n;
+}
+
+double EcondAsic::fractionOfTruncatedPackets() const {
+  if(numberOfPackets_==0) return 0.0;
+  return 1.0*numberOfTruncatedPackets_/numberOfPackets_; 
+}
+
+double EcondAsic::fractionOfCorruptIdleWords() const {
+  unsigned n(numberOfIdleWordsOut_+numberOfCorruptIdleWordsOut_);
+  if(n==0) return 0.0;
+  return 1.0*numberOfCorruptIdleWordsOut_/n;
+}
+
+double EcondAsic::fractionOfCorruptPacketWords() const {
+  unsigned n(numberOfPacketWordsOut_+numberOfCorruptPacketWordsOut_);
+  if(n==0) return 0.0;
+  return 1.0*numberOfCorruptPacketWordsOut_/n;
+}
+/*
+double EcondAsic::fractionOfPacketWordsOut() const {
+  if(numberOfWordsOut_==0) return 0.0;
+  return 1.0*numberOfPacketWordsOut_/numberOfWordsOut_; 
+}
+*/
+void EcondAsic::print() const {
+  std::cout << "EcondAsic::print() "
+	    << definition_.label() << std::endl;
+
+  std::cout << " Total number of 10-bit hits = " << numberOfN10Hits_
+	    << ", average = " << averageN10Hits() << std::endl
+	    << " Total number of 20-bit hits = " << numberOfN20Hits_
+	    << ", average = " << averageN20Hits() << std::endl
+	    << " Total number of 30-bit hits = " << numberOfN30Hits_
+	    << ", average = " << averageN30Hits() << std::endl
+	    << " Total number of hits = " << numberOfN10Hits_+numberOfN20Hits_+numberOfN30Hits_
+	    << ", average = " << averageTotalHits() << std::endl
+	    << " Total number of packets = " << numberOfPackets_ << std::endl
+	    << " Total number of packet words in = " << numberOfPacketWordsIn_
+	    << ", average = " << averagePacketWords() << " words = "
+	    << 32.0*averagePacketWords() << " bits" << std::endl
+	    << " Number of truncated packets = " << numberOfTruncatedPackets_
+	    << ", average = " << fractionOfTruncatedPackets() << std::endl
+	    << " Total number of packet words = " << numberOfPacketWords_
+	    << ", average = " << averagePacketWords() << " words = "
+	    << 32.0*averagePacketWords() << " bits" << std::endl
+	    << " Number of fake L1As = " << numberOfFakeL1as_ << std::endl
+
+    // subProcessElinks
+	    << " Maximum buffer size = " << maxBufferSize_ << std::endl
+	    << " Number of  empty buffer = "
+	    << std::setw(12) << numberOfBufferStatus_[0] << std::endl
+	    << " Number of    low buffer = "
+	    << std::setw(12) << numberOfBufferStatus_[1] << std::endl
+	    << " Number of medium buffer = "
+	    << std::setw(12) << numberOfBufferStatus_[2] << std::endl
+	    << " Number of   high buffer = "
+	    << std::setw(12) << numberOfBufferStatus_[3] << std::endl
+	    << " Number of          total words out = "
+	    << std::setw(12) << numberOfWordsOut_ << std::endl
+	    << " Number of           idle words out = "
+	    << std::setw(12) << numberOfIdleWordsOut_ << std::endl
+	    << " Number of   corrupt idle words out = "
+	    << std::setw(12) << numberOfCorruptIdleWordsOut_ << std::endl
+	    << " Number of         packet words out = "
+	    << std::setw(12) << numberOfPacketWordsOut_ << std::endl
+	    << " Number of corrupt packet words out = "
+	    << std::setw(12) << numberOfCorruptPacketWordsOut_ << std::endl
+	    << " Link packet occupancy = " << ratioWordsInToOut() << std::endl
+	    << " Total data of packets = " << 0.000032*numberOfPacketWordsOut_ << " Mbit" << std::endl;
+    
+  /*
+    if(numberOfPackets_>0) {
+    std::cout << " Average number of hits = "
+    << 1.0*(numberOfN20Hits_+numberOfN30Hits_)/numberOfPackets_ << std::endl;
+    std::cout << " Average packet size = "
+    << 1.0*numberOfPacketWords_/numberOfPackets_ << " words = "
+    << 32.0*numberOfPacketWords_/numberOfPackets_
+    << " bits" << std::endl;
+    }
+  */
+  
+  std::cout << std::endl;
+
+  // Summarise results
+  econdAsicAnalyserPtr_->finalise();
+}

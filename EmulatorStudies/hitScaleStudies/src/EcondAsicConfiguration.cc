@@ -1,0 +1,177 @@
+#include <iostream>
+#include <iomanip>
+#include <cassert>
+
+#include "EcondAsicConfiguration.h"
+#include "Arguments.h"
+// Physical ECON-D buffer size; 12 columns, each 256 words deep
+const unsigned EcondAsicConfiguration::fullBufferLevel_(12*256);
+
+// Random guesses for defaults
+unsigned EcondAsicConfiguration::defaultMediumBufferLevel_(2048);
+unsigned EcondAsicConfiguration::defaultHighBufferLevel_(2568);
+
+// Largest possible packet is 471 words, plus one mandatory idle word
+unsigned EcondAsicConfiguration::defaultTruncationBufferLevel_(EcondAsicConfiguration::fullBufferLevel_-472);
+
+// lpGBT delay: 100m (= 500ns) + one SERDES (= 150ns); total 650ns = 26 BX
+unsigned EcondAsicConfiguration::defaultLpgbtDelayLength_(26);
+double   EcondAsicConfiguration::defaultLpgbtBer_(0.0);
+
+//bool EcondAsicConfiguration::defaultHitScaling_(false);
+unsigned EcondAsicConfiguration::defaultHitScaling_(1000);
+unsigned EcondAsicConfiguration::defaultHitAdditiveArg_(0);//added by Alpana
+unsigned EcondAsicConfiguration::defaultHitlayerArg_(0);
+bool EcondAsicConfiguration::defaultHitScalingArg_(false);
+unsigned EcondAsicConfiguration::defaultScintHitScalingArg_(0);
+// Faking L1As
+double   EcondAsicConfiguration::defaultL1aFakeProbability_(0.0);
+
+// Update idles from buffer with current status before transmission
+bool     EcondAsicConfiguration::defaultUpdateIdleStatus_(false);
+EcondAsicConfiguration::EcondAsicConfiguration() :
+
+  mediumBufferLevel_(defaultMediumBufferLevel_),
+  highBufferLevel_(defaultHighBufferLevel_),
+  truncationBufferLevel_(defaultTruncationBufferLevel_),
+
+  // Allow random spread later
+  lpgbtDelayLength_(defaultLpgbtDelayLength_),
+  lpgbtBer_(defaultLpgbtBer_),
+
+  //hitScaling_(false),
+  hitScaling_(defaultHitScaling_),
+  hitAdditiveArg_(defaultHitAdditiveArg_),//added by Alpana
+  hitLayerArg_(defaultHitlayerArg_),
+  hitScalingArg_(defaultHitScalingArg_), //added by Alpana
+  ScintHitScalingArg_(defaultScintHitScalingArg_),
+  l1aFakeProbability_(defaultL1aFakeProbability_),
+  updateIdleStatus_(defaultUpdateIdleStatus_) {
+}
+
+unsigned EcondAsicConfiguration::mediumBufferLevel() const {
+  return mediumBufferLevel_;
+}
+
+void EcondAsicConfiguration::setMediumBufferLevelTo(unsigned l) {
+  mediumBufferLevel_=l;
+}
+
+unsigned EcondAsicConfiguration::highBufferLevel() const {
+  return highBufferLevel_;
+}
+
+void EcondAsicConfiguration::setHighBufferLevelTo(unsigned l) {
+  highBufferLevel_=l;
+}
+
+unsigned EcondAsicConfiguration::truncationBufferLevel() const {
+  return truncationBufferLevel_;
+}
+
+void EcondAsicConfiguration::setTruncationBufferLevelTo(unsigned l) {
+  truncationBufferLevel_=l;
+}
+
+unsigned EcondAsicConfiguration::fullBufferLevel() {
+  return fullBufferLevel_;
+}
+/*
+void EcondAsicConfiguration::setFullBufferLevelTo(unsigned l) {
+  fullBufferLevel_=l;
+}
+*/
+EcondAsicIdle::BufferStatus EcondAsicConfiguration::bufferStatus(unsigned n) const {
+  if(n>=highBufferLevel_) return EcondAsicIdle::High;
+  if(n>=mediumBufferLevel_) return EcondAsicIdle::Medium;
+  if(n>0) return EcondAsicIdle::Low;
+  return EcondAsicIdle::Empty;
+}
+
+unsigned EcondAsicConfiguration::lpgbtDelayLength() const {
+  return lpgbtDelayLength_;
+}
+
+void EcondAsicConfiguration::setLpgbtDelayLengthTo(unsigned l) {
+  lpgbtDelayLength_=l;
+}
+
+double EcondAsicConfiguration::lpgbtBer() const {
+  return lpgbtBer_;
+}
+
+void EcondAsicConfiguration::setLpgbtBerTo(double r) {
+  lpgbtBer_=r;
+}
+
+bool EcondAsicConfiguration::hitScaling() const {
+  return hitScalingArg_;
+}
+
+double EcondAsicConfiguration::hitScaleFactor() const {
+  return 0.001*hitScaling_;
+}
+
+void EcondAsicConfiguration::setHitScalingTo(unsigned s) {
+  hitScaling_=s;
+  
+ }
+void EcondAsicConfiguration::setHitScalingArgTo(bool scale) {
+  hitScalingArg_= scale;
+
+}
+void EcondAsicConfiguration::setHitAdditiveArgTo(unsigned add) {
+  hitAdditiveArg_= add;
+
+}
+void EcondAsicConfiguration::setHitlayerArgTo(unsigned add) {
+  hitLayerArg_= add;
+
+}
+void EcondAsicConfiguration::setScintHitScalingArgTo(unsigned scale)
+{
+  ScintHitScalingArg_ = scale;
+}
+double EcondAsicConfiguration::hitAdditiveArg() const {
+  return hitAdditiveArg_;
+}
+double EcondAsicConfiguration::hitlayerArg() const {
+  return hitLayerArg_;
+}
+
+double EcondAsicConfiguration::ScintiHitScaling() const{
+  return ScintHitScalingArg_;
+}
+double EcondAsicConfiguration::l1aFakeProbability() const {
+  return l1aFakeProbability_;
+}
+
+void EcondAsicConfiguration::setL1aFakeProbabilityTo(double p) {
+  l1aFakeProbability_=p;
+}
+
+bool EcondAsicConfiguration::updateIdleStatus() const {
+  return updateIdleStatus_;
+}
+
+void EcondAsicConfiguration::setUpdateIdleStatusTo(bool s) {
+  updateIdleStatus_=s;
+}
+
+void EcondAsicConfiguration::print(const std::string &s) const {
+  std::cout << s << "EcondAsicConfiguration::print()" << std::endl
+	    << s << "     Medium buffer level = " << mediumBufferLevel_ << std::endl
+	    << s << "       High buffer level = " << highBufferLevel_ << std::endl
+	    << s << " Truncation buffer level = " << truncationBufferLevel_ << std::endl
+	    << s << "       Full buffer level = " << fullBufferLevel_ << std::endl
+	    << s << " lpGBT delay length = " << lpgbtDelayLength_ << std::endl
+	    << s << " lpGBT bit error ratio = " << lpgbtBer_ << std::endl
+	    << s << " Hit scaling = " << (hitScaling()?"true":"false")<<std::endl
+	    << s << "Hit addition or scaling= " << (hitAdditiveArg())<<std::endl
+	    << s << "Layer number for which ECON-D's are scaled = "<<(hitlayerArg());
+  
+  if(hitScaling()) std::cout << ", factor = " << hitScaleFactor();
+  std::cout << std::endl;
+  std::cout << s << " L1A fake probability = " << l1aFakeProbability_ << std::endl;
+  std::cout << s << " Update buffer status = " << (updateIdleStatus_?"true":"false") << std::endl;
+}

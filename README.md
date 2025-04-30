@@ -40,3 +40,7 @@ m.Loop()
 ```
 * for details of above commands - check Readme file in PseudoEventGeneration
 
+
+# Emulator based studies
+Check the readme file under EmulatorStudies
+

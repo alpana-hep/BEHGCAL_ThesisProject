@@ -1,0 +1,698 @@
+#include <cstdint>
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+#include <ctime>
+#include <fstream>
+
+#include "RandomSingleton.h"
+#include "Arguments.h"
+#include "Utils.h"
+#include "json.hpp"
+#include "EcondAsicConfiguration.h"
+#include "LpgbtPairEcondBuilderConfiguration.h"
+#include "SlinkBuilderConfiguration.h"
+
+using json = nlohmann::json;
+
+Arguments::Arguments() {
+  setDefaults();
+}
+
+Arguments::Arguments(int argc, char *argv[]) {
+  setDefaults();
+  processArguments(argc,argv);
+}
+
+void Arguments::setDefaults() {
+  js_ = {
+    {"program", "Unknown"},
+    {"numberOfBx", 1},
+
+    {"tcdsHllhcFilename", "25ns_2760b_2748_2492_2574_288bpi_13inj_800ns_bs200ns"},
+    {"triggerMethod", 0},
+    {"calOrbitPeriod", 0},
+    {"nzsProbability", 0},
+
+    // Select specific elements
+    {"d2sNumber", 0},
+    {"fpgaNumber", 0},
+    {"slinkNumber", 0},
+    {"lpgbtPairNumber", 0},
+    {"econdNumber", 0},
+
+    {"econdIdDebugPrint", 0},
+    {"lpebIdDebugPrint", 0},
+    {"lpbIdDebugPrint", 0},
+    {"slinkIdDebugPrint", 0},
+    {"d2sUnitIdDebugPrint", 0},
+
+    {"entityIdDebugPrint", 0},
+    {"entityIdDebugCheck", 0},
+    {"entityIdDoAnalysis", 0},
+
+    {"centralDaq", false},
+
+    // (Future) FpgaFastControl
+    {"fpgaFastControlDelay", 80},
+
+    // EcondAsicConfiguration
+    {"econdMediumBufferLevel", EcondAsicConfiguration::defaultMediumBufferLevel_},
+    {"econdHighBufferLevel", EcondAsicConfiguration::defaultHighBufferLevel_},
+    {"econdTruncationBufferLevel", EcondAsicConfiguration::defaultTruncationBufferLevel_},
+    {"econdLpgbtDelayLength", EcondAsicConfiguration::defaultLpgbtDelayLength_},
+    {"econdLpgbtBer", EcondAsicConfiguration::defaultLpgbtBer_},
+    {"econdHitScaling", EcondAsicConfiguration::defaultHitScaling_},
+    {"econdL1aFakeProbability", EcondAsicConfiguration::defaultL1aFakeProbability_},
+    {"econdUpdateIdleStatus", EcondAsicConfiguration::defaultUpdateIdleStatus_},
+    
+    // LpgbtPairEcondBuilderConfiguration
+    {"lpgbtPairEcondBuilderPhaseOf40MHz", LpgbtPairEcondBuilderConfiguration::defaultPhaseOf40Mhz_},
+    {"lpgbtPairEcondBuilderL1aTimeout", LpgbtPairEcondBuilderConfiguration::defaultL1aTimeout_},
+    {"lpgbtPairEcondBuilderMediumBufferFactor", LpgbtPairEcondBuilderConfiguration::defaultMediumBufferFactor_},
+    {"lpgbtPairEcondBuilderHighBufferFactor", LpgbtPairEcondBuilderConfiguration::defaultHighBufferFactor_},
+    {"lpgbtPairEcondBuilderAlmostFullBufferSpace", LpgbtPairEcondBuilderConfiguration::defaultAlmostFullBufferSpace_},
+    {"lpgbtPairEcondBuilderEbrWait", LpgbtPairEcondBuilderConfiguration::defaultEbrWait_},
+
+    // SlinkBuilder
+    {"slinkBufferSize", SlinkBuilderConfiguration::defaultBufferSize_},
+
+    // D2s
+    {"d2sBufferSize", 1024},
+
+    {"triggerRate", 750},
+    {"hitModifierFile", "modifier_config_fixdensity2_V9.json"},
+    {"feMappingFile", "FeMappingV9.json"},
+    {"beMappingFile", "BEDAQ_192SlinksToLpGBT_16FPGA_Mapping_V9.1.json"},
+    {"slink25GbitPerSec", true},
+    {"filename", "NullFilename"},
+    {"fileStartEvent", 0},
+    // fileReadMode: 0 = read file once, then raise stopTicks; 1 = randomly sample events; 2 = loop back to beginning
+    {"fileReadMode", 2},
+    {"randomFileReadFraction", 0.05},
+    {"outputname", "NullOutputName.root"},
+    {"label", "NullLabel"},
+    {"number", unsigned(0)},
+    {"randomSeed", unsigned(0xffffffff)},
+    {"debugPrintBits", uint16_t(0)},
+    {"debugCheckBits", uint16_t(0xffff)},
+    {"doAnalysisBits", uint16_t(0)},
+    {"hitModifierReadUnmasked", true},
+    {"numberOfBxArg", false},
+    {"numberOfOrbitsArg", false},
+    {"triggerMethodArg", false},
+    {"calOrbitPeriodArg", false},
+    {"nzsProbabilityArg", false}, 
+    {"d2sNumberArg", false}, 
+    {"fpgaNumberArg", false}, 
+    {"slinkNumberArg", false}, 
+    {"lpgbtPairNumberArg", false}, 
+    {"econdNumberArg", false}, 
+    {"econdMediumBufferLevelArg", false},
+    {"econdHighBufferLevelArg", false},
+    {"econdLpgbtDelayLengthArg", false},
+    {"econdLpgbtBerArg", false},
+    {"econdHitScalingArg", false},
+    {"triggerRateArg", false},
+    {"hitModifierFileArg", false},
+    {"feMappingFileArg", false},
+    {"beMappingFileArg", false},
+    {"slink25GbitPerSecArg", false},
+    {"filenameArg", false},
+    {"outputnameArg", false},
+    {"labelArg", false},
+    {"numberArg", false},
+    {"randomSeedArg", false},
+    {"debugPrintBitsArg", false},
+    {"debugCheckBitsArg", false},
+    {"doAnalysisBitsArg", false}
+  };
+}
+
+void Arguments::processArguments(int argc, char *argv[]) {
+
+  // Get program name
+  js_.at("program") = std::string(argv[0]);
+
+  
+  // To set a seed based on UTC seconds, use: -r 0 or -r `date +%s`
+  
+
+  if (argc >= 2) {
+    for (int iArg = 1; iArg < argc; ++iArg) {
+      if (std::string(argv[iArg]) == "-h") {
+        std::cout << "Available options:" << std::endl;
+        std::cout << encodeArgs() << std::endl;
+        exit(0);
+      }
+    }
+
+    for (int iArg = 1; iArg < argc; ++iArg) {
+      if (ends_with(argv[iArg], ".json")) {
+        processJSON(argv[iArg]);
+      } else {
+        processSingleArg(argv[iArg]);
+      }
+    }
+  }
+
+  // Special treatment for bitfields: if user passed a string, assume hex and convert to int
+  for (std::string const& arg : {"debugPrintBits", "debugCheckBits", "doAnalysisBits",
+	"econdIdDebugPrint", "lpebIdDebugPrint", "lpbIdDebugPrint", "slinkIdDebugPrint", "d2sUnitIdDebugPrint", "entityIdDebugPrint"}) {
+    if (js_.at(arg).is_string()) {
+      js_.at(arg) = std::stoul(js_.at(arg).get<std::string>(), nullptr, 16);
+    }
+  }
+
+  if (randomSeedArg()) {
+    if (randomSeed() == 0) {
+      js_.at("randomSeed") = time(0);
+    }
+  	RandomSingleton::setSeed(randomSeed());
+  }
+
+  // // Check for arguments
+  // int c;
+  // while ((c=getopt(argc,argv,"b:t:m:n:f:l:u:d:r:k:o:a:c:s:z:q:e:i:x")) != -1) {
+    
+  //   switch (c) {
+  //   case 'b':
+  //     {numberOfBxArg_=true;
+	// std::istringstream sin(optarg);
+	// sin >> numberOfBx_;}
+  //     break;
+  //   case 't':
+  //     {triggerMethodArg_=true;
+	// std::istringstream sin(optarg);
+	// sin >> triggerMethod_;}
+  //     break;
+  //   case 'q':
+  //     {calOrbitPeriodArg_=true;
+	// std::istringstream sin(optarg);
+	// sin >> calOrbitPeriod_;}
+  //     break;
+  //   case 'z':
+  //     {nzsProbabilityArg_=true;
+	// std::istringstream sin(optarg);
+	// sin >> nzsProbability_;}
+  //     break;
+  //   case 's':
+  //     {hitScaleFactorArg_=true;
+	// std::istringstream sin(optarg);
+	// sin >> hitScaleFactor_;}
+  //     break;
+  //   case 'e':
+  //     {econdBufferLevelArg_=true;
+	// std::istringstream sin(optarg);
+	// sin >> econdBufferLevel_;}
+  //     break;
+  //   case 'k':
+  //     {triggerRateArg_=true;
+	// std::istringstream sin(optarg);
+	// sin >> triggerRate_;}
+  //     break;
+  //   case 'i':
+  //     {hitModifierFileArg_=true;
+	// hitModifierFile_=optarg;}
+  //     break;
+  //   case 'm':
+  //     {feMappingFileArg_=true;
+	// feMappingFile_=optarg;}
+  //     break;
+  //   case 'n':
+  //     {beMappingFileArg_=true;
+	// beMappingFile_=optarg;}
+  //     break;
+  //   case 'x':
+  //     {slink25GbitPerSecArg_=true;
+	// slink25GbitPerSec_=!slink25GbitPerSec_;}
+  //     break;
+  //   case 'f':
+  //     {filenameArg_=true;
+	// filename_=optarg;}
+  //     break;
+  //   case 'o':
+  //     {outputnameArg_=true;
+	// outputname_=optarg;}
+  //     break;
+  //   case 'l':
+  //     {labelArg_=true;
+	// label_=optarg;}
+  //     break;
+  //   case 'u':
+  //     {numberArg_=true;
+	// std::istringstream sin(optarg);
+	// sin >> number_;}
+  //     break;
+  //   case 'd':
+  //     {debugPrintBitsArg_=true;
+	// std::istringstream sin(optarg);
+	// if(optarg[0]=='0' && optarg[1]=='x') sin >> std::hex;
+	// sin >> debugPrintBits_;}
+  //     break;
+  //   case 'c':
+  //     {debugCheckBitsArg_=true;
+	// std::istringstream sin(optarg);
+	// if(optarg[0]=='0' && optarg[1]=='x') sin >> std::hex;
+	// sin >> debugCheckBits_;}
+  //     break;
+  //   case 'a':
+  //     {doAnalysisBitsArg_=true;
+	// std::istringstream sin(optarg);
+	// if(optarg[0]=='0' && optarg[1]=='x') sin >> std::hex;
+	// sin >> doAnalysisBits_;}
+  //     break;
+  //   case 'r':
+  //     {randomSeedArg_=true;
+	// std::istringstream sin(optarg);
+	// sin >> randomSeed_;
+	// if(randomSeed_==0) randomSeed_=time(0);
+	// RandomSingleton::setSeed(randomSeed_);}
+  //     break;
+  //   case '?':
+  //     break;
+  //   }
+  // }
+}
+
+void Arguments::processJSON(std::string const& filename) {
+  std::cout << "Reading arguments in " << filename << std::endl;
+  std::ifstream file;
+  file.open(filename, std::ios::in);
+  json j = json::parse(file);
+  assert(j.is_object());
+  for (auto &el : j.items()) {
+    std::string key = el.key();
+    assert(js_.contains(key));
+    json value = el.value();
+    std::cout << "Updating " << key << " from " << js_.at(key) << " to " << value << "\n";
+    js_.at(key) = value;
+    std::string keyArg = key + "Arg";
+    if (js_.contains(keyArg)) {
+      std::cout << "Updating " << keyArg << " from " << js_.at(keyArg) << " to " << json(true) << "\n";
+      js_.at(keyArg) = json(true);
+    }
+  }
+}
+
+void Arguments::processSingleArg(std::string const& arg) {
+  auto sep = arg.find("=");
+  assert(sep != arg.npos);
+  std::string key = arg.substr(0, sep);
+  std::string val = arg.substr(sep + 1, arg.npos);
+  json jval = json::parse(val);
+  assert(js_.contains(key));
+  std::cout << "Updating " << key << " from " << js_.at(key) << " to " << jval << "\n";
+  js_.at(key) = jval;
+  std::string keyArg = key + "Arg";
+  if (js_.contains(keyArg)) {
+    std::cout << "Updating " << keyArg << " from " << js_.at(keyArg) << " to " << json(true) << "\n";
+    js_.at(keyArg) = json(true);
+  }
+}
+
+
+bool Arguments::numberOfBxArg() const {
+  return js_.at("numberOfBxArg").get<bool>();
+}
+
+unsigned long Arguments::numberOfBx() const {
+  return js_.at("numberOfBx").get<unsigned long>();
+}
+
+void Arguments::setNumberOfBxTo(unsigned long n) {
+  js_.at("numberOfBx") = n;
+}
+
+bool Arguments::triggerMethodArg() const {
+  return js_.at("triggerMethodArg").get<bool>();
+}
+
+unsigned Arguments::triggerMethod() const {
+  return js_.at("triggerMethod").get<unsigned>();
+}
+
+bool Arguments::calOrbitPeriodArg() const {
+  return js_.at("calOrbitPeriodArg").get<bool>();
+}
+
+unsigned Arguments::calOrbitPeriod() const {
+  return js_.at("calOrbitPeriod").get<unsigned>();
+}
+
+bool Arguments::nzsProbabilityArg() const {
+  return js_.at("nzsProbabilityArg").get<bool>();
+}
+
+double Arguments::nzsProbability() const {
+  return 0.000001*js_.at("nzsProbability").get<unsigned>();
+}
+
+bool Arguments::econdMediumBufferLevelArg() const {
+  return js_.at("econdMediumBufferLevelArg").get<bool>();
+}
+
+unsigned Arguments::econdMediumBufferLevel() const {
+  return js_.at("econdMediumBufferLevel").get<unsigned>();
+}
+
+bool Arguments::econdHighBufferLevelArg() const {
+  return js_.at("econdHighBufferLevelArg").get<bool>();
+}
+
+unsigned Arguments::econdHighBufferLevel() const {
+  return js_.at("econdHighBufferLevel").get<unsigned>();
+}
+
+bool Arguments::econdLpgbtDelayLengthArg() const {
+  return js_.at("econdLpgbtDelayLengthArg").get<bool>();
+}
+
+unsigned Arguments::econdLpgbtDelayLength() const {
+  return js_.at("econdLpgbtDelayLength").get<unsigned>();
+}
+
+bool Arguments::econdHitScalingArg() const {
+  return js_.at("econdHitScalingArg").get<bool>();
+}
+
+unsigned Arguments::econdHitScaling() const {
+  return js_.at("econdHitScaling").get<unsigned>();
+}
+
+bool Arguments::triggerRateArg() const {
+  return js_.at("triggerRateArg").get<bool>();
+}
+
+unsigned Arguments::triggerRate() const {
+  return js_.at("triggerRate").get<unsigned>();
+}
+
+bool Arguments::filenameArg() const {
+  return js_.at("filenameArg").get<bool>();
+}
+
+std::string Arguments::filename() const {
+  return js_.at("filename").get<std::string>();
+}
+
+void Arguments::setFilenameTo(const std::string &f) {
+  js_.at("filename") = f;
+}
+
+bool Arguments::outputnameArg() const {
+  return js_.at("outputnameArg").get<bool>();
+}
+
+std::string Arguments::outputname() const {
+  return js_.at("outputname").get<std::string>();
+}
+
+void Arguments::setOutputnameTo(const std::string &f) {
+  js_.at("outputname") = f;
+}
+
+bool Arguments::hitModifierFileArg() const {
+  return js_.at("hitModifierFileArg").get<bool>();
+}
+
+std::string Arguments::hitModifierFile() const {
+  return js_.at("hitModifierFile").get<std::string>();
+}
+
+void Arguments::sethitModifierFileTo(const std::string &f) {
+  js_.at("hitModifierFile")=f;
+}
+
+bool Arguments::mappingFileArg() const {
+  return js_.at("feMappingFileArg").get<bool>();
+}
+
+std::string Arguments::mappingFile() const {
+  return js_.at("feMappingFile").get<std::string>();
+}
+
+void Arguments::setMappingFileTo(const std::string &f) {
+  js_.at("feMappingFile") = f;
+}
+
+bool Arguments::feMappingFileArg() const {
+  return js_.at("feMappingFileArg").get<bool>();
+}
+
+std::string Arguments::feMappingFile() const {
+  return js_.at("feMappingFile").get<std::string>();
+}
+
+void Arguments::setFeMappingFileTo(const std::string &f) {
+  js_.at("feMappingFile")=f;
+}
+
+bool Arguments::beMappingFileArg() const {
+  return js_.at("beMappingFileArg").get<bool>();
+}
+
+std::string Arguments::beMappingFile() const {
+  return js_.at("beMappingFile").get<std::string>();
+}
+
+void Arguments::setBeMappingFileTo(const std::string &f) {
+  js_.at("beMappingFile")=f;
+}
+
+bool Arguments::slink25GbitPerSecArg() const {
+  return js_.at("slink25GbitPerSecArg").get<bool>();
+}
+
+bool Arguments::slink25GbitPerSec() const {
+  return js_.at("slink25GbitPerSec").get<bool>();
+}
+
+void Arguments::setSlink25GbitPerSecTo(bool b) {
+  js_.at("slink25GbitPerSec") = b;
+}
+
+bool Arguments::labelArg() const {
+  return js_.at("labelArg").get<bool>();
+}
+
+std::string Arguments::label() const {
+  return js_.at("label").get<std::string>();
+}
+
+void Arguments::setLabelTo(const std::string &l) {
+  js_.at("label") = l;
+}
+
+bool Arguments::numberArg() const {
+  return js_.at("numberArg").get<bool>();
+}
+
+unsigned Arguments::number() const {
+  return js_.at("number").get<unsigned>();
+}
+
+void Arguments::setNumberTo(unsigned n) {
+  js_.at("number") = n;
+}
+
+bool Arguments::debugPrintBitsArg() const {
+  return js_.at("debugPrintBitsArg").get<bool>();
+}
+
+uint16_t Arguments::debugPrintBits() const {
+  return js_.at("debugPrintBits").get<uint16_t>();
+}
+
+bool Arguments::debugCheckBitsArg() const {
+  return js_.at("debugCheckBitsArg").get<bool>();
+}
+
+uint16_t Arguments::debugCheckBits() const {
+  return js_.at("debugCheckBits").get<uint16_t>();
+}
+
+bool Arguments::doAnalysisBitsArg() const {
+  return js_.at("doAnalysisBitsArg").get<bool>();
+}
+
+uint16_t Arguments::doAnalysisBits() const {
+  return js_.at("doAnalysisBits").get<uint16_t>();
+}
+
+bool Arguments::debugPrintFastControlDriver() const {
+  return (debugPrintBits()&0x0001)>0;
+}
+
+bool Arguments::debugPrintFastControlStream() const {
+  return (debugPrintBits()&0x0002)>0;
+}
+
+bool Arguments::debugPrintHgcrocAsics() const {
+  return (debugPrintBits()&0x0004)>0;
+}
+
+bool Arguments::debugPrintEcondAsic() const {
+  return (debugPrintBits()&0x0008)>0;
+}
+
+bool Arguments::debugPrintEcontAsic() const {
+  return (debugPrintBits()&0x0010)>0;
+}
+
+bool Arguments::debugPrintEcondBeBuilder() const {
+  return (debugPrintBits()&0x0020)>0;
+}
+
+bool Arguments::debugPrintLpgbtBuilder() const {
+  return (debugPrintBits()&0x0040)>0;
+}
+
+bool Arguments::debugPrintSlinkBuilder() const {
+  return (debugPrintBits()&0x0080)>0;
+}
+
+bool Arguments::debugPrintDthChecker() const {
+  return (debugPrintBits()&0x0100)>0;
+}
+
+bool Arguments::debugPrintTestEntity() const {
+  return (debugPrintBits()&0x8000)>0;
+}
+
+bool Arguments::randomSeedArg() const {
+  return js_.at("randomSeedArg").get<bool>();
+}
+
+unsigned Arguments::randomSeed() const {
+  return js_.at("randomSeed").get<unsigned>();
+}
+
+std::string Arguments::summaryString() const {
+  std::ostringstream sout;
+  sout << std::setfill('0');
+  sout << js_.at("program").get<std::string>()
+       << "_b" << std::setw(8) << numberOfBx()
+       << "_r" << std::hex << std::setw(8) << randomSeed() << std::dec
+       << "_k" << std::setw(4) << triggerRate()
+       << "_z" << std::setw(6) << js_.at("nzsProbability").get<unsigned>()
+       << "_s" << std::setw(4) << js_.at("econdHitScaling").get<unsigned>()
+       << "_e" << std::setw(4) << econdMediumBufferLevel()
+       << "_x" << (slink25GbitPerSec()?"25":"16")
+       << "_u" << std::setw(8) << number()
+       << "_d" << std::hex << std::setw(4) << debugPrintBits()
+       << "_c" << std::hex << std::setw(4) << debugCheckBits()
+       << "_a" << std::hex << std::setw(4) << doAnalysisBits();
+  return sout.str();
+}
+
+void Arguments::print() const {
+  std::cout << "Arguments::print() for program " << js_.at("program").get<std::string>() << std::endl;
+  std::cout << " " << summaryString() << std::endl;
+  
+  if(numberOfBxArg()) std::cout << " Number of BX set to ";
+  else std::cout << " Number of BX not set, defaulting to ";
+  std::cout << numberOfBx() << std::endl;
+  
+  if(triggerMethodArg()) std::cout << " Trigger method set to ";
+  else std::cout << " Trigger method not set, defaulting to ";
+  std::cout << triggerMethod() << std::endl;
+
+  if(triggerRateArg()) std::cout << " Trigger rate set to ";
+  else std::cout << " Trigger rate not set, defaulting to ";
+  std::cout << triggerRate() << " kHz" << std::endl;
+
+  if(calOrbitPeriodArg()) std::cout << " Calibration orbit period set to ";
+  else std::cout << " Calibration orbit period not set, defaulting to ";
+  std::cout << calOrbitPeriod() << std::endl;
+
+  if(nzsProbabilityArg()) std::cout << " Local NZS probability set to ";
+  else std::cout << " Local NZS probability not set, defaulting to ";
+  std::cout << nzsProbability() << " per BX" << std::endl;
+
+  if(econdMediumBufferLevelArg()) std::cout << " ECON-D medium buffer level set to ";
+  else std::cout << " ECON-D medium buffer level not set, defaulting to ";
+  std::cout << econdMediumBufferLevel() << std::endl;
+
+  if(econdHighBufferLevelArg()) std::cout << " ECON-D high buffer level set to ";
+  else std::cout << " ECON-D high buffer level not set, defaulting to ";
+  std::cout << econdHighBufferLevel() << std::endl;
+
+  if(econdHitScalingArg()) std::cout << " ECON-D hit scaling set to ";
+  else std::cout << " ECON-D hit scaling not set, defaulting to ";
+  std::cout << econdHitScaling() << std::endl;
+
+  if(hitModifierFileArg()) std::cout << " Hit modifier file set to ";
+  else std::cout << " Hit mofifier file not set, defaulting to ";
+  std::cout << hitModifierFile() << std::endl;
+
+  if(feMappingFileArg()) std::cout << " FE mapping file set to ";
+  else std::cout << " FE mapping file not set, defaulting to ";
+  std::cout << feMappingFile() << std::endl;
+
+  if(beMappingFileArg()) std::cout << " BE mapping file set to ";
+  else std::cout << " BE mapping file not set, defaulting to ";
+  std::cout << beMappingFile() << std::endl;
+
+  if(slink25GbitPerSecArg()) std::cout << " Slink 25 Gbit/s set to ";
+  else std::cout << " Slink 25 Gbit/s not set, defaulting to ";
+  std::cout << (slink25GbitPerSec()?"true":"false") << std::endl;
+
+  if(filenameArg()) std::cout << " Filename set to ";
+  else std::cout << " Filename not set, defaulting to ";
+  std::cout << filename() << std::endl;
+
+  if(outputnameArg()) std::cout << " OutputName set to ";
+  else std::cout << " OutputName not set, defaulting to ";
+  std::cout << outputname() << std::endl;
+
+  if(labelArg()) std::cout << " Label set to ";
+  else std::cout << " Label not set, defaulting to ";
+  std::cout << label() << std::endl;
+
+  if(numberArg()) std::cout << " Unsigned number set to ";
+  else std::cout << " Unsigned number not set, defaulting to ";
+  std::cout << number() << std::endl;
+
+  if(debugPrintBitsArg()) std::cout << " Debug print bits set to ";
+  else std::cout << " Debug print bits not set, defaulting to ";
+  std::cout << "0x" << std::hex << std::setfill('0')
+	    << std::setw(4) << debugPrintBits()
+	    << std::dec << std::setfill(' ') << std::endl;
+  
+  if(debugCheckBitsArg()) std::cout << " Debug check bits set to ";
+  else std::cout << " Debug check bits not set, defaulting to ";
+  std::cout << "0x" << std::hex << std::setfill('0')
+	    << std::setw(4) << debugCheckBits()
+	    << std::dec << std::setfill(' ') << std::endl;
+  
+  if(doAnalysisBitsArg()) std::cout << " Do analysis bits set to ";
+  else std::cout << " Do analysis bits not set, defaulting to ";
+  std::cout << "0x" << std::hex << std::setfill('0')
+	    << std::setw(4) << doAnalysisBits()
+	    << std::dec << std::setfill(' ') << std::endl;
+  
+  if(randomSeedArg()) std::cout << " Random seed set to "
+			       << randomSeed() << std::endl;
+  else std::cout << " Random seed not set, using TRandom default" << std::endl;
+
+  std::cout << std::endl;
+}
+
+ std::string Arguments::encodeArgs() const {
+   return js_.dump(2);
+ }
+ 
+ std::string Arguments::fullOutputFilename() const {
+   // If the user specified an outputname, use that. Otherwise, use the summaryString()
+   if (outputnameArg()) {
+     return outputname();
+   } else {
+     return summaryString() + ".root";
+   }
+ }
+
+   nlohmann::json const& Arguments::config() const {
+     return js_;
+   }
+
