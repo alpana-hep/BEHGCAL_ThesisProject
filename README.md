@@ -1,8 +1,21 @@
 # BEHGCAL_ThesisProject
 This repository stores all the instrunctions codes and information to reproduce the results summarized in BE AN
 
+* This whole project is divided into 4 parts -
+```
+1. LDM to HDM transformation
+2. Pseudo event geneartion method
+3. EMulator studies
+4. Test beam raw data analysis
+```
+* There exists one directory corresponding to each study in this repository
+* each directory contains a Readme file with further instruction about that study.
+
+* A short summary of these instructions is listed below.
+
 ## LDM to HDM occupancy transformation -
 ```
+git clone https://github.com/alpana-hep/BEHGCAL_ThesisProject.git
 cd LDMtoHDM_translation
 cd scripts
 root -b -q 'readinghistogram.cc("../data/updatedNtuple_DataPacketDec20_histo.root","../data/signal_noise/econ_data_packet_hits_EOL_v8.txt")'
